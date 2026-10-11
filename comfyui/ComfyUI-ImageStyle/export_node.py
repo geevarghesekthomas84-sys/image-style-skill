@@ -1,6 +1,7 @@
 """ComfyUI node: upload an image (or take one from the graph) and save it as SVG or another format."""
 import hashlib
 import os
+import shutil
 
 import numpy as np
 from PIL import Image, ImageOps
@@ -16,10 +17,20 @@ PREVIEWABLE = ("png", "jpg", "webp", "gif")
 NONE = "(none)"   # picker value meaning "use the connected images input instead"
 
 
+SAMPLE = "image-style-sample.png"   # small bundled picture so the node works on the first click
+
+
 def _input_files():
     if folder_paths is None:
         return []
     d = folder_paths.get_input_directory()
+    src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", SAMPLE)
+    try:
+        if os.path.isfile(src) and not os.path.exists(os.path.join(d, SAMPLE)):
+            os.makedirs(d, exist_ok=True)
+            shutil.copyfile(src, os.path.join(d, SAMPLE))
+    except Exception:
+        pass
     files = [f for f in os.listdir(d) if os.path.isfile(os.path.join(d, f))]
     try:
         files = folder_paths.filter_files_content_types(files, ["image"])
@@ -108,7 +119,7 @@ class ImageStyleUploadConvert(object):
             import torch  # ComfyUI always has torch
             out_tensor = torch.from_numpy(np.asarray(pils[0], dtype=np.float32) / 255.0)[None, ...]
         else:
-            raise ValueError("Upload an image with the Upload button, or connect an IMAGE to 'images'.")
+            raise ValueError("Choose a picture (click 'choose file to upload') or connect an IMAGE to 'images'.")
 
         saved, ui_images, svg_text = [], [], ""
         for pil in pils:

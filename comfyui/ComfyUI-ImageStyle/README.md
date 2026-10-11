@@ -73,7 +73,7 @@ Outputs: `image` (passes the picture on), `saved_path`, and `svg_text` (the SVG 
 `example_workflows/image-style-z-image-turbo.json` is a complete Z-Image-Turbo workflow with the Image Style node already wired in (prompt into CLIP Text Encode, width and height into Empty SD3 Latent Image, report into Preview Any). Drag the file onto the ComfyUI canvas, or find it under **Templates** (custom node templates) after a restart. Check the three model names in the loader nodes match your files (`z_image_turbo_bf16`, `qwen_3_4b`, `ae`).
 
 Two more workflows in the same folder:
-- `image-style-upload-to-svg.json`: Upload & Convert node on its own. Click **Upload** on the node, pick a picture, press Run; the SVG lands in `ComfyUI/output` and the path shows in a preview node. Leave `image` on `(none)` only when you connect an IMAGE to `images`.
+- `image-style-upload-to-svg.json`: Upload & Convert node on its own. Press Run to try it on the bundled sample picture (`image-style-sample.png`, copied into ComfyUI's `input` folder the first time the node loads), or click **choose file to upload** to use your own. The SVG lands in `ComfyUI/output` and the path shows in a preview node. When an IMAGE is connected to `images`, it is used instead of the picker.
 - `image-style-z-image-turbo-svg.json`: the Z-Image-Turbo workflow above plus a step that also saves every generated picture as SVG (traced, flat colours; photos come out posterised).
 
 ## Command helper in the request box

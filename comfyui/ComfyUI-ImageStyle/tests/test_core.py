@@ -298,6 +298,15 @@ class ExampleWorkflow(unittest.TestCase):
                 self.assertIn(l[1], ids, name)
                 self.assertIn(l[3], ids, name)
 
+    def test_sample_picture_ships_and_is_the_default(self):
+        from PIL import Image
+        sample = os.path.join(PKG, "assets", "image-style-sample.png")
+        self.assertTrue(os.path.isfile(sample))
+        Image.open(sample).verify()
+        for name in ("image-style-z-image-turbo-svg.json", "image-style-upload-to-svg.json"):
+            conv = [n for n in self._load(name)["nodes"] if n["type"] == "ImageStyleUploadConvert"][0]
+            self.assertEqual(conv["widgets_values"][6], "image-style-sample.png")
+
     def test_style_node_values(self):
         wf = self._load("image-style-z-image-turbo.json")
         stylenode = [n for n in wf["nodes"] if n["type"] == "ImageStylePrompt"][0]

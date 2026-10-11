@@ -1,6 +1,6 @@
 {
   "name": "image-style",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "description": "362 slash-command image style modifiers plus aspect ratios, negative prompts and per-model output (Midjourney, SD, Flux, DALL-E, Gemini).",
   "author": {
     "name": "GG"

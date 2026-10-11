@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.2
+- ComfyUI Upload & Convert: no more empty "(none)" picker that showed "Image failed to load". A small sample picture (`image-style-sample.png`) is copied into ComfyUI's `input` folder and selected by default, so pressing Run works at once; "choose file to upload" uses your own picture, and a connected `images` input still wins. Run through the ComfyUI front end: sample picture to SVG saved with previews. Example workflows updated.
+
 ## 1.10.1
 - ComfyUI: two more example workflows. `image-style-upload-to-svg.json` (upload a picture, save it as SVG, preview the path) ran end to end in ComfyUI 0.39.0. `image-style-z-image-turbo-svg.json` is the Z-Image-Turbo workflow plus a step that also saves every picture as SVG; it loads with no missing nodes but the model was not run on a GPU.
 
