@@ -1,0 +1,3 @@
+Google Flow and Kling have no skills or plugins.
+Open expander.html in any browser (works offline), type your request with /commands, pick the target, click Copy,
+and paste into the tool's prompt box. Put the Negative prompt line into Kling's negative-prompt field.

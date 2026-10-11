@@ -1,0 +1,2 @@
+ChatGPT: Explore GPTs > Create. Paste instructions.txt into Instructions, upload image-style-knowledge.md under Knowledge, enable Image Generation.
+No GPT access? Paste custom-instructions-short.txt into Settings > Personalization > Custom instructions (1500-char limit).

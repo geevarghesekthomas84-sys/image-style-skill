@@ -1,0 +1,12 @@
+productshot|Product hero shot|productphotography studio softlighting shallowdepth 85mm sharpfocus clean|square
+linkedinheadshot|Professional headshot|headshot studio softlighting 85mm f1.4 naturalcolors nodeform clean|4:5
+albumcover|Album cover art|cinematic dramaticlighting centeredcomposition filmgrain colorgraded|square
+youtubethumb|YouTube thumbnail|closeup dramaticlighting highcontrast vibrantcolors sharpfocus|16:9
+moviepost|Movie poster|cinematic dramaticlighting anamorphic tealandorange filmgrain|2:3
+streetportrait|Street portrait|streetphotography candid 35mm goldenhour filmgrain|3:2
+foodhero|Food hero shot|foodphotography macrolens naturalwindowlight softlighting shallowdepth|4:5
+realestate|Real-estate interior|realestatephotography 14mm naturalwindowlight highdetail|16:9
+fashioneditorial|Fashion editorial|fashion editorial dramaticlighting 85mm colorgraded|4:5
+cyberpunkcity|Cyberpunk city|cyberpunk nightcity rainynight neonlights anamorphic|21:9
+epicfantasy|Epic fantasy scene|fantasy mattepainting godrays wideangle highdetail|16:9
+portraitpro|Pro portrait|portrait 85mm f1.4 softlighting bokeh naturalcolors nodeform|3:4

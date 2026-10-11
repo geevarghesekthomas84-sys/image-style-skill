@@ -1,0 +1,178 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Style Expander</title>
+<style>
+:root{--bg:#f6f5f2;--panel:#fff;--fg:#1d1d22;--mut:#75747d;--line:#e4e2dc;--acc:#5b4bff;--acc2:#ece9ff;--accfg:#fff;--chip:#f0eee9;--ok:#1e8a5a;--warn:#b4630a;--code:#faf9f6}
+@media(prefers-color-scheme:dark){:root{--bg:#131316;--panel:#1c1c21;--fg:#ececf1;--mut:#92919c;--line:#2d2d34;--acc:#9a8dff;--acc2:#2a2650;--accfg:#14121f;--chip:#26262d;--ok:#4cd39a;--warn:#f0a24a;--code:#17171b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 48px}
+header{margin-bottom:22px}
+h1{font-size:26px;letter-spacing:-.02em;margin:0 0 4px}
+header p{margin:0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:0 0 10px;font-weight:600}
+.card+.card{margin-top:16px}.grid>*{min-width:0}body{overflow-x:hidden}
+textarea{width:100%;min-height:120px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--code);color:var(--fg);font:inherit;resize:vertical;outline:none}
+textarea:focus,input:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc2)}
+.targets{display:flex;flex-wrap:wrap;gap:8px}
+.t{padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--fg);font:inherit;font-size:14px;cursor:pointer}
+.t:hover{border-color:var(--acc)}
+.t[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--accfg);font-weight:600}
+.res{position:relative}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px 14px 14px;min-height:110px;font:13.5px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;cursor:text}
+.row{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+.copy{padding:10px 22px;border:0;border-radius:10px;background:var(--acc);color:var(--accfg);font:inherit;font-weight:600;cursor:pointer}
+.copy:hover{filter:brightness(1.08)}
+.note{font-size:13px;color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:4px 10px;border:1px solid var(--line);border-radius:8px;background:var(--chip);color:var(--fg);font:inherit;font-size:13px;cursor:pointer}
+.chip:hover{border-color:var(--acc);background:var(--acc2)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:var(--accfg)}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.cat{padding:4px 11px;border:0;border-radius:999px;background:transparent;color:var(--mut);font:inherit;font-size:13px;cursor:pointer}
+.cat[aria-pressed=true]{background:var(--acc2);color:var(--acc);font-weight:600}
+input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--code);color:var(--fg);font:inherit;outline:none}
+.list{margin-top:2px}
+.hint{font-size:13px;color:var(--mut);margin-top:10px}
+.gen{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}.gal figure{margin:0}.gal img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;background:var(--code);min-height:120px}.gal figcaption{font-size:13px;color:var(--mut);margin-top:6px;display:flex;justify-content:space-between;gap:8px}.gal a{color:var(--acc)}.priv{font-size:12px;color:var(--mut);margin-top:8px}.exp div{padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px}.exp b{color:var(--acc);font-family:ui-monospace,Consolas,monospace;margin-right:6px}.exp s{color:var(--mut)}.exp .none{color:var(--mut);border:0}.sec{margin-top:12px}.sec b{display:block;font-size:12px;color:var(--mut);font-weight:600;margin-bottom:6px}
+</style></head><body>
+<div class="wrap">
+<header><h1>Image Style Expander</h1><p>Turn /commands into a finished prompt for Google Flow, Kling, Midjourney, ChatGPT, Gemini and more.</p></header>
+<div class="grid">
+ <div>
+  <section class="card"><h2>1 · Your request</h2>
+   <textarea id="in" placeholder="a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean" spellcheck="false"></textarea>
+   <div class="hint">Type commands, or click them in the browser on the right.</div></section>
+  <section class="card"><h2>2 · Target</h2><div class="targets" id="targets"></div></section>
+  <section class="card"><h2>3 · Result</h2>
+   <div class="res"><pre id="out"></pre></div>
+   <div class="row"><button class="copy" id="cp">Copy</button><button class="copy gen" id="gen">Generate image</button><span class="note" id="note"></span></div>
+   <div class="gal" id="gal"></div>
+   <div class="row"><span class="priv" style="margin:0">Copy and open:</span><button class="chip" data-o="https://labs.google/fx/tools/flow">Google Flow</button><button class="chip" data-o="https://klingai.com">Kling</button><button class="chip" data-o="https://chatgpt.com">ChatGPT</button><button class="chip" data-o="https://gemini.google.com">Gemini</button><button class="chip" data-o="https://www.midjourney.com">Midjourney</button></div><div class="priv">Generate image sends the prompt to the free image.pollinations.ai service. Copy never leaves your device.</div></section>
+  <section class="card"><h2>What each command added</h2><div id="exp" class="exp"></div></section>
+ </div>
+ <aside class="card"><h2>Command browser</h2>
+  <input id="q" placeholder="Search 300+ commands…" autocomplete="off">
+  <div class="cats" id="cats"></div>
+  <div class="list" id="list"></div>
+ </aside>
+</div></div>
+<script>
+const D=__DATA__;
+const $=i=>document.getElementById(i);
+const norm=s=>s.toLowerCase().replace(/[\s_-]+/g,"");
+const ORDER=["subject","angle","camera","motion","composition","lens","film","genre","portrait","macro","scene","landscape","architecture","space","weather","light","era","style","art","render","material","technique","effect","color","quality","reference"];
+const GROUPS=[["age20s","age30s","age40s","age50s","elderly"],["smile","serious","laughing","thoughtful","surprised","calm"],["standing","sitting","walking","running","leaning"],["lookingatcamera","lookingaway"],["longhair","shorthair"],["hdreal","4k","8k","8ktextures"],["photorealistic","hyperrealistic","ultrarealistic","rawphoto"],["14mm","24mm","35mm","50mm","85mm","135mm","200mm"],["f1.4","f2.8","f8"],["highkeylighting","lowkeylighting"],["warmtones","cooltones"],["blackandwhite","vibrantcolors","pastelcolors","monochrome","duotone"],["overexposed","underexposed"],["highcontrast","lowcontrast"]];
+const asp={},negs={},mods={},PRE={};D.presets.forEach(([n,l,t,a])=>PRE[n]={t,a});const MAX=8;const PRIO=["genre","subject","reference","style","scene","portrait","macro","angle","camera","lens","light","weather","landscape","architecture","space","film","art","render","material","technique","effect","motion","color","era","composition","quality"];let target="generic";
+D.aspect.forEach(([n,r,px,note])=>{const v={r,px};asp[norm(n)]=v;asp[norm(r)]=v;asp[norm(r.replace(":","x"))]=v;
+ const m=/aliases?:\s*(.*)$/.exec(note);if(m)m[1].split(/\s+/).forEach(a=>asp[norm(a)]=v)});
+D.negatives.forEach(([n,t])=>negs[n]=t);
+D.models.forEach(([n,l])=>mods[n]=l);
+const wide=r=>+r.split(":")[0]>=+r.split(":")[1];
+
+
+/* plain-English understanding (no slashes needed) */
+const NATCATS=["camera","motion","quality","angle","lens","film","light","color","technique","composition","art","render","material","effect","genre","era","style","portrait","macro"];
+const NAT={};Object.entries(D.mods).forEach(([k,v])=>{if(NATCATS.includes(v.category))NAT[k]=1});
+function natural(text,sel,ars){
+ let t=" "+text+" ";
+ t=t.replace(/(\d{1,2})\s*[:x]\s*(\d{1,2})(?!\d)/gi,(m,a,b)=>{const v=asp[a+":"+b];if(!v)return m;if(!ars.includes(v))ars.push(v);return " "});
+ const w=t.trim().split(/\s+/).filter(Boolean),keep=[];
+ for(let i=0;i<w.length;){let hit=0;
+  for(let n=4;n>=1&&!hit;n--){if(i+n>w.length)continue;const k=norm(w.slice(i,i+n).join("").replace(/[^\w]/g,""));
+   if(NAT[k]){if(!sel.includes(k))sel.push(k);hit=n}}
+  if(hit)i+=hit;else keep.push(w[i++])}
+ return keep.join(" ")
+  .replace(/^(please\s+)?(create|make|generate|draw|design|give|show)\s+(me\s+)?(an?\s+|the\s+)?/i,"")
+  .replace(/\b(size|sizes|ratio|ratios|frame|frames|aspect|both)\b/gi," ")
+  .replace(/\b(and|in|with|of|at|for)\b(?=\s+(and|in|with|of|at|for)\b)/gi," ")
+  .replace(/(\s|,)+(and|in|with|of|at|for)\s*$/i,"").replace(/^(and|in|with|of|at|for)\s+/i,"")
+  .replace(/\s+/g," ").replace(/[,\s]+$/,"").trim()}
+
+/* targets */
+function drawTargets(){$("targets").innerHTML=D.models.map(([n,l])=>`<button class="t" data-m="${n}" aria-pressed="${n===target}">${l.split(" (")[0].split(" /")[0]}</button>`).join("")}
+$("targets").onclick=e=>{const b=e.target.closest("[data-m]");if(!b)return;target=b.dataset.m;drawTargets();run()};
+
+/* core */
+let used=new Set(),GEN=null;
+function run(){
+ let presetAr=null;const txt=$("in").value.replace(/(^|\s)\/([^\s/]+)/g,(m,sp,raw)=>{const P=PRE[norm(raw)];if(!P)return m;presetAr=asp[norm(P.a)];return sp+P.t.split(" ").map(x=>"/"+x).join(" ")}),dropped=[],unknown=[];let model=null,ars=[],sel=[];const neg=[];used=new Set();
+ let subject=txt.replace(/(^|\s)\/([^\s/]+)/g,(_,sp,raw)=>{
+  let k=norm(raw);if(k==="freeezeaction")k="freezeaction";
+  if(mods[k]){model=k;used.add(k);return sp}
+  if(asp[k]){if(!ars.includes(asp[k]))ars.push(asp[k]);used.add(norm(raw));return sp}
+  if(negs[k]){negs[k].split(", ").forEach(x=>{if(!neg.includes(x))neg.push(x)});used.add(k);return sp}
+  if(D.mods[k]){sel.push(k);used.add(k);return sp}
+  unknown.push(raw);return sp+"/"+raw}).replace(/\s+/g," ").trim();
+ subject=natural(subject,sel,ars);if(!ars.length&&presetAr)ars.push(presetAr);
+ const m=model||target;if(model&&model!==target){target=model;drawTargets()}
+ sel=sel.filter((k,i)=>sel.indexOf(k)===i);
+ GROUPS.forEach(g=>{const hit=sel.filter(k=>g.includes(k));hit.slice(0,-1).forEach(k=>{dropped.push(k);sel=sel.filter(x=>x!==k)})});
+ const capped=()=>sel.filter(k=>D.mods[k].category!=="reference");const over=[];while(capped().length>MAX){const w=capped().reduce((x,y)=>PRIO.indexOf(D.mods[y].category)>PRIO.indexOf(D.mods[x].category)?y:x);over.push(w);sel=sel.filter(x=>x!==w)}
+ if(over.length)dropped.push(...over.map(x=>x+" (over 8 limit)"));
+ sel.sort((a,b)=>ORDER.indexOf(D.mods[a].category)-ORDER.indexOf(D.mods[b].category));
+ const ph=sel.map(k=>D.mods[k].phrase),s=subject||"[your subject]",base=[s,...ph].join(", ");
+ const sent=[s.replace(/[.]$/,"")+".",...ph.map(p=>p[0].toUpperCase()+p.slice(1)+".")].join(" "),nl=neg.join(", ");
+ const build=ar=>{let o;
+ if(m==="mj")o=base.replace(/, (keep the same face[^,]*|match the visual style[^,]*)/g,"")+(sel.includes("sameface")?" --cref [face image URL]":"")+(sel.includes("samestyle")?" --sref [style image URL]":"")+(ar?" --ar "+ar.r:"")+(nl?" --no "+nl:"")+(sel.some(k=>["rawphoto","photorealistic","ultrarealistic"].includes(k))?" --style raw":"");
+ else if(m==="sd")o="Prompt: "+base+"\nNegative prompt: lowres, blurry, bad anatomy, watermark"+(nl?", "+nl:"")+(ar?"\nSize: "+ar.px:"");
+ else if(m==="flux")o=sent+(nl?" Clean image without "+nl+".":"")+(ar?"\nSize: "+ar.px:"");
+ else if(m==="dalle")o=sent+(nl?" With no "+nl+".":"")+(ar?"\nSize: "+(ar.r==="1:1"?"1024x1024":wide(ar.r)?"1792x1024":"1024x1792"):"");
+ else if(m==="gemini")o=sent+(nl?" Avoid "+nl+".":"")+(ar?"\nAspect ratio: "+ar.r:"");
+ else if(m==="flow")o=sent+(nl?" Avoid "+nl+".":"")+(ar?"\nSet aspect ratio to "+ar.r+(ar.r==="16:9"||ar.r==="9:16"?"":" (video supports 16:9 or 9:16 only)"):"");
+ else if(m==="kling"){const a=ar?(["1:1","16:9","9:16"].includes(ar.r)?ar.r:wide(ar.r)?"16:9":"9:16"):null;o=sent+(nl?"\nNegative prompt: "+nl:"")+(a?"\nAspect ratio: "+a:"")}
+ else o=base+(ar?"\nAspect ratio: "+ar.r:"")+(nl?"\nAvoid: "+nl:"");
+ return o};
+ GEN={prompt:sent+(nl?" Without "+nl+".":""),ars:ars.length?ars:[{r:"1:1",px:"1024x1024"}]};
+ const outs=(ars.length?ars:[null]).map(build);
+ const o=outs.length>1?outs.map((x,i)=>"── "+ars[i].r+" ──"+String.fromCharCode(10)+x).join(String.fromCharCode(10,10)):outs[0];
+ $("exp").innerHTML=(sel.map(k=>`<div><b>/${k}</b>${D.mods[k].phrase}</div>`).join("")+dropped.map(k=>`<div><s><b>/${k.split(" ")[0]}</b>dropped: ${k.includes("over")?"over the 8-modifier limit":"conflicts with a later command"}</s></div>`).join("")+ars.map(a=>`<div><b>/${a.r}</b>aspect ratio ${a.r} (${a.px})</div>`).join("")+(nl?`<div><b>avoid</b>${nl}</div>`:""))||'<div class="none">Type a request with /commands to see what each one adds.</div>';
+ $("out").textContent=o;
+ $("note").textContent=[dropped.length?"Dropped: "+dropped.join(", "):"",unknown.length?"Unknown: /"+unknown.join(", /"):""].filter(Boolean).join("  ·  ");
+ drawList();
+}
+
+/* command browser */
+const SECTIONS=[["All",null],["Presets",null],["Aspect",null],["Avoid",null],...[...new Set(D.categories)].map(c=>[c[0].toUpperCase()+c.slice(1),c])];
+let cat="All";
+function allCmds(){return[
+ ...D.aspect.map(([n,r,px,note])=>({n:n.replace(/^(\d)(:)/,"$1:"),key:norm(n),c:"Aspect",tip:r+" · "+px})),
+ ...D.negatives.map(([n,t])=>({n,key:n,c:"Avoid",tip:"avoid: "+t})),
+ ...Object.entries(D.mods).map(([n,v])=>({n,key:n,c:v.category[0].toUpperCase()+v.category.slice(1),tip:v.phrase}))]}
+const CMDS=[...D.presets.map(([n,l,t,a])=>({n,key:n,c:"Presets",tip:l+" = "+t})),...allCmds()];
+function drawCats(){$("cats").innerHTML=SECTIONS.map(([l])=>`<button class="cat" data-c="${l}" aria-pressed="${l===cat}">${l}</button>`).join("")}
+$("cats").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.dataset.c;drawCats();drawList()};
+function drawList(){
+ const q=norm($("q").value);
+ const items=CMDS.filter(c=>(cat==="All"||c.c===cat)&&(!q||c.key.includes(q)||c.tip.toLowerCase().includes($("q").value.toLowerCase()))).slice(0,400);
+ $("list").innerHTML=`<div class="chips">`+items.map(c=>`<button class="chip${used.has(c.key)?" on":""}" data-n="${c.n}" title="${c.tip.replace(/"/g,"&quot;")}">/${c.n}</button>`).join("")+`</div>`+(items.length?"":`<div class="hint">No commands match.</div>`);
+}
+$("list").onclick=e=>{const b=e.target.closest("[data-n]");if(!b)return;const t="/"+b.dataset.n,i=$("in");
+ const re=new RegExp("(^|\\s)"+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?=\\s|$)");
+ i.value=re.test(i.value)?i.value.replace(re,"$1").replace(/\s+/g," ").trim():(i.value.trim()+" "+t).trim();run()};
+$("q").oninput=drawList;
+
+/* copy */
+function legacyCopy(t){const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.focus();a.select();let ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(a);return ok}
+function selectOut(){const r=document.createRange();r.selectNodeContents($("out"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+function flash(ok){const b=$("cp");b.textContent=ok?"Copied ✓":"Press Ctrl+C";setTimeout(()=>b.textContent="Copy",1600);if(!ok)selectOut()}
+$("out").onclick=selectOut;
+$("cp").onclick=()=>{const t=$("out").textContent;
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>flash(true),()=>flash(legacyCopy(t)));
+ else flash(legacyCopy(t))};
+
+$("gen").onclick=()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";
+ GEN.ars.forEach(a=>{const[w,h]=a.px.split("x"),seed=Math.floor(Math.random()*1e6);
+  const url="https://image.pollinations.ai/prompt/"+encodeURIComponent(GEN.prompt)+"?width="+w+"&height="+h+"&nologo=true&seed="+seed;
+  const f=document.createElement("figure"),im=new Image();im.alt=GEN.prompt;
+  const cap=document.createElement("figcaption");cap.innerHTML="<span>"+a.r+" · loading…</span>";
+  im.onload=()=>{cap.innerHTML="<span>"+a.r+"</span><a href='"+url+"' target='_blank' rel='noopener' download>Open / save</a>"};
+  im.onerror=()=>{cap.innerHTML="<span>"+a.r+" · free service busy or limited right now. Retry in a minute, or use an Open button below.</span>"};
+  im.src=url;f.append(im,cap);g.append(f)})};
+document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const t=$("out").textContent;
+ const go=()=>window.open(b.dataset.o,"_blank","noopener");
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>{flash(true);go()},()=>{flash(legacyCopy(t));go()});else{flash(legacyCopy(t));go()}});
+$("in").oninput=run;drawTargets();drawCats();run();
+</script></body></html>

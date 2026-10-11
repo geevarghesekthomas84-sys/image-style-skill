@@ -1,0 +1,8 @@
+clean|text, watermark, logo, signature, caption, username
+nodeform|extra fingers, missing fingers, deformed hands, extra limbs, malformed anatomy, distorted face, cross-eyed
+sharpclean|blurry, low resolution, jpeg artifacts, noise, pixelated, out of focus
+nopeople|people, humans, faces, crowds
+notext|text, letters, words, typography, numbers
+nocrop|cropped, cut off, out of frame, partial subject
+nooversat|oversaturated, neon colors, harsh contrast, burnt highlights
+noai|plastic skin, waxy texture, over-smoothed, uncanny, cgi look, oversharpened halos

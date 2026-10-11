@@ -1,0 +1,1 @@
+Gemini: gemini.google.com > Gem manager > New Gem. Paste instructions.txt into Instructions, add image-style-knowledge.md under Knowledge.

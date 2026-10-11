@@ -1,0 +1,346 @@
+hdreal|quality|HD, true-to-life realism, clean sharp detail
+4k|quality|4K resolution, ultra-sharp detail
+8k|quality|8K resolution, extreme fine detail
+cinematic|quality|cinematic look, movie-still composition, filmic lighting and color
+ultrarealistic|quality|ultra-realistic, indistinguishable from a real photograph
+droneview|angle|drone view, elevated aerial vantage point looking down at the scene
+topdown|angle|top-down view, camera directly overhead looking straight down
+highangle|angle|high-angle shot, camera above subject looking down
+lowangle|angle|low-angle shot, camera below subject looking up, imposing perspective
+sideview|angle|side view, profile perspective
+aerialview|angle|aerial view from high altitude, wide sweeping scene
+closeup|angle|close-up shot, subject fills the frame
+extremecloseup|angle|extreme close-up, tiny details filling the frame
+wideangle|angle|wide-angle lens, expansive field of view
+fisheye|angle|fisheye lens, strong barrel distortion, ultra-wide curved view
+pov|angle|first-person point-of-view shot
+overtheshoulder|angle|over-the-shoulder shot, foreground shoulder framing the subject
+birdseyeview|angle|bird's-eye view, high overhead perspective
+wormseyeview|angle|worm's-eye view, from ground level looking steeply up
+fog|weather|thick atmospheric fog, low visibility, soft diffused depth
+mist|weather|light drifting mist, soft hazy atmosphere
+rainynight|weather|rainy night, wet reflective surfaces, glowing lights in rain
+rain|weather|steady rainfall, wet surfaces, raindrops
+storm|weather|violent storm, dark roiling clouds, lightning, wind
+snow|weather|falling snow, snow-covered surfaces, cold winter air
+sunset|light|sunset, warm orange-pink sky, low sun
+sunrise|light|sunrise, soft early light, gentle warm horizon glow
+goldenhour|light|golden hour, warm low-angle sunlight, long soft shadows
+bluehour|light|blue hour, deep blue twilight, cool ambient glow
+moonlight|light|moonlit scene, cool silvery light, deep night shadows
+neonlights|light|vivid neon lights, glowing signs, colorful light spill
+cyberpunk|style|cyberpunk, neon-drenched dystopian city, high-tech low-life, rain and holograms
+darkmoody|light|dark and moody, deep shadows, low-key brooding atmosphere
+softlighting|light|soft diffused lighting, gentle shadows, flattering glow
+dramaticlighting|light|dramatic lighting, strong contrast between light and shadow
+rimlight|light|rim light outlining the subject's edges
+backlight|light|backlit subject, glowing edges, light from behind
+godrays|light|god rays, visible beams of light through atmosphere
+volumetriclight|light|volumetric lighting, light beams in hazy air
+studio|light|professional studio setup, controlled lighting, clean backdrop
+filmgrain|lens|visible film grain, analog texture
+anamorphic|lens|anamorphic lens, widescreen cinematic framing, horizontal flares, oval bokeh
+bokeh|lens|beautiful bokeh, creamy out-of-focus highlights
+shallowdepth|lens|shallow depth of field, sharp subject, blurred background
+motionblur|lens|motion blur, sense of speed and movement
+longexposure|lens|long exposure, light streaks, smooth flowing water or motion trails
+freezeaction|lens|high-speed capture, frozen action mid-motion, crisp detail
+vintage|era|vintage aesthetic, aged look, muted nostalgic tones
+retro|era|retro style, throwback design and colors
+oldmoney|style|old money aesthetic, understated heritage elegance, classic tailoring, refined interiors
+luxury|style|luxury, opulent materials, premium high-end finish
+minimalist|style|minimalist, clean composition, few elements, lots of space
+editorial|style|editorial photography, polished magazine-style composition
+fashion|style|high-fashion photography, styled wardrobe, runway-grade polish
+streetstyle|style|street style photography, candid urban fashion
+magazinecover|style|magazine cover layout, strong hero subject, space for masthead and headlines
+polaroid|film|Polaroid instant photo look, white border, soft faded colors
+disposablecamera|film|disposable camera snapshot, direct flash, grainy, imperfect candid
+35mmfilm|film|shot on 35mm film, natural grain, organic color
+instantphoto|film|instant photo, soft focus, washed colors, nostalgic frame
+underwater|scene|underwater scene, light rays from the surface, floating particles, blue-green tint
+space|scene|outer space, stars, deep cosmic void
+desert|scene|vast desert, dunes, arid light, heat haze
+forest|scene|dense forest, tall trees, dappled light
+mountains|scene|majestic mountain range, rugged peaks, epic scale
+beach|scene|sandy beach, ocean waves, coastal light
+futuristic|scene|futuristic design, advanced technology, sleek forms
+fantasy|scene|fantasy world, magical, epic imaginative setting
+scifi|scene|science fiction, advanced technology, otherworldly design
+nightcity|scene|city at night, lit windows, streetlights, urban glow
+noir|style|film noir, high-contrast black and white, hard shadows, moody
+detective|style|hard-boiled detective vibe, trench coat, smoky office, rainy streets
+samurai|style|samurai, feudal Japan, traditional armor and katana
+medieval|style|medieval setting, castles, stone, period clothing
+postapocalyptic|scene|post-apocalyptic wasteland, ruins, overgrown decay, survival gear
+superhero|style|superhero, heroic pose, dynamic cape and costume, comic-epic lighting
+cityscape|scene|sweeping cityscape, skyline, dense architecture
+glassart|material|glass art, translucent refractive forms, light passing through glass
+chrome|material|polished chrome, mirror-like metallic reflections
+holographic|material|holographic, iridescent shifting rainbow foil sheen
+doubleexposure|technique|double exposure, two images blended and overlaid
+silhouette|technique|silhouette, dark subject shape against bright background
+reflection|technique|prominent reflections, mirrored surfaces or water
+mirror|technique|mirror reflection, symmetrical mirrored composition
+fire|effect|flames, fire, fiery orange glow
+smoke|effect|swirling smoke, wispy atmospheric plumes
+glitch|effect|digital glitch, RGB split, scan-line distortion
+dreamcore|style|dreamcore, surreal nostalgic liminal dreamlike atmosphere, soft haze
+photorealistic|quality|photorealistic, true-to-life
+hyperrealistic|quality|hyperrealistic, extreme lifelike detail beyond normal photography
+rawphoto|quality|RAW photo, unprocessed natural capture, realistic sensor look
+professionalphotography|quality|professional photography, expert composition, lighting and exposure
+8ktextures|quality|8K textures, intricate surface detail
+highdetail|quality|highly detailed, intricate fine details
+sharpfocus|quality|tack-sharp focus on the subject
+crispdetails|quality|crisp, clean, well-defined details
+naturalcolors|color|natural, true-to-life color
+colorgraded|color|professionally color graded, cohesive palette
+portrait|portrait|portrait photograph, subject-centered, flattering framing
+headshot|portrait|professional headshot, head and shoulders
+fullbody|portrait|full-body shot, head to toe in frame
+halfbody|portrait|half-body shot, waist up
+profileportrait|portrait|profile portrait, side-facing head shot
+candid|portrait|candid, unposed natural moment
+beautyshot|portrait|beauty shot, flawless skin detail, polished lighting
+environmentalportrait|portrait|environmental portrait, subject shown in their meaningful surroundings
+groupportrait|portrait|group portrait, multiple people arranged naturally
+facialdetail|portrait|detailed face, visible skin texture, realistic eyes
+macro|macro|macro photography, extreme magnification
+macrophoto|macro|macro photo, close-focus fine detail
+microscopic|macro|microscopic view, cellular-scale detail
+productmacro|macro|product macro, extreme close-up of materials and craftsmanship
+texturestudy|macro|texture study, close look at surface patterns
+abstractmacro|macro|abstract macro, close-up forms and colors
+naturemacro|macro|nature macro, petals, leaves, dew in fine detail
+insectmacro|macro|insect macro, compound eyes, hairs, wings in detail
+eyedetail|macro|detailed eye close-up, iris texture, reflections
+waterdroplets|macro|water droplets, glistening beads, refraction
+cinematiccolorgrading|color|cinematic color grading, filmic contrast and palette
+tealandorange|color|teal and orange color grade
+monochrome|color|monochrome, single-hue palette
+blackandwhite|color|black and white, rich tonal range
+desaturated|color|desaturated, muted subdued colors
+pastelcolors|color|soft pastel color palette
+vibrantcolors|color|vibrant saturated colors
+duotone|color|duotone, two-color palette
+colorpop|color|selective color pop against muted surroundings
+warmtones|color|warm tones, golden amber hues
+cooltones|color|cool tones, blue-teal hues
+highcontrast|color|high contrast, deep blacks and bright highlights
+lowcontrast|color|low contrast, soft flat tonal range
+overexposed|color|overexposed, blown-out bright highlights, washed light
+underexposed|color|underexposed, dark crushed shadows, dim mood
+softfocus|lens|soft focus, dreamy gentle blur
+lensflare|lens|lens flare, streaks of light across the frame
+sunflare|lens|sun flare, bright sun starburst and glow
+chromaticaberration|lens|chromatic aberration, color fringing at edges
+halation|lens|halation, red-orange glow bleeding around bright highlights
+productphotography|genre|product photography, clean hero shot, clean background, commercial lighting
+commercialphotography|genre|commercial photography, polished advertising quality
+foodphotography|genre|food photography, appetizing, styled plating, fresh textures
+architecturalphotography|genre|architectural photography, clean lines, precise perspective
+automotivephotography|genre|automotive photography, sleek car, glossy reflections, dynamic angle
+jewelryphotography|genre|jewelry photography, sparkling gems, precise lighting, macro detail
+watchphotography|genre|watch photography, crisp dial detail, metallic reflections
+cosmeticphotography|genre|cosmetic photography, glossy products, clean luxury styling
+realestatephotography|genre|real estate photography, bright wide interiors, straight verticals
+travelphotography|genre|travel photography, evocative destination scene, authentic atmosphere
+streetphotography|genre|street photography, candid urban life, decisive moment
+documentary|genre|documentary photography, honest unstaged storytelling
+photojournalism|genre|photojournalism, news-style raw real-moment capture
+sportsphotography|genre|sports photography, peak action, fast shutter
+wildlifephotography|genre|wildlife photography, animal in natural habitat, telephoto
+landscapephotography|genre|landscape photography, sweeping vista, deep depth of field
+astrophotography|genre|astrophotography, crisp stars, night sky detail
+underwaterphotography|genre|underwater photography, clear water, natural blue light
+aerialphotography|genre|aerial photography, high-altitude vantage point
+nightphotography|genre|night photography, low light, long exposure, artificial lights
+isometric|composition|isometric view, 30-degree angled orthographic projection
+orthographic|composition|orthographic view, no perspective distortion
+symmetrical|composition|perfectly symmetrical composition
+asymmetrical|composition|asymmetrical, balanced off-center composition
+centeredcomposition|composition|centered composition, subject in the middle
+ruleofthirds|composition|rule of thirds composition
+leadinglines|composition|leading lines drawing the eye to the subject
+negativespace|composition|generous negative space around the subject
+framing|composition|natural framing, subject framed by foreground elements
+diagonalcomposition|composition|diagonal composition, dynamic slanted lines
+abstract|art|abstract art, non-representational forms, color and shape
+surrealism|art|surrealism, dreamlike impossible imagery
+minimalart|art|minimal art, extreme simplicity and restraint
+conceptart|art|concept art, production-design style illustration
+digitalpainting|art|digital painting, painterly brushwork, rich detail
+mattepainting|art|matte painting, grand cinematic environment
+oilpainting|art|oil painting, thick brushstrokes, rich color blending
+watercolor|art|watercolor, translucent washes, soft bleeding edges
+acrylicpainting|art|acrylic painting, bold opaque color, visible brushwork
+pencilsketch|art|pencil sketch, graphite shading and hatching
+charcoal|art|charcoal drawing, smudged expressive tones
+inkdrawing|art|ink drawing, bold pen lines and hatching
+lineart|art|clean line art, outline-only, no fill
+vectorart|art|vector art, flat shapes, crisp edges, scalable
+papercut|art|papercut art, layered cut paper, depth shadows
+collage|art|collage, assembled mixed fragments and cutouts
+mixedmedia|art|mixed media, combined materials and techniques
+pixelart|art|pixel art, retro low-resolution sprites, limited palette
+lowpoly|art|low-poly, faceted geometric 3D surfaces
+voxelart|art|voxel art, cube-built 3D blocks
+3drender|render|3D render, clean CGI
+unrealengine|render|Unreal Engine render, real-time photoreal game graphics
+octanerender|render|Octane render, high-end GPU path-traced look
+raytracing|render|ray tracing, accurate reflections and shadows
+globalillumination|render|global illumination, realistic bounced light
+subsurfacescattering|render|subsurface scattering, translucent skin, wax or leaf glow
+ambientocclusion|render|ambient occlusion, soft contact shadows in crevices
+depthoffield|render|depth of field, focused subject with blurred planes
+physicallybasedrendering|render|physically based rendering, realistic materials
+isometric3d|render|isometric 3D render, miniature diorama look
+clayrender|render|clay render, matte untextured sculpt look
+wireframe|render|wireframe, visible mesh edges
+wireframe3d|render|3D wireframe, glowing mesh model
+glassmorphism|material|glassmorphism, frosted translucent panels, blur, soft light borders
+neumorphism|material|neumorphism, soft extruded shapes, subtle inner and outer shadows
+metallic|material|metallic surfaces, shiny reflective metal
+iridescent|material|iridescent, color-shifting pearlescent sheen
+translucent|material|translucent materials, light passing softly through
+crystalline|material|crystalline, faceted crystals, refractive
+liquidmetal|material|liquid metal, flowing mercury-like chrome
+bioluminescent|effect|bioluminescent, glowing organisms, soft blue-green light in darkness
+glowingeffects|effect|glowing effects, luminous halos
+particles|effect|floating particles, drifting dust and motes
+embers|effect|glowing embers drifting upward
+sparks|effect|flying sparks, bright points of light
+energywaves|effect|energy waves, radiating pulses of power
+lighttrails|effect|light trails, streaking glowing paths
+electricity|effect|electric arcs, crackling lightning bolts
+plasma|effect|plasma, glowing ionized flowing energy
+magicalglow|effect|magical glow, enchanted luminous aura
+rainbow|effect|rainbow, full-spectrum arc of color
+aurora|effect|aurora, shimmering green and violet ribbons of light
+stardust|effect|stardust, sparkling cosmic glitter
+galaxy|space|galaxy, spiral arms, billions of stars
+nebula|space|colorful nebula, glowing gas clouds
+cosmicdust|space|cosmic dust clouds, particle haze among stars
+eclipse|space|solar eclipse, glowing corona around dark disc
+supernova|space|supernova, explosive stellar burst
+blackhole|space|black hole, accretion disk, gravitational lensing
+wormhole|space|wormhole, warped spacetime tunnel
+underwatercaustics|light|underwater caustics, dancing light patterns
+sunbeams|light|sunbeams streaming through gaps
+moonbeam|light|moonbeam, silvery shaft of moonlight
+candlelight|light|candlelit, warm flickering glow
+firelight|light|firelit, warm orange flickering light
+neonrimlight|light|neon rim light, colorful glowing edge light
+practicallighting|light|practical lighting from in-scene lamps and fixtures
+threepointlighting|light|three-point lighting, key, fill and back light
+chiaroscuro|light|chiaroscuro, strong light-dark contrast, Renaissance drama
+butterflylighting|light|butterfly lighting, light from above front, shadow under the nose
+rembrandtlighting|light|Rembrandt lighting, triangle of light on the cheek
+splitlighting|light|split lighting, half the face lit, half in shadow
+looplighting|light|loop lighting, small nose shadow on the cheek
+clamshelllighting|light|clamshell lighting, soft light from above and below
+highkeylighting|light|high-key lighting, bright, minimal shadows
+lowkeylighting|light|low-key lighting, dark, dominant shadows
+silkylighting|light|silky smooth lighting, gentle gradient transitions
+ambientlighting|light|ambient lighting, even natural environmental light
+naturalwindowlight|light|natural window light, soft directional daylight
+overcastlighting|light|overcast lighting, soft even cloud-diffused light
+foggyforest|landscape|foggy forest, misty trees, quiet depth layers
+tropicaljungle|landscape|dense tropical jungle, lush foliage, humid light
+autumnforest|landscape|autumn forest, red-orange-gold leaves
+cherryblossom|landscape|cherry blossoms in bloom, pink petals falling
+frozenlake|landscape|frozen lake, cracked ice, cold stillness
+volcaniclandscape|landscape|volcanic landscape, lava, ash, dark rock
+waterfall|landscape|waterfall, cascading water, mist
+coralreef|landscape|vibrant coral reef, tropical fish, clear water
+saltflats|landscape|salt flats, vast white flat plain, mirror-like reflections
+canyon|landscape|deep canyon, layered rock walls, dramatic light
+northernlights|landscape|northern lights over a night landscape
+starrysky|landscape|starry night sky, countless stars
+milkyway|landscape|Milky Way arching across the night sky
+desertnight|landscape|desert at night, cold starlit dunes
+tropicalisland|landscape|tropical island, palms, turquoise water, white sand
+coastline|landscape|rugged coastline, waves crashing on rocks
+cliffside|landscape|cliffside, steep drop overlooking the sea or valley
+lavenderfield|landscape|lavender field, purple rows to the horizon
+wildflowermeadow|landscape|wildflower meadow, colorful blooms in tall grass
+bambooforest|landscape|bamboo forest, tall green stalks, filtered light
+ancientruins|architecture|ancient ruins, weathered stone, overgrown history
+abandonedbuilding|architecture|abandoned building, decay, peeling paint, broken windows
+hauntedhouse|architecture|haunted house, eerie decrepit mansion, ominous mood
+gothicarchitecture|architecture|gothic architecture, pointed arches, spires, ornate stone
+brutalistarchitecture|architecture|brutalist architecture, raw concrete, massive geometry
+modernarchitecture|architecture|modern architecture, clean lines, glass and steel
+parametricarchitecture|architecture|parametric architecture, flowing algorithmic curves
+futuristicinterior|architecture|futuristic interior, sleek high-tech space
+luxuryinterior|architecture|luxury interior, premium materials, elegant decor
+scandinavianinterior|architecture|Scandinavian interior, light wood, white, cozy minimalism
+industrialdesign|architecture|industrial design, product form study, exposed materials
+organicarchitecture|architecture|organic architecture, building flowing with nature
+floatingcity|scene|floating city, structures suspended in the sky
+undergroundcity|scene|underground city, vast cavern metropolis
+spacecolony|scene|space colony, habitats on a distant world or orbit
+alienplanet|scene|alien planet, otherworldly terrain and sky
+robotics|scene|advanced robotics, mechanical joints, precision machines
+mechdesign|scene|mech design, giant armored piloted robot, hard-surface detail
+cybernetic|scene|cybernetic, human-machine fusion, implants
+technologicaldystopia|scene|technological dystopia, oppressive surveillance tech, grim megacity
+14mm|camera|14mm ultra-wide lens, dramatic perspective stretch
+24mm|camera|24mm wide lens, environmental context with natural perspective
+35mm|camera|35mm lens, natural documentary field of view
+50mm|camera|50mm lens, natural human-eye perspective
+85mm|camera|85mm portrait lens, flattering compression, creamy background
+135mm|camera|135mm telephoto lens, strong background compression
+200mm|camera|200mm telephoto lens, extreme compression, isolated subject
+f1.4|camera|aperture f/1.4, razor-thin focus plane, heavy background blur
+f2.8|camera|aperture f/2.8, soft background separation
+f8|camera|aperture f/8, deep depth of field, edge-to-edge sharpness
+tiltshift|camera|tilt-shift lens, miniature-scale effect, selective focus band
+telephoto|camera|telephoto compression, distant subject pulled close
+macrolens|camera|100mm macro lens, true close-focus detail
+dolly|motion|slow dolly camera move toward the subject
+pan|motion|smooth horizontal pan across the scene
+orbit|motion|camera orbiting around the subject
+handheld|motion|handheld camera, subtle natural shake, documentary feel
+tracking|motion|tracking shot following the subject
+zoomin|motion|slow push-in zoom toward the subject
+zoomout|motion|slow pull-back revealing the wider scene
+crane|motion|crane shot rising over the scene
+slowmotion|motion|slow motion, fluid dramatic movement
+timelapse|motion|time-lapse, rapid passage of time, moving clouds and light
+age20s|subject|person in their twenties
+age30s|subject|person in their thirties
+age40s|subject|person in their forties
+age50s|subject|person in their fifties
+elderly|subject|elderly person, weathered expressive features
+smile|subject|warm natural smile
+serious|subject|serious focused expression
+laughing|subject|genuine laughter, joyful expression
+thoughtful|subject|thoughtful pensive expression
+surprised|subject|surprised wide-eyed expression
+calm|subject|calm serene expression
+standing|subject|standing pose
+sitting|subject|seated pose
+walking|subject|mid-stride walking pose
+running|subject|running, dynamic athletic motion
+leaning|subject|casually leaning pose
+armscrossed|subject|arms crossed, confident stance
+lookingatcamera|subject|looking directly at the camera
+lookingaway|subject|looking away from the camera, candid gaze
+suit|subject|tailored suit, sharp formal tailoring
+casualwear|subject|relaxed casual clothing
+streetwear|subject|contemporary streetwear outfit
+traditionalwear|subject|traditional cultural attire, rich fabric and detail
+eveninggown|subject|elegant evening gown, flowing fabric
+uniform|subject|crisp uniform, structured fit
+longhair|subject|long flowing hair
+shorthair|subject|short styled hair
+curlyhair|subject|natural curly hair
+beard|subject|well-groomed beard
+sameface|reference|keep the same face and identity as the attached reference image
+samestyle|reference|match the visual style of the attached reference image
+samepose|reference|match the pose of the attached reference image
+samecomposition|reference|match the composition and framing of the attached reference image
+samecolors|reference|match the color palette of the attached reference image
+samelighting|reference|match the lighting of the attached reference image

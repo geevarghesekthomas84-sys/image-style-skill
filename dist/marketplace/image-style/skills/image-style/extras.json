@@ -1,0 +1,140 @@
+{
+ "aspect": [
+  [
+   "square",
+   "1:1",
+   "1024x1024",
+   "1:1 aliases: square instagram"
+  ],
+  [
+   "4:3",
+   "4:3",
+   "1152x896",
+   "standard landscape"
+  ],
+  [
+   "3:2",
+   "3:2",
+   "1216x832",
+   "classic photo landscape"
+  ],
+  [
+   "16:9",
+   "16:9",
+   "1344x768",
+   "widescreen; aliases: wallpaper thumbnail youtube"
+  ],
+  [
+   "21:9",
+   "21:9",
+   "1536x640",
+   "ultrawide; aliases: ultrawide cinemascope"
+  ],
+  [
+   "9:16",
+   "9:16",
+   "768x1344",
+   "vertical phone; aliases: story reel tiktok phonewallpaper"
+  ],
+  [
+   "2:3",
+   "2:3",
+   "832x1216",
+   "portrait photo; aliases: poster"
+  ],
+  [
+   "3:4",
+   "3:4",
+   "896x1152",
+   "portrait"
+  ],
+  [
+   "4:5",
+   "4:5",
+   "896x1120",
+   "instagram portrait"
+  ],
+  [
+   "3:1",
+   "3:1",
+   "1728x576",
+   "banner; aliases: banner panorama"
+  ]
+ ],
+ "negatives": [
+  [
+   "clean",
+   "text, watermark, logo, signature, caption, username"
+  ],
+  [
+   "nodeform",
+   "extra fingers, missing fingers, deformed hands, extra limbs, malformed anatomy, distorted face, cross-eyed"
+  ],
+  [
+   "sharpclean",
+   "blurry, low resolution, jpeg artifacts, noise, pixelated, out of focus"
+  ],
+  [
+   "nopeople",
+   "people, humans, faces, crowds"
+  ],
+  [
+   "notext",
+   "text, letters, words, typography, numbers"
+  ],
+  [
+   "nocrop",
+   "cropped, cut off, out of frame, partial subject"
+  ],
+  [
+   "nooversat",
+   "oversaturated, neon colors, harsh contrast, burnt highlights"
+  ],
+  [
+   "noai",
+   "plastic skin, waxy texture, over-smoothed, uncanny, cgi look, oversharpened halos"
+  ]
+ ],
+ "models": [
+  [
+   "mj",
+   "Midjourney",
+   "Comma-separated phrases. Append `--ar W:H` for aspect, `--no a, b, c` for negatives, and `--style raw` when /rawphoto, /photorealistic or /ultrarealistic is used. No pixel sizes."
+  ],
+  [
+   "sd",
+   "Stable Diffusion / SDXL",
+   "Comma-separated keywords. Output two lines: `Prompt:` and `Negative prompt:` (always include \"lowres, blurry, bad anatomy, watermark\" plus any /no-commands). Output `Size: WxH` from the pixel column. May weight key terms like `(golden hour:1.2)`."
+  ],
+  [
+   "flux",
+   "Flux",
+   "Natural descriptive sentences, no weights and no negative prompt (Flux ignores them: fold avoidances in as positive wording, e.g. \"clean image without text\"). Output `Size: WxH` from the pixel column."
+  ],
+  [
+   "dalle",
+   "DALL-E / ChatGPT images",
+   "One or two natural English sentences. No flags. Negatives become positive phrasing (\"no text\" -> \"with no text or lettering\"). Aspect: nearest of 1024x1024, 1792x1024 (wide), 1024x1792 (tall)."
+  ],
+  [
+   "gemini",
+   "Gemini / Imagen",
+   "Natural English paragraph. State the aspect ratio in words and pass it as the tool's aspect_ratio parameter if one exists. Negatives become positive phrasing."
+  ],
+  [
+   "flow",
+   "Google Flow (Veo / Imagen)",
+   "Natural English: subject, setting, camera/angle, lighting, style as one flowing paragraph. Aspect is chosen in Flow settings (video: 16:9 or 9:16 only), so print `Set aspect ratio to X` as a separate line. Negatives become positive phrasing, or go in Flow's negative field if shown."
+  ],
+  [
+   "kling",
+   "Kling AI",
+   "Descriptive natural English in this order: subject, environment, camera, lighting, style (under 2500 chars). Print a separate `Negative prompt:` line for Kling's negative field. Print `Aspect ratio:` (16:9, 9:16 or 1:1 only; map others to the nearest). For video requests also add one line of motion and camera movement."
+  ],
+  [
+   "generic",
+   "Default",
+   "Comma-separated prompt, then `Aspect ratio:` and `Avoid:` lines if used."
+  ]
+ ]
+}

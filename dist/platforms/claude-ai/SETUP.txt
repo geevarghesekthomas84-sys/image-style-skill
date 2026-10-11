@@ -1,0 +1,2 @@
+Claude.ai: Settings > Capabilities > Skills > Upload skill > choose image-style.zip.
+Then ask for an image with /commands. (Claude.ai has no built-in image generator: it returns the final prompt to paste into an image tool.)

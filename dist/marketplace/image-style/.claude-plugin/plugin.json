@@ -1,0 +1,15 @@
+{
+  "name": "image-style",
+  "version": "1.2.0",
+  "description": "346 slash-command image style modifiers plus aspect ratios, negative prompts and per-model output (Midjourney, SD, Flux, DALL-E, Gemini).",
+  "author": {
+    "name": "GG"
+  },
+  "keywords": [
+    "image",
+    "prompt",
+    "midjourney",
+    "stable-diffusion",
+    "photography"
+  ]
+}
