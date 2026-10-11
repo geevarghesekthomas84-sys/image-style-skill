@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.7.0
+- ComfyUI node pack `comfyui/ComfyUI-ImageStyle`: **Image Style Prompt** (positive, negative, width, height, report) and **Image Style Prompt (all ratios)** (one item per ratio). Python port of the expander, checked against the web page on 28 recorded requests; runs in ComfyUI 0.39.0. Zip in `dist/platforms/comfyui/`.
+
 ## 1.6.0
 - README: animated typing demo (`docs/demo.svg`, pure SVG + CSS, no scripts; shows the finished frame when the viewer prefers reduced motion).
 - Shareable links: `#r=<request>&t=<target>` fills the page in; a **Copy link** button (shown on web addresses only) makes one. The address bar follows what you type. Saved recipes are expanded into plain commands in the link. Link text is only ever placed in the text box as plain text.

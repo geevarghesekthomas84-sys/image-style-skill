@@ -88,6 +88,11 @@ for bad in ("<script", "onload", "xlink:href", "http://", "https://", "<image", 
     if bad in _demo and not (bad == "http://" and "http://www.w3.org/2000/svg" in _demo and _demo.count("http://") == 1):
         fails.append("docs/demo.svg contains disallowed content: " + bad)
 
+_ct = subprocess.run([sys.executable, str(ROOT / "comfyui" / "ComfyUI-ImageStyle" / "tests" / "test_core.py")],
+                     capture_output=True, text=True)
+if _ct.returncode != 0:
+    fails.append("ComfyUI node tests failed: " + (_ct.stderr or _ct.stdout)[-600:])
+
 print(f"{len(names)} commands checked, {len(fails)} problems")
 for f in fails:
     print(" -", f)

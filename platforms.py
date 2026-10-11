@@ -117,3 +117,31 @@ site = site.replace("<title>Image Style Expander</title>", "<title>Image Style E
 (DOCS / "cheatsheet.html").write_text((ROOT / "dist" / "cheatsheet.html").read_text(encoding="utf-8"), encoding="utf-8")
 (DOCS / ".nojekyll").write_text("", encoding="utf-8")
 print("pages site written to docs/")
+
+
+# ---- ComfyUI node data (single source of truth: the same src/*.txt files) ----
+_CN = ROOT / "comfyui" / "ComfyUI-ImageStyle"
+(_CN / "data").mkdir(parents=True, exist_ok=True)
+(_CN / "data" / "imagestyle.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+shutil.copy(ROOT / "LICENSE", _CN / "LICENSE")
+(_CN / "pyproject.toml").write_text(
+    '[project]\nname = "comfyui-imagestyle"\n'
+    f'version = "{VERSION}"\n'
+    'description = "Turn short /commands (e.g. /storm /24mm /16:9) into full prompts, negative prompts and sizes."\n'
+    'license = { text = "MIT" }\nreadme = "README.md"\n'
+    'requires-python = ">=3.9"\n\n'
+    '[project.urls]\nRepository = "https://github.com/geevarghesekthomas84-sys/image-style-skill"\n',
+    encoding="utf-8")
+print("comfyui node data written")
+
+
+# zip of the ComfyUI node (no tests or caches) for easy install
+(PF / "comfyui").mkdir(parents=True, exist_ok=True)
+with zipfile.ZipFile(PF / "comfyui" / "ComfyUI-ImageStyle.zip", "w", zipfile.ZIP_DEFLATED) as _z:
+    for _f in sorted(_CN.rglob("*")):
+        if _f.is_file() and "__pycache__" not in _f.parts and "tests" not in _f.relative_to(_CN).parts:
+            _z.write(_f, "ComfyUI-ImageStyle/" + _f.relative_to(_CN).as_posix())
+(PF / "comfyui" / "SETUP.txt").write_text(
+    "ComfyUI: unzip ComfyUI-ImageStyle.zip into ComfyUI/custom_nodes (ComfyUI Desktop: <install>/ComfyUI/custom_nodes), restart ComfyUI, "
+    "then add node: image-style > Image Style Prompt. See the README inside the folder.", encoding="utf-8")
+print("comfyui zip written")

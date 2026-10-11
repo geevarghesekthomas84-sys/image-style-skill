@@ -1,0 +1,1 @@
+ComfyUI: unzip ComfyUI-ImageStyle.zip into ComfyUI/custom_nodes (ComfyUI Desktop: <install>/ComfyUI/custom_nodes), restart ComfyUI, then add node: image-style > Image Style Prompt. See the README inside the folder.
