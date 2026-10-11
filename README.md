@@ -18,6 +18,10 @@
   <a href="#-status-what-is-tested">Status</a>
 </p>
 
+<p align="center">
+  <img src="docs/demo.svg" alt="Animated demo: typing a request with slash commands and getting a finished Midjourney prompt" width="100%">
+</p>
+
 ---
 
 ## ⚡ Quick start

@@ -78,6 +78,16 @@ except py_compile.PyCompileError as e:
     fails.append("imagegen.py: " + str(e)[:200])
 (ROOT / "_ig.pyc").unlink(missing_ok=True)
 
+import xml.dom.minidom as _md
+_demo = (ROOT / "docs" / "demo.svg").read_text(encoding="utf-8")
+try:
+    _md.parseString(_demo)
+except Exception as e:
+    fails.append("docs/demo.svg is not valid XML: " + str(e)[:120])
+for bad in ("<script", "onload", "xlink:href", "http://", "https://", "<image", "<foreignObject"):
+    if bad in _demo and not (bad == "http://" and "http://www.w3.org/2000/svg" in _demo and _demo.count("http://") == 1):
+        fails.append("docs/demo.svg contains disallowed content: " + bad)
+
 print(f"{len(names)} commands checked, {len(fails)} problems")
 for f in fails:
     print(" -", f)

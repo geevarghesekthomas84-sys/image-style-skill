@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="330" viewBox="0 0 1100 330" role="img" aria-label="Animated demo: typing a request with slash commands and getting a finished Midjourney prompt">
+<style>
+  .bg{fill:#14121f} .bar{fill:#1f1b33}
+  text{font-family:Consolas,Menlo,"DejaVu Sans Mono",monospace}
+  .title{font-family:"Segoe UI",Helvetica,Arial,sans-serif;font-size:15px;fill:#9d96c9}
+  .prompt{fill:#8a80c9;font-size:20px}
+  .txt{fill:#e9e5ff} .cmd{fill:#ff9ee6} .out{fill:#cfeee6} .flag{fill:#ffd479}
+  .badge{fill:#1f8f7a} .badgetxt{font-family:"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#fff}
+  .hint,.foot{font-family:"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;fill:#8a80c9}
+
+  /* typing reveal, one master timeline of 16s that loops */
+  #reveal{animation:type 16s infinite}
+  .caret{animation:caret 16s infinite}
+  .badge,.badgetxt{animation:fadein 16s infinite}
+  .hint{animation:fadein 16s infinite}
+  .l1{animation:l1 16s infinite} .l2{animation:l2 16s infinite} .l3{animation:l3 16s infinite}
+  .win{animation:win 16s infinite}
+
+  @keyframes type{0%,4%{width:0}4%{animation-timing-function:steps(64,end)}23%,100%{width:768px}}
+  @keyframes caret{0%,3%{opacity:1}3.5%{opacity:0}4%{opacity:1}23%{opacity:1}24%{opacity:0}25%{opacity:1}26%{opacity:0}27%,100%{opacity:0}}
+  @keyframes fadein{0%,26%{opacity:0}30%,90%{opacity:1}96%,100%{opacity:0}}
+  @keyframes l1{0%,27%{opacity:0;transform:translateY(6px)}31%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes l2{0%,32%{opacity:0;transform:translateY(6px)}36%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes l3{0%,37%{opacity:0;transform:translateY(6px)}41%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+  @keyframes win{0%{opacity:1}100%{opacity:1}}
+
+  @media (prefers-reduced-motion: reduce){
+    #reveal,.caret,.badge,.badgetxt,.hint,.l1,.l2,.l3{animation:none !important}
+    .caret{opacity:0}
+  }
+</style>
+<defs>
+  <clipPath id="clip"><rect id="reveal" x="74" y="62" width="768" height="40"/></clipPath>
+</defs>
+
+<rect class="bg" width="1100" height="330" rx="16"/>
+<rect class="bar" width="1100" height="40" rx="16"/><rect class="bar" y="20" width="1100" height="20"/>
+<circle cx="26" cy="20" r="6" fill="#ff6b6b"/><circle cx="48" cy="20" r="6" fill="#ffd166"/><circle cx="70" cy="20" r="6" fill="#4cd3a0"/>
+<text class="title" x="550" y="25" text-anchor="middle" style="font-family:'Segoe UI',Helvetica,Arial,sans-serif">image-style</text>
+
+<text class="prompt" x="40" y="90">&gt;</text>
+<g clip-path="url(#clip)">
+  <text x="74" y="90" font-size="20" textLength="768.0" lengthAdjust="spacing"><tspan class="txt">a</tspan><tspan class="txt"> lighthouse</tspan><tspan class="txt"> on</tspan><tspan class="txt"> a</tspan><tspan class="txt"> cliff</tspan><tspan class="cmd"> /storm</tspan><tspan class="cmd"> /dramaticlighting</tspan><tspan class="cmd"> /24mm</tspan><tspan class="cmd"> /16:9</tspan><tspan class="cmd"> /mj</tspan></text>
+</g>
+<rect class="caret" x="845" y="72" width="10" height="22" fill="#e9e5ff"/>
+
+<rect class="badge" x="74" y="128" width="104" height="26" rx="13"/>
+<text class="badgetxt" x="126" y="146" text-anchor="middle">Midjourney</text>
+<text class="hint" x="194" y="146">3 styles expanded, ratio and target applied</text>
+
+<text class="line l1" x="74" y="196" font-size="18" textLength="810.0" lengthAdjust="spacing"><tspan class="out">a lighthouse on a cliff, 24mm wide lens, environmental context with natural</tspan></text>
+  <text class="line l2" x="74" y="226" font-size="18" textLength="799.2" lengthAdjust="spacing"><tspan class="out">perspective, violent storm, dark roiling clouds, lightning, wind, dramatic</tspan></text>
+  <text class="line l3" x="74" y="256" font-size="18" textLength="648.0" lengthAdjust="spacing"><tspan class="out">lighting, strong contrast between light and shadow </tspan><tspan class="flag">--ar 16:9</tspan></text>
+
+<text class="foot" x="74" y="304">Swap /mj for /kling, /flux, /sd, /dalle or /gemini to get the same request in that tool's format.</text>
+</svg>

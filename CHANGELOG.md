@@ -1,6 +1,7 @@
 # Changelog
 
 ## 1.6.0
+- README: animated typing demo (`docs/demo.svg`, pure SVG + CSS, no scripts; shows the finished frame when the viewer prefers reduced motion).
 - Shareable links: `#r=<request>&t=<target>` fills the page in; a **Copy link** button (shown on web addresses only) makes one. The address bar follows what you type. Saved recipes are expanded into plain commands in the link. Link text is only ever placed in the text box as plain text.
 
 ## 1.5.2

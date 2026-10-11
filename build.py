@@ -208,3 +208,8 @@ exec(open(ROOT / "platforms.py", encoding="utf-8").read())
     "plugins": [{"name": "image-style", "source": "./dist/marketplace/image-style",
                  "description": "Slash-command image style modifiers", "version": VERSION}],
 }, indent=2), encoding="utf-8")
+
+
+# ---- animated README demo (docs/demo.svg) ----
+import subprocess as _sp, sys as _sys
+_sp.run([_sys.executable, str(ROOT / "gen_demo_svg.py")], check=True)
