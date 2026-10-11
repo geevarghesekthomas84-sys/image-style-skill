@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.7
+- ComfyUI: new example workflow `image-style-prompt-generator.json`, a prompt generator that makes no image and loads no model (Image Style Prompt and All Ratios nodes with copyable previews and a how-to note). Run end to end in ComfyUI 0.39.0: positive, negative and report came out as expected, and the All Ratios group gave one prompt per ratio. Also added a social preview image at `.github/social-preview.png`.
+
 ## 1.10.6
 - ComfyUI: new example workflow `image-style-qwen-image-edit.json` (Qwen Image 2.1 instruction edit with the Image Style prompt node feeding the edit instruction). Built from ComfyUI's own Qwen Image 2.1 edit template; the template's prompt-enhancer loader pointed at a model file most people do not have, so it now points at an installed file and the enhancer stays off. Loads with no missing nodes and every list value checked against the installed files; the model itself was not run (no GPU in my test setup).
 
