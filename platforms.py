@@ -44,8 +44,13 @@ assert len(short) <= 1500
 
 data = {"mods": {n: {"category": c, "phrase": p} for n, c, p in rows},
         "aspect": aspects, "negatives": negs, "models": models, "categories": list(cats.keys()), "presets": presets}
-html = (ROOT / "src" / "expander.template.html").read_text(encoding="utf-8").replace(
+import re as _re
+_tpl = (ROOT / "src" / "expander.template.html").read_text(encoding="utf-8").replace(
     "__DATA__", json.dumps(data, ensure_ascii=False))
+_MARK = _re.compile(r"<!--/?FULL-->|/\*/?FULL\*/")
+_BLOCK = _re.compile(r"<!--FULL-->.*?<!--/FULL-->|/\*FULL\*/.*?/\*/FULL\*/", _re.S)
+html = _MARK.sub("", _tpl)                 # downloadable version: everything
+hosted_html = _BLOCK.sub("", _tpl)         # website version: no helper, no copy-and-open, no image generation
 (PF / "flow-kling-anywhere" / "expander.html").write_text(html, encoding="utf-8")
 (PF / "flow-kling-anywhere" / "SETUP.txt").write_text(
     "Google Flow and Kling have no skills or plugins.\n"
@@ -102,7 +107,7 @@ print("cheat sheet written")
 
 # ---- GitHub Pages site (served from /docs) ----
 DOCS = ROOT / "docs"
-site = (PF / "flow-kling-anywhere" / "expander.html").read_text(encoding="utf-8")
+site = hosted_html
 meta = ('<meta name="description" content="Turn short /commands into finished prompts for Midjourney, Flux, Gemini, Kling, Google Flow and more. Free, offline, no account.">\n'
         '<meta property="og:title" content="Image Style Expander">\n'
         '<meta property="og:description" content="402 slash commands that turn a short request into a finished image prompt.">\n'

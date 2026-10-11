@@ -49,9 +49,9 @@ input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10
   <section class="card"><h2>2 · Target</h2><div class="targets" id="targets"></div></section>
   <section class="card"><h2>3 · Result</h2>
    <div class="res"><pre id="out"></pre></div>
-   <div class="row"><button class="copy" id="cp">Copy</button><button class="copy gen" id="gen">Generate image</button><span class="note" id="note"></span></div>
-   <div class="gal" id="gal"></div>
-   <div class="row"><span class="priv" style="margin:0">Copy and open:</span><button class="chip" data-o="https://labs.google/fx/tools/flow">Google Flow</button><button class="chip" data-o="https://klingai.com">Kling</button><button class="chip" data-o="https://chatgpt.com">ChatGPT</button><button class="chip" data-o="https://gemini.google.com">Gemini</button><button class="chip" data-o="https://www.midjourney.com">Midjourney</button></div><div class="priv">Generate image uses your local helper (imagegen.py + your own API key) if it is running, otherwise the free image.pollinations.ai service. Copy never leaves your device.</div></section>
+   <div class="row"><button class="copy" id="cp">Copy</button><!--FULL--><button class="copy gen" id="gen">Generate image</button><!--/FULL--><span class="note" id="note"></span></div>
+   <!--FULL--><div class="gal" id="gal"></div>
+   <div class="row"><span class="priv" style="margin:0">Copy and open:</span><button class="chip" data-o="https://labs.google/fx/tools/flow">Google Flow</button><button class="chip" data-o="https://klingai.com">Kling</button><button class="chip" data-o="https://chatgpt.com">ChatGPT</button><button class="chip" data-o="https://gemini.google.com">Gemini</button><button class="chip" data-o="https://www.midjourney.com">Midjourney</button></div><div class="priv">Generate image uses your local helper (imagegen.py + your own API key) if it is running, otherwise the free image.pollinations.ai service. Copy never leaves your device.</div><!--/FULL--></section>
   <section class="card"><h2>What each command added</h2><div id="exp" class="exp"></div></section>
  </div>
  <aside class="card"><h2>Command browser</h2>
@@ -168,7 +168,7 @@ $("cp").onclick=()=>{const t=$("out").textContent;
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>flash(true),()=>flash(legacyCopy(t)));
  else flash(legacyCopy(t))};
 
-const HELPER="http://127.0.0.1:8787";
+/*FULL*/const HELPER="http://127.0.0.1:8787";
 async function viaHelper(prompt,ratio){const r=await fetch(HELPER+"/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,ratio})});const j=await r.json();if(!r.ok)throw new Error(j.error||"helper error");return j.image}
 $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let helper=false;
  try{const h=await fetch(HELPER+"/");helper=h.ok&&(await h.json()).providers.length>0}catch(e){}
@@ -183,6 +183,7 @@ $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let he
 document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const t=$("out").textContent;
  const go=()=>window.open(b.dataset.o,"_blank","noopener");
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>{flash(true);go()},()=>{flash(legacyCopy(t));go()});else{flash(legacyCopy(t));go()}});
+/*/FULL*/
 $("sv").onclick=()=>{const n=norm($("rn").value),msg=t=>{$("rmsg").textContent=t;setTimeout(()=>$("rmsg").textContent="",3500)};
  if(!/^[a-z][a-z0-9]{1,19}$/.test(n))return msg("Name: 2-20 letters/numbers, starting with a letter.");
  if(!MY[n]&&(D.mods[n]||asp[n]||negs[n]||mods[n]||PRE[n]))return msg("/"+n+" is already a built-in command.");

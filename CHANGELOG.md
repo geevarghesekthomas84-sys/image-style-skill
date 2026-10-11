@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.2
+- The hosted demo page (`docs/`) is a trimmed copy: no localhost helper call, no Copy-and-open buttons, no image generation. The downloadable page keeps all of them. (Chrome flagged the first, fuller hosted version.)
+
 ## 1.5.1
 - Live demo on GitHub Pages (served from `docs/`): the expander page and cheat sheet.
 

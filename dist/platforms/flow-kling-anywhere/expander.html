@@ -183,6 +183,7 @@ $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let he
 document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const t=$("out").textContent;
  const go=()=>window.open(b.dataset.o,"_blank","noopener");
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>{flash(true);go()},()=>{flash(legacyCopy(t));go()});else{flash(legacyCopy(t));go()}});
+
 $("sv").onclick=()=>{const n=norm($("rn").value),msg=t=>{$("rmsg").textContent=t;setTimeout(()=>$("rmsg").textContent="",3500)};
  if(!/^[a-z][a-z0-9]{1,19}$/.test(n))return msg("Name: 2-20 letters/numbers, starting with a letter.");
  if(!MY[n]&&(D.mods[n]||asp[n]||negs[n]||mods[n]||PRE[n]))return msg("/"+n+" is already a built-in command.");

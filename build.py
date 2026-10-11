@@ -152,7 +152,7 @@ shutil.copy(out / "SKILL.md", PL / "skills" / "image-style" / "SKILL.md")
 shutil.copy(out / "modifiers.json", PL / "skills" / "image-style" / "modifiers.json")
 shutil.copy(out / "extras.json", PL / "skills" / "image-style" / "extras.json")
 
-VERSION = "1.5.1"
+VERSION = "1.5.2"
 (PL / ".claude-plugin" / "plugin.json").write_text(json.dumps({
     "name": "image-style",
     "version": VERSION,
