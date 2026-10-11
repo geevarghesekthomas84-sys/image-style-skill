@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.5
+- ComfyUI image-to-image workflow: the picture is now scaled to the width and height the Image Style node gives, so `/16:9` and other ratio commands change the output shape (before, the output always kept the uploaded picture's shape and a ratio command did nothing). Added a how-to note in the workflow: describe what is in the picture in the request, because a request like `/14mm /16:9` alone has no subject. Checked in ComfyUI 0.39.0: `/16:9` gave 1344x768 from the node and the scaled picture; the model itself was not run.
+
 ## 1.10.4
 - ComfyUI: new example workflow `image-style-z-image-turbo-img2img.json`: upload a picture, write the change with /commands, and Z-Image-Turbo redraws it (Load Image, Scale to 1 megapixel, VAE Encode into the KSampler at denoise 0.6). Loads with no missing nodes; the upload and scale steps were run in ComfyUI 0.39.0; the model itself was not run (no GPU).
 
