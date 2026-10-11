@@ -52,3 +52,49 @@ html = (ROOT / "src" / "expander.template.html").read_text(encoding="utf-8").rep
     "Open expander.html in any browser (works offline), type your request with /commands, pick the target, click Copy,\n"
     "and paste into the tool's prompt box. Put the Negative prompt line into Kling's negative-prompt field.\n", encoding="utf-8")
 print("platforms built; instructions.txt chars:", len(COMPACT))
+
+
+# ---- printable cheat sheet ----
+import html as _html
+
+def _e(x):
+    return _html.escape(x)
+
+names_all = [r[0] for r in rows] + [a[0] for a in aspects] + [n[0] for n in negs] + [m[0] for m in models] + [x[0] for x in presets]
+secs = []
+for c, items in cats.items():
+    li = "".join(f"<li><b>/{_e(n)}</b> {_e(p)}</li>" for n, p in items)
+    secs.append(f"<section><h2>{_e(c)} <small>{len(items)}</small></h2><ul>{li}</ul></section>")
+secs.append("<section><h2>aspect ratios</h2><ul>" + "".join(
+    f"<li><b>/{_e(n)}</b> {_e(r)} · {_e(px)} {_e(note)}</li>" for n, r, px, note in aspects) + "</ul></section>")
+secs.append("<section><h2>avoid-lists</h2><ul>" + "".join(
+    f"<li><b>/{_e(n)}</b> {_e(t)}</li>" for n, t in negs) + "</ul></section>")
+secs.append("<section><h2>presets</h2><ul>" + "".join(
+    f"<li><b>/{_e(n)}</b> {_e(label)}: {_e(toks)} · /{_e(ar)}</li>" for n, label, toks, ar in presets) + "</ul></section>")
+secs.append("<section><h2>target models</h2><ul>" + "".join(
+    f"<li><b>/{_e(n)}</b> {_e(label)}</li>" for n, label, how in models) + "</ul></section>")
+sheet = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image Style Cheat Sheet</title>
+<style>
+:root{{--bg:#fff;--fg:#1c1c22;--mut:#6c6b75;--line:#e2e0da;--acc:#5b4bff}}
+@media(prefers-color-scheme:dark){{:root{{--bg:#131316;--fg:#ececf1;--mut:#92919c;--line:#2d2d34;--acc:#9a8dff}}}}
+@media print{{:root{{--bg:#fff;--fg:#000;--mut:#444;--line:#bbb;--acc:#000}}body{{font-size:8.5pt}}}}
+*{{box-sizing:border-box}}body{{margin:0;padding:20px;background:var(--bg);color:var(--fg);font:13px/1.45 system-ui,sans-serif}}
+h1{{margin:0 0 4px;font-size:22px}}p{{margin:0 0 16px;color:var(--mut)}}
+input{{width:100%;max-width:420px;padding:9px 12px;margin-bottom:16px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);font:inherit}}
+@media print{{input{{display:none}}}}
+main{{column-width:300px;column-gap:22px}}
+section{{break-inside:avoid-column;margin-bottom:16px}}
+h2{{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);border-bottom:1px solid var(--line);padding-bottom:3px}}
+h2 small{{color:var(--mut);font-weight:400}}
+ul{{list-style:none;margin:0;padding:0}}li{{padding:2px 0;color:var(--mut)}}li b{{color:var(--fg);font-family:ui-monospace,Consolas,monospace;margin-right:5px}}
+li.hide{{display:none}}
+</style></head><body>
+<h1>Image Style Cheat Sheet</h1>
+<p>{len(names_all)} commands. Add them to any image request, e.g. <code>a lighthouse /storm /85mm /16:9 /mj</code>. Print with Ctrl+P.</p>
+<input id="q" placeholder="Filter commands…" autocomplete="off">
+<main>{''.join(secs)}</main>
+<script>document.getElementById("q").oninput=e=>{{const q=e.target.value.toLowerCase();document.querySelectorAll("li").forEach(l=>l.classList.toggle("hide",q&&!l.textContent.toLowerCase().includes(q)));document.querySelectorAll("section").forEach(s=>s.style.display=s.querySelector("li:not(.hide)")?"":"none")}}</script>
+</body></html>"""
+(ROOT / "dist" / "cheatsheet.html").write_text(sheet, encoding="utf-8")
+print("cheat sheet written")

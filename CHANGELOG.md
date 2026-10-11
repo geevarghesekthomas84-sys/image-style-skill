@@ -1,6 +1,8 @@
 # Changelog
 
 ## 1.3.0
+- `dist/cheatsheet.html`: searchable, printable list of all commands.
+- GitHub Actions check runs `build.py` and `test.py` on every push.
 - `imagegen.py`: local helper so Generate image can use your own OpenAI or Gemini key (key stays in an environment variable, not the page). Falls back to the free service.
 
 ## 1.2.0
