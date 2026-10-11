@@ -98,3 +98,17 @@ li.hide{{display:none}}
 </body></html>"""
 (ROOT / "dist" / "cheatsheet.html").write_text(sheet, encoding="utf-8")
 print("cheat sheet written")
+
+
+# ---- GitHub Pages site (served from /docs) ----
+DOCS = ROOT / "docs"
+site = (PF / "flow-kling-anywhere" / "expander.html").read_text(encoding="utf-8")
+meta = ('<meta name="description" content="Turn short /commands into finished prompts for Midjourney, Flux, Gemini, Kling, Google Flow and more. Free, offline, no account.">\n'
+        '<meta property="og:title" content="Image Style Expander">\n'
+        '<meta property="og:description" content="402 slash commands that turn a short request into a finished image prompt.">\n'
+        '<meta property="og:type" content="website">\n')
+site = site.replace("<title>Image Style Expander</title>", "<title>Image Style Expander</title>\n" + meta, 1)
+(DOCS / "index.html").write_text(site, encoding="utf-8")
+(DOCS / "cheatsheet.html").write_text((ROOT / "dist" / "cheatsheet.html").read_text(encoding="utf-8"), encoding="utf-8")
+(DOCS / ".nojekyll").write_text("", encoding="utf-8")
+print("pages site written to docs/")
