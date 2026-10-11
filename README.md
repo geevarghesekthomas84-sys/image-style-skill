@@ -196,6 +196,7 @@ GitHub Actions runs `build.py` and `test.py` on every push.
 | Area | State |
 |---|---|
 | Data, build, plugin validation, page script | Tested automatically on every push |
+| Claude Code skill and plugin | 8 end-to-end cases pass through real `claude -p` runs (`run_claude_tests.py`) |
 | Expander page (parsing, ratios, presets, recipes, cap, copy) | Tested by hand in a browser |
 | `imagegen.py` | Checked against mock OpenAI and Gemini servers only, **not yet with a real key** |
 | Claude.ai, ChatGPT and Gemini uploads | **Not yet tested in the real apps** |
