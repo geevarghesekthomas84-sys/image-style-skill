@@ -280,7 +280,7 @@ class Convert(unittest.TestCase):
 
 
 class ExampleWorkflow(unittest.TestCase):
-    EXPECT = {"image-style-z-image-turbo.json": 14, "image-style-z-image-turbo-svg.json": 16, "image-style-z-image-turbo-img2img.json": 17,
+    EXPECT = {"image-style-z-image-turbo.json": 14, "image-style-z-image-turbo-svg.json": 16, "image-style-z-image-turbo-img2img.json": 17, "image-style-qwen-image-edit.json": 6,
               "image-style-upload-to-svg.json": 3}
 
     def _load(self, name):

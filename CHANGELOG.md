@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.6
+- ComfyUI: new example workflow `image-style-qwen-image-edit.json` (Qwen Image 2.1 instruction edit with the Image Style prompt node feeding the edit instruction). Built from ComfyUI's own Qwen Image 2.1 edit template; the template's prompt-enhancer loader pointed at a model file most people do not have, so it now points at an installed file and the enhancer stays off. Loads with no missing nodes and every list value checked against the installed files; the model itself was not run (no GPU in my test setup).
+
 ## 1.10.5
 - ComfyUI image-to-image workflow: the picture is now scaled to the width and height the Image Style node gives, so `/16:9` and other ratio commands change the output shape (before, the output always kept the uploaded picture's shape and a ratio command did nothing). Added a how-to note in the workflow: describe what is in the picture in the request, because a request like `/14mm /16:9` alone has no subject. Checked in ComfyUI 0.39.0: `/16:9` gave 1344x768 from the node and the scaled picture; the model itself was not run.
 
