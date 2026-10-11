@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="image-style: 384 slash commands for AI image prompts">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15121f"/>
+      <stop offset="0.55" stop-color="#2a2163"/>
+      <stop offset="1" stop-color="#5b3fd6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#ff7ad9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff7ad9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="320" rx="22" fill="url(#bg)"/>
+  <rect width="1280" height="320" rx="22" fill="url(#glow)"/>
+
+  <text x="64" y="112" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="700" fill="#ffffff">image-style</text>
+  <text x="64" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#d9d4ff">Slash commands that turn a short request into a finished</text>
+  <text x="64" y="196" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#d9d4ff">prompt for any AI image or video tool.</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="20" fill="#ffffff">
+    <rect x="64"  y="226" width="148" height="44" rx="22" fill="#ffffff" fill-opacity="0.12" stroke="#b9acff" stroke-opacity="0.6"/>
+    <text x="84"  y="255">/cinematic</text>
+    <rect x="226" y="226" width="160" height="44" rx="22" fill="#ffffff" fill-opacity="0.12" stroke="#b9acff" stroke-opacity="0.6"/>
+    <text x="246" y="255">/goldenhour</text>
+    <rect x="400" y="226" width="88"  height="44" rx="22" fill="#ffffff" fill-opacity="0.12" stroke="#b9acff" stroke-opacity="0.6"/>
+    <text x="420" y="255">/85mm</text>
+    <rect x="502" y="226" width="88"  height="44" rx="22" fill="#ffffff" fill-opacity="0.12" stroke="#b9acff" stroke-opacity="0.6"/>
+    <text x="522" y="255">/16:9</text>
+    <rect x="604" y="226" width="100" height="44" rx="22" fill="#ffffff" fill-opacity="0.12" stroke="#b9acff" stroke-opacity="0.6"/>
+    <text x="624" y="255">/clean</text>
+    <rect x="718" y="226" width="64"  height="44" rx="22" fill="#ff7ad9" fill-opacity="0.35" stroke="#ff9ee6"/>
+    <text x="738" y="255">/mj</text>
+  </g>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#ffffff" text-anchor="middle">
+    <text x="1060" y="150" font-size="120" font-weight="700">384</text>
+    <text x="1060" y="190" font-size="24" fill="#d9d4ff">slash commands</text>
+    <text x="1060" y="228" font-size="18" fill="#b9acff">Claude · ChatGPT · Gemini</text>
+    <text x="1060" y="254" font-size="18" fill="#b9acff">Flow · Kling · Midjourney</text>
+  </g>
+</svg>

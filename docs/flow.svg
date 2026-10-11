@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-label="Your request goes through image-style and comes out in the format of each tool">
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a80c9"/>
+    </marker>
+  </defs>
+
+  <!-- request -->
+  <rect x="20" y="70" width="320" height="180" rx="16" fill="#5b3fd6"/>
+  <text x="44" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">1 · Your request</text>
+  <g font-family="Consolas, Menlo, monospace" font-size="16" fill="#e9e5ff">
+    <text x="44" y="146">a lighthouse on a cliff</text>
+    <text x="44" y="172">/storm /dramaticlighting</text>
+    <text x="44" y="198">/85mm /8k /16:9 /9:16</text>
+    <text x="44" y="224">/clean /mj</text>
+  </g>
+
+  <line x1="344" y1="160" x2="408" y2="160" stroke="#8a80c9" stroke-width="3" marker-end="url(#ah)"/>
+
+  <!-- engine -->
+  <rect x="412" y="70" width="280" height="180" rx="16" fill="#1f8f7a"/>
+  <text x="436" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">2 · image-style</text>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#e3fbf5">
+    <text x="436" y="146">Expands 384 commands</text>
+    <text x="436" y="172">Orders: subject, camera, light, style</text>
+    <text x="436" y="198">Caps at 8, resolves conflicts</text>
+    <text x="436" y="224">One prompt per aspect ratio</text>
+  </g>
+
+  <!-- outputs -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <line x1="696" y1="160" x2="766" y2="50"  stroke="#8a80c9" stroke-width="3" marker-end="url(#ah)"/>
+    <line x1="696" y1="160" x2="766" y2="125" stroke="#8a80c9" stroke-width="3" marker-end="url(#ah)"/>
+    <line x1="696" y1="160" x2="766" y2="195" stroke="#8a80c9" stroke-width="3" marker-end="url(#ah)"/>
+    <line x1="696" y1="160" x2="766" y2="270" stroke="#8a80c9" stroke-width="3" marker-end="url(#ah)"/>
+
+    <rect x="770" y="20"  width="310" height="62" rx="12" fill="#d6479a"/>
+    <text x="790" y="46" font-size="18" font-weight="700" fill="#ffffff">Midjourney</text>
+    <text x="790" y="68" font-size="14" fill="#ffe3f3">phrases + --ar 16:9 --no ...</text>
+
+    <rect x="770" y="95"  width="310" height="62" rx="12" fill="#d6479a"/>
+    <text x="790" y="121" font-size="18" font-weight="700" fill="#ffffff">Flux · DALL-E · Gemini</text>
+    <text x="790" y="143" font-size="14" fill="#ffe3f3">natural sentences + size or ratio</text>
+
+    <rect x="770" y="170" width="310" height="62" rx="12" fill="#d6479a"/>
+    <text x="790" y="196" font-size="18" font-weight="700" fill="#ffffff">Kling · Google Flow</text>
+    <text x="790" y="218" font-size="14" fill="#ffe3f3">prompt + negative field + ratio</text>
+
+    <rect x="770" y="245" width="310" height="62" rx="12" fill="#d6479a"/>
+    <text x="790" y="271" font-size="18" font-weight="700" fill="#ffffff">Stable Diffusion</text>
+    <text x="790" y="293" font-size="14" fill="#ffe3f3">Prompt + Negative prompt + Size</text>
+  </g>
+  <text x="44" y="296" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#8a80c9">One request in, the right format for each tool out.</text>
+</svg>
