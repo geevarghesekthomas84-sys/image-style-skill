@@ -50,7 +50,7 @@ No slashes needed either: *"Create me a cinematic album double exposure, size 16
 
 ## 🖼️ Before and after
 
-Same idea, same tool for each pair. The only difference is the commands.
+Each pair starts from the same plain idea. The right-hand image adds commands.
 
 <table>
   <tr>
