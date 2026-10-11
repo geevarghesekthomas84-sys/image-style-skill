@@ -1,18 +1,47 @@
 # image-style
 
-Slash commands for AI image generation. Write a request, add commands, get one finished prompt.
+[![test](https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg)](https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml)
+![license](https://img.shields.io/badge/license-MIT-blue)
+
+**384 slash commands that turn a short request into a finished prompt for any AI image or video tool.**
+Works as a Claude skill and plugin, a ChatGPT GPT, a Gemini Gem, and an offline web page for
+Google Flow, Kling, Midjourney and the rest.
+
+You write this:
 
 ```
-a lone lighthouse /storm /dramaticlighting /85mm /8k /16:9 /9:16 /clean /mj
+a lone lighthouse on a cliff /storm /dramaticlighting /85mm /8k /16:9 /9:16 /clean /mj
 ```
 
-Plain English works too:
+You get one prompt per ratio, in Midjourney's format:
 
 ```
-Create me a cinematic album double exposure and Size 16:9 ratio frame both 9:16
+-- 16:9 --
+a lone lighthouse on a cliff, 85mm portrait lens, flattering compression, creamy background,
+violent storm, dark roiling clouds, lightning, wind, dramatic lighting, strong contrast between
+light and shadow, 8K resolution, extreme fine detail --ar 16:9 --no text, watermark, logo,
+signature, caption, username
+
+-- 9:16 --
+(same prompt) --ar 9:16 --no text, watermark, logo, signature, caption, username
 ```
 
-That gives one prompt per ratio, in the format of the tool you pick.
+Change `/mj` to `/kling`, `/flux`, `/dalle`, `/gemini` or `/flow` and the same request comes out in that tool's style.
+
+![The expander page: type a request, pick a target, copy the result](docs/expander.jpg)
+
+### Plain English works too
+
+No slashes needed. Style words and ratios are recognised, filler is dropped, and two ratios give two prompts:
+
+![Plain-English request turned into two Kling prompts, with a panel showing what each command added](docs/plain-english.jpg)
+
+### Why not just write the prompt yourself?
+
+- **Consistent wording.** `/goldenhour` always means the same tested phrase, not whatever you remember to type.
+- **Right format per tool.** Midjourney flags, Stable Diffusion negative prompt, Kling negative field, Flux sentences.
+- **Guard rails.** Max 8 style modifiers, one winner for conflicting commands (`/4k` vs `/8k`), unknown words kept as text.
+- **Reusable.** Save your own bundles (`/mylook`), or use presets like `/productshot` and `/moviepost`.
 
 ## What is in it
 
@@ -103,6 +132,8 @@ pages opened as plain files may not keep saved data.
 ## Cheat sheet
 
 `dist/cheatsheet.html` lists every command with its wording. Searchable, and prints cleanly (Ctrl+P).
+
+![Cheat sheet](docs/cheatsheet.jpg)
 
 ## Edit and rebuild
 
