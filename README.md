@@ -269,7 +269,7 @@ Provider model names change often. Override with `OPENAI_IMAGE_MODEL` (default `
 
 Use the same commands inside ComfyUI. The **Image Style Prompt** node takes a request like `a lone lighthouse /storm /24mm /16:9 /clean` and outputs a positive prompt, a negative prompt, a width and a height, plus a report of what each command did. Wire `positive` and `negative` into your text encoders and `width` and `height` into Empty Latent Image. A second node outputs one item per ratio, so a workflow runs once for each (for example `/16:9 /9:16`).
 
-It also adds `/command` autocomplete and a live preview to the request box. It only writes text and numbers (no model is loaded) and needs no extra Python packages. Install and wiring notes are in [`comfyui/ComfyUI-ImageStyle`](comfyui/ComfyUI-ImageStyle). Tested in ComfyUI 0.39.0, not yet on older versions.
+It also adds `/command` autocomplete and a live preview to the request box. It only writes text and numbers (no model is loaded) and needs no extra Python packages. Install and wiring notes are in [`comfyui/ComfyUI-ImageStyle`](comfyui/ComfyUI-ImageStyle). A ready-made **Z-Image-Turbo workflow** with the node already wired in is here: [`image-style-z-image-turbo.json`](comfyui/ComfyUI-ImageStyle/example_workflows/image-style-z-image-turbo.json) (drag it onto the ComfyUI canvas). Tested in ComfyUI 0.39.0, not yet on older versions.
 
 ## 📋 Cheat sheet
 
