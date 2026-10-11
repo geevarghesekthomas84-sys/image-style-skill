@@ -152,7 +152,7 @@ shutil.copy(out / "SKILL.md", PL / "skills" / "image-style" / "SKILL.md")
 shutil.copy(out / "modifiers.json", PL / "skills" / "image-style" / "modifiers.json")
 shutil.copy(out / "extras.json", PL / "skills" / "image-style" / "extras.json")
 
-VERSION = "1.4.0"
+VERSION = "1.4.1"
 (PL / ".claude-plugin" / "plugin.json").write_text(json.dumps({
     "name": "image-style",
     "version": VERSION,
@@ -198,3 +198,13 @@ for n, label, how in models:
 print(f"plugin: {n_cmds} commands")
 
 exec(open(ROOT / "platforms.py", encoding="utf-8").read())
+
+# ---- root-level marketplace so `claude plugin marketplace add <owner>/<repo>` works from GitHub ----
+(ROOT / ".claude-plugin").mkdir(exist_ok=True)
+(ROOT / ".claude-plugin" / "marketplace.json").write_text(json.dumps({
+    "name": "image-style-market",
+    "owner": {"name": "GG"},
+    "description": "Image prompt style modifiers as slash commands",
+    "plugins": [{"name": "image-style", "source": "./dist/marketplace/image-style",
+                 "description": "Slash-command image style modifiers", "version": VERSION}],
+}, indent=2), encoding="utf-8")

@@ -1,0 +1,15 @@
+{
+  "name": "image-style-market",
+  "owner": {
+    "name": "GG"
+  },
+  "description": "Image prompt style modifiers as slash commands",
+  "plugins": [
+    {
+      "name": "image-style",
+      "source": "./dist/marketplace/image-style",
+      "description": "Slash-command image style modifiers",
+      "version": "1.4.1"
+    }
+  ]
+}

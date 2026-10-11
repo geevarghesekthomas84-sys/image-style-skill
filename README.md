@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.4.0-5b3fd6" alt="version 1.4.0">
+  <img src="https://img.shields.io/badge/version-1.4.1-5b3fd6" alt="version 1.4.1">
   <img src="https://img.shields.io/badge/commands-384-1f8f7a" alt="384 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
@@ -116,7 +116,7 @@ Everything is pre-built in [`dist/`](dist). Pick your tool:
 
 | Tool | What to use | How |
 |---|---|---|
-| **Claude Code** (plugin) | `dist/marketplace` | `claude plugin marketplace add ./dist/marketplace` then `claude plugin install image-style@image-style-market` |
+| **Claude Code** (plugin) | `dist/marketplace` | `claude plugin marketplace add geevarghesekthomas84-sys/image-style-skill` then `claude plugin install image-style@image-style-market` |
 | **Claude Code** (skill only) | `dist/image-style/` | Copy the folder to `~/.claude/skills/image-style/` |
 | **Claude.ai** | `dist/platforms/claude-ai/image-style.zip` | Settings → Capabilities → Skills → Upload skill |
 | **ChatGPT** | `dist/platforms/chatgpt/` | Create a Custom GPT. Paste `instructions.txt`, upload `image-style-knowledge.md`, enable Image Generation. No GPT access? Paste `custom-instructions-short.txt` into Custom instructions. |

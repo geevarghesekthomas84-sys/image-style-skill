@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.1
+- Root `.claude-plugin/marketplace.json`: the plugin installs straight from GitHub with `claude plugin marketplace add geevarghesekthomas84-sys/image-style-skill`.
+
 ## 1.4.0
 - Expander page: save your own recipes (`/mylook`), kept in the browser, with a Mine tab and delete.
 
