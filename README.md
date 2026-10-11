@@ -271,6 +271,10 @@ Use the same commands inside ComfyUI. The **Image Style Prompt** node takes a re
 
 It also adds `/command` autocomplete and a live preview to the request box. It only writes text and numbers (no model is loaded) and needs no extra Python packages. Install and wiring notes are in [`comfyui/ComfyUI-ImageStyle`](comfyui/ComfyUI-ImageStyle). A ready-made **Z-Image-Turbo workflow** with the node already wired in is here: [`image-style-z-image-turbo.json`](comfyui/ComfyUI-ImageStyle/example_workflows/image-style-z-image-turbo.json) (drag it onto the ComfyUI canvas). Tested in ComfyUI 0.39.0, not yet on older versions.
 
+![Typing / in the node shows command autocomplete](docs/comfyui-autocomplete.jpg)
+
+![The live preview shows the positive prompt, negative prompt, size and report](docs/comfyui-preview.jpg)
+
 ## 📋 Cheat sheet
 
 [`dist/cheatsheet.html`](dist/cheatsheet.html) lists every command with its wording. Searchable, and prints cleanly (Ctrl+P).
