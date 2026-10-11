@@ -92,6 +92,14 @@ Provider model names change often. Override with `OPENAI_IMAGE_MODEL` (default `
 `GEMINI_IMAGE_MODEL` (default `gemini-3.1-flash-image`) if one is rejected. Google Imagen has been shut down.
 The helper is checked against mock servers only; it has not been run with a real key.
 
+## Your own recipes
+
+In the expander page, type your usual commands, give them a name (for example `mylook`) and click
+Save these /commands as a recipe. Then `/mylook` works like any built-in command and appears under
+the Mine tab (with a delete button). Recipes are stored in your browser only. Open the page through
+`http://127.0.0.1:8787/app` (run `python imagegen.py`) so the browser keeps them reliably;
+pages opened as plain files may not keep saved data.
+
 ## Cheat sheet
 
 `dist/cheatsheet.html` lists every command with its wording. Searchable, and prints cleanly (Ctrl+P).

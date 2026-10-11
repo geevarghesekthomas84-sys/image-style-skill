@@ -44,7 +44,8 @@ input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10
  <div>
   <section class="card"><h2>1 · Your request</h2>
    <textarea id="in" placeholder="a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean" spellcheck="false"></textarea>
-   <div class="hint">Type commands, or click them in the browser on the right.</div></section>
+   <div class="hint">Type commands, or click them in the browser on the right.</div>
+   <div class="row"><input id="rn" placeholder="recipe name, e.g. mylook" maxlength="20" style="max-width:210px"><button class="chip" id="sv">Save these /commands as a recipe</button><span class="note" id="rmsg"></span></div></section>
   <section class="card"><h2>2 · Target</h2><div class="targets" id="targets"></div></section>
   <section class="card"><h2>3 · Result</h2>
    <div class="res"><pre id="out"></pre></div>
@@ -65,7 +66,11 @@ const $=i=>document.getElementById(i);
 const norm=s=>s.toLowerCase().replace(/[\s_-]+/g,"");
 const ORDER=["subject","angle","camera","motion","composition","lens","film","genre","portrait","macro","scene","landscape","architecture","space","weather","light","era","style","art","render","material","technique","effect","color","quality","reference"];
 const GROUPS=[["age20s","age30s","age40s","age50s","elderly"],["smile","serious","laughing","thoughtful","surprised","calm"],["standing","sitting","walking","running","leaning"],["lookingatcamera","lookingaway"],["longhair","shorthair"],["hdreal","4k","8k","8ktextures"],["photorealistic","hyperrealistic","ultrarealistic","rawphoto"],["14mm","24mm","35mm","50mm","85mm","135mm","200mm"],["f1.4","f2.8","f8"],["highkeylighting","lowkeylighting"],["warmtones","cooltones"],["blackandwhite","vibrantcolors","pastelcolors","monochrome","duotone"],["overexposed","underexposed"],["highcontrast","lowcontrast"]];
-const asp={},negs={},mods={},PRE={};D.presets.forEach(([n,l,t,a])=>PRE[n]={t,a});const MAX=8;const PRIO=["genre","subject","reference","style","scene","portrait","macro","angle","camera","lens","light","weather","landscape","architecture","space","film","art","render","material","technique","effect","motion","color","era","composition","quality"];let target="generic";
+const asp={},negs={},mods={},PRE={};D.presets.forEach(([n,l,t,a])=>PRE[n]={t,a});const KEY="imagestyle.recipes";
+function loadMy(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}}
+function saveMy(o){try{localStorage.setItem(KEY,JSON.stringify(o));return true}catch(e){return false}}
+let MY=loadMy();Object.entries(MY).forEach(([n,t])=>PRE[n]={t,a:null});
+const MAX=8;const PRIO=["genre","subject","reference","style","scene","portrait","macro","angle","camera","lens","light","weather","landscape","architecture","space","film","art","render","material","technique","effect","motion","color","era","composition","quality"];let target="generic";
 D.aspect.forEach(([n,r,px,note])=>{const v={r,px};asp[norm(n)]=v;asp[norm(r)]=v;asp[norm(r.replace(":","x"))]=v;
  const m=/aliases?:\s*(.*)$/.exec(note);if(m)m[1].split(/\s+/).forEach(a=>asp[norm(a)]=v)});
 D.negatives.forEach(([n,t])=>negs[n]=t);
@@ -98,7 +103,7 @@ $("targets").onclick=e=>{const b=e.target.closest("[data-m]");if(!b)return;targe
 /* core */
 let used=new Set(),GEN=null;
 function run(){
- let presetAr=null;const txt=$("in").value.replace(/(^|\s)\/([^\s/]+)/g,(m,sp,raw)=>{const P=PRE[norm(raw)];if(!P)return m;presetAr=asp[norm(P.a)];return sp+P.t.split(" ").map(x=>"/"+x).join(" ")}),dropped=[],unknown=[];let model=null,ars=[],sel=[];const neg=[];used=new Set();
+ let presetAr=null;const txt=$("in").value.replace(/(^|\s)\/([^\s/]+)/g,(m,sp,raw)=>{const P=PRE[norm(raw)];if(!P)return m;if(P.a)presetAr=asp[norm(P.a)];return sp+P.t.split(" ").map(x=>"/"+x).join(" ")}),dropped=[],unknown=[];let model=null,ars=[],sel=[];const neg=[];used=new Set();
  let subject=txt.replace(/(^|\s)\/([^\s/]+)/g,(_,sp,raw)=>{
   let k=norm(raw);if(k==="freeezeaction")k="freezeaction";
   if(mods[k]){model=k;used.add(k);return sp}
@@ -135,21 +140,21 @@ function run(){
 }
 
 /* command browser */
-const SECTIONS=[["All",null],["Presets",null],["Aspect",null],["Avoid",null],...[...new Set(D.categories)].map(c=>[c[0].toUpperCase()+c.slice(1),c])];
+const SECTIONS=[["All",null],["Mine",null],["Presets",null],["Aspect",null],["Avoid",null],...[...new Set(D.categories)].map(c=>[c[0].toUpperCase()+c.slice(1),c])];
 let cat="All";
 function allCmds(){return[
  ...D.aspect.map(([n,r,px,note])=>({n:n.replace(/^(\d)(:)/,"$1:"),key:norm(n),c:"Aspect",tip:r+" · "+px})),
  ...D.negatives.map(([n,t])=>({n,key:n,c:"Avoid",tip:"avoid: "+t})),
  ...Object.entries(D.mods).map(([n,v])=>({n,key:n,c:v.category[0].toUpperCase()+v.category.slice(1),tip:v.phrase}))]}
-const CMDS=[...D.presets.map(([n,l,t,a])=>({n,key:n,c:"Presets",tip:l+" = "+t})),...allCmds()];
+const CMDS=[];function rebuild(){CMDS.length=0;CMDS.push(...Object.entries(MY).map(([n,t])=>({n,key:n,c:"Mine",tip:t})),...D.presets.map(([n,l,t,a])=>({n,key:n,c:"Presets",tip:l+" = "+t})),...allCmds())}rebuild();
 function drawCats(){$("cats").innerHTML=SECTIONS.map(([l])=>`<button class="cat" data-c="${l}" aria-pressed="${l===cat}">${l}</button>`).join("")}
 $("cats").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.dataset.c;drawCats();drawList()};
 function drawList(){
  const q=norm($("q").value);
  const items=CMDS.filter(c=>(cat==="All"||c.c===cat)&&(!q||c.key.includes(q)||c.tip.toLowerCase().includes($("q").value.toLowerCase()))).slice(0,400);
- $("list").innerHTML=`<div class="chips">`+items.map(c=>`<button class="chip${used.has(c.key)?" on":""}" data-n="${c.n}" title="${c.tip.replace(/"/g,"&quot;")}">/${c.n}</button>`).join("")+`</div>`+(items.length?"":`<div class="hint">No commands match.</div>`);
+ $("list").innerHTML=`<div class="chips">`+items.map(c=>`<button class="chip${used.has(c.key)?" on":""}" data-n="${c.n}" title="${c.tip.replace(/"/g,"&quot;")}">/${c.n}</button>${c.c==="Mine"?`<button class="chip" data-del="${c.n}" title="Delete recipe">×</button>`:""}`).join("")+`</div>`+(items.length?"":`<div class="hint">No commands match.</div>`);
 }
-$("list").onclick=e=>{const b=e.target.closest("[data-n]");if(!b)return;const t="/"+b.dataset.n,i=$("in");
+$("list").onclick=e=>{const d=e.target.closest("[data-del]");if(d){delete MY[d.dataset.del];delete PRE[d.dataset.del];saveMy(MY);rebuild();drawList();run();return}const b=e.target.closest("[data-n]");if(!b)return;const t="/"+b.dataset.n,i=$("in");
  const re=new RegExp("(^|\\s)"+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?=\\s|$)");
  i.value=re.test(i.value)?i.value.replace(re,"$1").replace(/\s+/g," ").trim():(i.value.trim()+" "+t).trim();run()};
 $("q").oninput=drawList;
@@ -178,5 +183,14 @@ $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let he
 document.querySelectorAll("[data-o]").forEach(b=>b.onclick=()=>{const t=$("out").textContent;
  const go=()=>window.open(b.dataset.o,"_blank","noopener");
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>{flash(true);go()},()=>{flash(legacyCopy(t));go()});else{flash(legacyCopy(t));go()}});
+$("sv").onclick=()=>{const n=norm($("rn").value),msg=t=>{$("rmsg").textContent=t;setTimeout(()=>$("rmsg").textContent="",3500)};
+ if(!/^[a-z][a-z0-9]{1,19}$/.test(n))return msg("Name: 2-20 letters/numbers, starting with a letter.");
+ if(!MY[n]&&(D.mods[n]||asp[n]||negs[n]||mods[n]||PRE[n]))return msg("/"+n+" is already a built-in command.");
+ const toks=[...$("in").value.matchAll(/(?:^|\s)\/([^\s/]+)/g)].map(m=>m[1]);
+ const flat=[];toks.forEach(t=>{const k=norm(t);if(MY[k]){flat.push(...MY[k].split(" "))}else if(PRE[k]){flat.push(...PRE[k].t.split(" "));if(PRE[k].a)flat.push(PRE[k].a)}else flat.push(t)});
+ if(!flat.length)return msg("Type some /commands first.");
+ MY[n]=flat.join(" ");PRE[n]={t:MY[n],a:null};
+ if(!saveMy(MY))return msg("Saved for this session only (browser storage blocked).");
+ rebuild();cat="Mine";drawCats();drawList();msg("Saved /"+n+". Use it like any command.")};
 $("in").oninput=run;drawTargets();drawCats();run();
 </script></body></html>

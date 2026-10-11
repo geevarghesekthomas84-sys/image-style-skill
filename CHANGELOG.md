@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0
+- Expander page: save your own recipes (`/mylook`), kept in the browser, with a Mine tab and delete.
+
 ## 1.3.0
 - `dist/cheatsheet.html`: searchable, printable list of all commands.
 - GitHub Actions check runs `build.py` and `test.py` on every push.
