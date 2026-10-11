@@ -48,6 +48,38 @@ No slashes needed either: *"Create me a cinematic album double exposure, size 16
   <img src="docs/flow.svg" alt="How it works: your request goes through image-style and comes out in each tool's format" width="100%">
 </p>
 
+## 🖼️ Before and after
+
+Same tool, same size, same seed. The only difference is the commands.
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Before</b><br><code>a lighthouse on a cliff</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>a lighthouse on a cliff /storm /dramaticlighting /24mm /16:9 /flux</code></td>
+  </tr>
+  <tr>
+    <td><img src="docs/examples/1-before.jpg" alt="A lighthouse on a cliff, plain prompt"></td>
+    <td><img src="docs/examples/1-after.jpg" alt="The same lighthouse in a dark storm with lightning, from the expanded prompt"></td>
+  </tr>
+</table>
+
+<details>
+<summary>Exact prompts and how these were made</summary>
+
+Before:
+```text
+a lighthouse on a cliff
+```
+
+After (the expander's `/flux` output for the request above):
+```text
+a lighthouse on a cliff. 24mm wide lens, environmental context with natural perspective. Violent storm, dark roiling clouds, lightning, wind. Dramatic lighting, strong contrast between light and shadow.
+```
+
+Generated with the free [pollinations.ai](https://pollinations.ai) service at 1344x768, seed 1234, using the first result for each prompt (the service adds its own watermark). It is one example on one model, not a benchmark. Results vary by tool and seed.
+
+</details>
+
 ## ✨ What you get
 
 | | |
