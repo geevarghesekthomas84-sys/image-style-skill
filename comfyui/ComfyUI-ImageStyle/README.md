@@ -46,6 +46,15 @@ Outputs: `positive`, `negative`, `width`, `height`, `report`.
 
 **Image Style Prompt (all ratios)**: the same, but if you ask for `/16:9 /9:16` it returns one item per ratio, so the nodes after it run once for each.
 
+## Command helper in the request box
+
+Click into the `request` box of an Image Style node and type `/`:
+
+- **Autocomplete**: a list of matching commands appears with a short description. Use the arrow keys, then **Tab** or **Enter** to insert one (or click it). **Esc** closes the list.
+- **Live preview**: under the box you see the positive prompt, negative prompt, size and the report, updated as you type. It asks the node's own Python code, so what you see is what the node will output.
+
+It appears only in the `request` box, not in other text boxes, and hides when you click away. It needs a ComfyUI restart after installing, and does nothing to your graph.
+
 ## Wiring it up
 
 - `positive` and `negative` go into your **CLIP Text Encode** nodes. In newer frontends you can drag the link straight onto the text box; in older ones, right-click the text widget and choose **Convert to input** first.
@@ -59,8 +68,9 @@ Outputs: `positive`, `negative`, `width`, `height`, `report`.
 ## Tested
 
 - Loads and runs in **ComfyUI 0.39.0** (CPU mode): both nodes register, run, and their width and height reach Empty Latent Image and Empty Image (sizes read back as 1344x768, 768x1344, 1024x1024, 896x1120). The all-ratios node ran four times for four ratios. Invalid input is rejected by ComfyUI.
-- 16 unit tests, including exact agreement with the project's web page on 28 recorded requests (`python tests/test_core.py`).
-- **Not tested:** older ComfyUI versions, other operating systems, and combining it with other custom node packs.
+- The browser helper was tried with real keyboard input in ComfyUI's own interface (frontend 1.55.14): the list appears, the arrow keys and Tab insert a command and ComfyUI stores the new text, the preview updates, and it stays away from other text boxes.
+- 20 unit tests, including exact agreement with the project's web page on 28 recorded requests (`python tests/test_core.py`).
+- **Not tested:** older ComfyUI versions, other operating systems, other browsers, and combining it with other custom node packs.
 
 ## License
 

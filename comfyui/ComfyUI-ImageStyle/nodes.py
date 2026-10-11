@@ -112,3 +112,67 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ImageStylePrompt": "Image Style Prompt",
     "ImageStylePromptAllRatios": "Image Style Prompt (all ratios)",
 }
+
+
+# ---- small helper API used by web/imagestyle.js (autocomplete + live preview) ----
+def commands_payload():
+    """All command names the request box understands, for autocomplete."""
+    d = core.load_data()
+    items = []
+    for name, v in d["mods"].items():
+        items.append({"n": name, "c": v["category"], "p": v["phrase"]})
+    for name, r, px, note in d["aspect"]:
+        items.append({"n": name, "c": "ratio", "p": "%s (%s)" % (r, px)})
+    for name, terms in d["negatives"]:
+        items.append({"n": name, "c": "avoid", "p": "avoid: " + terms})
+    for name, label, toks, ar in d["presets"]:
+        items.append({"n": name, "c": "preset", "p": "%s = %s (ratio %s)" % (label, toks, ar)})
+    items.sort(key=lambda x: x["n"])
+    return items
+
+
+def expand_payload(body):
+    """Run the node logic on plain JSON input; returns a JSON-safe dict."""
+    body = body if isinstance(body, dict) else {}
+    request = str(body.get("request", ""))[:4000]
+    style = body.get("style") if body.get("style") in STYLES else STYLES[0]
+    ratio = body.get("default_ratio") if body.get("default_ratio") in _ratio_choices() else "1:1"
+    try:
+        mp = min(4.0, max(0.25, float(body.get("megapixels", 1.0))))
+    except (TypeError, ValueError):
+        mp = 1.0
+    try:
+        pick = min(9, max(0, int(body.get("ratio_pick", 0))))
+    except (TypeError, ValueError):
+        pick = 0
+    pos, neg, w, h, rep = ImageStylePrompt().run(
+        request, style, ratio, mp, pick,
+        extra_negative=str(body.get("extra_negative", ""))[:1000],
+        add_base_negative=bool(body.get("add_base_negative", True)),
+        fold_negatives_into_prompt=bool(body.get("fold_negatives_into_prompt", False)),
+        plain_english=bool(body.get("plain_english", False)))
+    return {"positive": pos, "negative": neg, "width": w, "height": h, "report": rep}
+
+
+def _register_routes():
+    try:  # only inside ComfyUI; plain imports (tests) skip this quietly
+        from aiohttp import web
+        from server import PromptServer
+        routes = PromptServer.instance.routes
+    except Exception:
+        return
+
+    @routes.get("/imagestyle/commands")
+    async def _commands(request):
+        return web.json_response(commands_payload())
+
+    @routes.post("/imagestyle/expand")
+    async def _expand(request):
+        try:
+            body = await request.json()
+        except Exception:
+            body = {}
+        return web.json_response(expand_payload(body))
+
+
+_register_routes()

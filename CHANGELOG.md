@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.0
+- ComfyUI node: browser extension `web/imagestyle.js`. Typing `/` in the request box shows command autocomplete (arrows, Tab or Enter to insert) and a live preview of the positive prompt, negative prompt, size and report. Backed by two small routes (`/imagestyle/commands`, `/imagestyle/expand`) that reuse the node's Python code. Tried with real input in ComfyUI frontend 1.55.14; 20 unit tests.
+
 ## 1.7.0
 - ComfyUI node pack `comfyui/ComfyUI-ImageStyle`: **Image Style Prompt** (positive, negative, width, height, report) and **Image Style Prompt (all ratios)** (one item per ratio). Python port of the expander, checked against the web page on 28 recorded requests; runs in ComfyUI 0.39.0. Zip in `dist/platforms/comfyui/`.
 

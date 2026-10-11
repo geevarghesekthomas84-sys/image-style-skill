@@ -143,5 +143,50 @@ class Nodes(unittest.TestCase):
         self.assertIn("<script>alert(1)</script>", pos)  # passed through as plain prompt text, never executed
 
 
+class WebHelper(unittest.TestCase):
+    """The browser extension talks to two small routes backed by plain functions."""
+
+    def setUp(self):
+        self.nodes = sys.modules["ComfyUI_ImageStyle.nodes"]
+
+    def test_commands_payload(self):
+        items = self.nodes.commands_payload()
+        names = set(i["n"] for i in items)
+        for must in ("storm", "24mm", "16:9", "clean", "productshot", "square"):
+            self.assertIn(must, names)
+        self.assertNotIn("mj", names)  # target-tool names are ignored by the node, so not suggested
+        self.assertTrue(all(set(i) == {"n", "c", "p"} for i in items))
+
+    def test_expand_payload_matches_node(self):
+        e = self.nodes.expand_payload({"request": "a cat /storm /16:9 /clean", "style": self.nodes.STYLES[0]})
+        self.assertEqual((e["width"], e["height"]), (1344, 768))
+        self.assertIn("violent storm", e["positive"])
+        self.assertIn("lowres", e["negative"])
+        self.assertIn("ratio 16:9", e["report"])
+
+    def test_expand_payload_survives_junk(self):
+        for body in (None, "x", 5, {}, {"megapixels": "abc", "ratio_pick": "q", "style": "zzz", "default_ratio": "9:99"},
+                     {"request": "a" * 20000}):
+            e = self.nodes.expand_payload(body)
+            self.assertEqual(set(e), {"positive", "negative", "width", "height", "report"})
+
+    def test_extension_file_is_wired_and_parses(self):
+        self.assertEqual(getattr(pkg, "WEB_DIRECTORY", None), "./web")
+        js = os.path.join(PKG, "web", "imagestyle.js")
+        self.assertTrue(os.path.isfile(js))
+        with open(js, encoding="utf-8") as fh:
+            src = fh.read()
+        self.assertIn('registerExtension', src)
+        self.assertNotIn("innerHTML", src)  # preview text is always set as plain text
+        import shutil, subprocess, tempfile
+        node = shutil.which("node")
+        if node:
+            tmp = os.path.join(tempfile.mkdtemp(), "imagestyle.mjs")
+            with open(tmp, "w", encoding="utf-8") as fh:
+                fh.write(src)
+            r = subprocess.run([node, "--check", tmp], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

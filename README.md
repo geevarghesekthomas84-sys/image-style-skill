@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.7.0-5b3fd6" alt="version 1.7.0">
+  <img src="https://img.shields.io/badge/version-1.8.0-5b3fd6" alt="version 1.8.0">
   <img src="https://img.shields.io/badge/commands-402-1f8f7a" alt="402 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
@@ -269,7 +269,7 @@ Provider model names change often. Override with `OPENAI_IMAGE_MODEL` (default `
 
 Use the same commands inside ComfyUI. The **Image Style Prompt** node takes a request like `a lone lighthouse /storm /24mm /16:9 /clean` and outputs a positive prompt, a negative prompt, a width and a height, plus a report of what each command did. Wire `positive` and `negative` into your text encoders and `width` and `height` into Empty Latent Image. A second node outputs one item per ratio, so a workflow runs once for each (for example `/16:9 /9:16`).
 
-It only writes text and numbers (no model is loaded) and needs no extra Python packages. Install and wiring notes are in [`comfyui/ComfyUI-ImageStyle`](comfyui/ComfyUI-ImageStyle). Tested in ComfyUI 0.39.0, not yet on older versions.
+It also adds `/command` autocomplete and a live preview to the request box. It only writes text and numbers (no model is loaded) and needs no extra Python packages. Install and wiring notes are in [`comfyui/ComfyUI-ImageStyle`](comfyui/ComfyUI-ImageStyle). Tested in ComfyUI 0.39.0, not yet on older versions.
 
 ## 📋 Cheat sheet
 
