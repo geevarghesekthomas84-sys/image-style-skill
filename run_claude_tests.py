@@ -20,30 +20,30 @@ CASES = [
      ["double exposure", "16:9", "9:16", "cinematic"], ["ratio frame", "create me"]),
     ("preset + Flux size",
      PRE + "a ceramic mug /productshot /flux",
-     ["85mm", "1024x1024"], []),
+     ["85mm", "1024x1024", "studio"], []),
     ("cap at 8 modifiers is reported",
      PRE + "a girl /portrait /85mm /f1.4 /bokeh /goldenhour /filmgrain /vintage /cinematic /fog /rimlight /backlight /softlighting",
-     ["drop"], []),
+     ["drop", "8"], []),
     ("unknown command is reported, not invented",
      PRE + "a cat /notacommand /8k",
      ["notacommand"], []),
     ("conflict: last of high-key / low-key wins",
      PRE + "a room /highkeylighting /lowkeylighting",
-     ["low-key"], []),
+     ["low-key"], ["high-key lighting, bright, minimal shadows"]),
     ("subject controls and reference flags (Midjourney)",
      PRE + "a woman at a cafe /age30s /smile /sitting /sameface /samestyle /mj",
-     ["thirties", "--cref", "--sref"], []),
+     ["thirties", "smile", "sitting", "--cref", "--sref"], []),
     ("couple preset expands and uses its default ratio",
      PRE + "a couple on a beach /couplepro /mj",
-     ["couple", "--ar 4:5", "85mm"], []),
+     ["couple", "--ar 4:5", "85mm", "--no", "extra fingers"], []),
     ("motion command ignored for a still image",
      PRE + "a car on a road /orbit /cinematic /generic",
-     ["cinematic"], []),
+     ["cinematic"], ["camera orbiting around the subject"]),
 ]
 
 
 def run(prompt):
-    r = subprocess.run(["claude", "-p", prompt], capture_output=True, text=True, timeout=240, cwd=None)
+    r = subprocess.run(["claude", "-p", prompt], capture_output=True, text=True, timeout=240, cwd=None, stdin=subprocess.DEVNULL)
     return (r.stdout or "") + (r.stderr or "")
 
 
@@ -61,7 +61,10 @@ def main():
             continue
         low = out.lower()
         miss = [n for n in need if n.lower() not in low]
-        hit = [f for f in forbid if f.lower() in low]
+        import re as _re
+        blocks = _re.findall(r"```[a-z]*\s(.*?)```", out, _re.S)
+        scope = " ".join(blocks).lower() if blocks else low   # forbidden text only matters inside the prompt itself
+        hit = [f for f in forbid if f.lower() in scope]
         if "failed to authenticate" in low:
             print("Not signed in: run `claude` once and log in, then re-run.")
             return 2
