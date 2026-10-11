@@ -50,33 +50,93 @@ No slashes needed either: *"Create me a cinematic album double exposure, size 16
 
 ## 🖼️ Before and after
 
-Same tool, same size, same seed. The only difference is the commands.
+Same idea, same tool for each pair. The only difference is the commands.
 
 <table>
   <tr>
     <td width="50%" align="center"><b>Before</b><br><code>a lighthouse on a cliff</code></td>
-    <td width="50%" align="center"><b>After</b><br><code>a lighthouse on a cliff /storm /dramaticlighting /24mm /16:9 /flux</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>a lighthouse on a cliff /storm /dramaticlighting /24mm /16:9</code></td>
   </tr>
   <tr>
-    <td><img src="docs/examples/1-before.jpg" alt="A lighthouse on a cliff, plain prompt"></td>
-    <td><img src="docs/examples/1-after.jpg" alt="The same lighthouse in a dark storm with lightning, from the expanded prompt"></td>
+    <td><img src="docs/examples/lighthouse-before.jpg" alt="A lighthouse on a calm coast at sunset, plain prompt"></td>
+    <td><img src="docs/examples/lighthouse-after.jpg" alt="The same subject in a dark storm with lightning, from the expanded prompt"></td>
   </tr>
 </table>
 
+<details open>
+<summary><b>More pairs</b> (portrait, product, landscape)</summary>
+
+**Cafe portrait**: `a woman at a cafe` vs `a woman at a cafe /portraitpro /goldenhour /smile /sitting`
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Before</b><br><code>a woman at a cafe</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>... /portraitpro /goldenhour /smile /sitting</code></td>
+  </tr>
+  <tr>
+    <td><img src="docs/examples/cafe-a-before.jpg" alt="A woman in an indoor cafe with a laptop, plain prompt"></td>
+    <td><img src="docs/examples/cafe-a-after.jpg" alt="A smiling woman outdoors in golden light with soft background blur"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Before</b><br><code>a woman at a cafe</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>... /portraitpro /goldenhour /smile /sitting</code></td>
+  </tr>
+  <tr>
+    <td><img src="docs/examples/cafe-b-before.jpg" alt="A woman in a green sweater at a street cafe, plain prompt"></td>
+    <td><img src="docs/examples/cafe-b-after.jpg" alt="A smiling woman in golden light with warm bokeh, from the expanded prompt"></td>
+  </tr>
+</table>
+
+**Product shot**: `a ceramic mug` vs `a ceramic mug /productshot`
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Before</b><br><code>a ceramic mug</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>a ceramic mug /productshot</code></td>
+  </tr>
+  <tr>
+    <td><img src="docs/examples/mug-before.jpg" alt="A ceramic mug on a rustic table, plain prompt"></td>
+    <td><img src="docs/examples/mug-after.jpg" alt="The mug against a clean soft studio background"></td>
+  </tr>
+</table>
+
+**Landscape**: `a forest path` vs `a forest path /foggyforest /goldenhour /24mm`
+
+<table>
+  <tr>
+    <td width="50%" align="center"><b>Before</b><br><code>a forest path</code></td>
+    <td width="50%" align="center"><b>After</b><br><code>a forest path /foggyforest /goldenhour /24mm</code></td>
+  </tr>
+  <tr>
+    <td><img src="docs/examples/forest-before.jpg" alt="A forest path in autumn with golden mist, plain prompt"></td>
+    <td><img src="docs/examples/forest-after.jpg" alt="A misty conifer forest path with layered fog and golden light"></td>
+  </tr>
+</table>
+
+</details>
+
 <details>
-<summary>Exact prompts and how these were made</summary>
+<summary>Exact prompts and honest notes</summary>
 
-Before:
+The commands side is the expander's output for each request (the lighthouse one is the `/mj` form without flags; the others use `/gemini` sentences):
+
 ```text
-a lighthouse on a cliff
+a lighthouse on a cliff, 24mm wide lens, environmental context with natural perspective, violent storm, dark roiling clouds, lightning, wind, dramatic lighting, strong contrast between light and shadow
+
+a woman at a cafe. Warm natural smile. Seated pose. 85mm portrait lens, flattering compression, creamy background. Aperture f/1.4, razor-thin focus plane, heavy background blur. Beautiful bokeh, creamy out-of-focus highlights. Portrait photograph, subject-centered, flattering framing. Soft diffused lighting, gentle shadows, flattering glow. Golden hour, warm low-angle sunlight, long soft shadows. Avoid extra fingers, missing fingers, deformed hands, extra limbs, malformed anatomy, distorted face, cross-eyed.
+
+a ceramic mug. 85mm portrait lens, flattering compression, creamy background. Shallow depth of field, sharp subject, blurred background. Product photography, clean hero shot, clean background, commercial lighting. Professional studio setup, controlled lighting, clean backdrop. Soft diffused lighting, gentle shadows, flattering glow. Tack-sharp focus on the subject. Avoid text, watermark, logo, signature, caption, username.
+
+a forest path, 24mm wide lens, environmental context with natural perspective, foggy forest, misty trees, quiet depth layers, golden hour, warm low-angle sunlight, long soft shadows
 ```
 
-After (the expander's `/flux` output for the request above):
-```text
-a lighthouse on a cliff. 24mm wide lens, environmental context with natural perspective. Violent storm, dark roiling clouds, lightning, wind. Dramatic lighting, strong contrast between light and shadow.
-```
-
-Generated with the free [pollinations.ai](https://pollinations.ai) service at 1344x768, seed 1234, using the first result for each prompt (the service adds its own watermark). It is one example on one model, not a benchmark. Results vary by tool and seed.
+- Images were generated by the project author with AI image tools. The exact tool, version and seed were not recorded, and some images carry the tool's own corner mark.
+- One result per prompt, shown as made. This is a set of examples, not a benchmark: results vary by tool and seed.
+- Aspect-ratio commands (`/16:9`, `/9:16`) were not applied by the tools used, so the outputs are square or 3:4.
+- The two cafe pairs are separate runs of the same request.
 
 </details>
 
