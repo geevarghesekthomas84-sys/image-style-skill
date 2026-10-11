@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.8.1
+- ComfyUI: example workflow `example_workflows/image-style-z-image-turbo.json` (Z-Image-Turbo with the Image Style node wired in). Loads with no missing nodes; not run end to end on a GPU.
+
 ## 1.8.0
 - ComfyUI node: browser extension `web/imagestyle.js`. Typing `/` in the request box shows command autocomplete (arrows, Tab or Enter to insert) and a live preview of the positive prompt, negative prompt, size and report. Backed by two small routes (`/imagestyle/commands`, `/imagestyle/expand`) that reuse the node's Python code. Tried with real input in ComfyUI frontend 1.55.14; 20 unit tests.
 

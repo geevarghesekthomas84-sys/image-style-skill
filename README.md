@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.8.0-5b3fd6" alt="version 1.8.0">
+  <img src="https://img.shields.io/badge/version-1.8.1-5b3fd6" alt="version 1.8.1">
   <img src="https://img.shields.io/badge/commands-402-1f8f7a" alt="402 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>

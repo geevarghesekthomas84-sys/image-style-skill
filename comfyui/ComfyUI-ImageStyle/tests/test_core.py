@@ -188,5 +188,23 @@ class WebHelper(unittest.TestCase):
             self.assertEqual(r.returncode, 0, r.stderr)
 
 
+
+class ExampleWorkflow(unittest.TestCase):
+    def test_example_workflow_is_consistent(self):
+        path = os.path.join(PKG, "example_workflows", "image-style-z-image-turbo.json")
+        with open(path, encoding="utf-8") as fh:
+            wf = json.load(fh)
+        ids = set(n["id"] for n in wf["nodes"])
+        types = [n["type"] for n in wf["nodes"]]
+        self.assertIn("ImageStylePrompt", types)
+        self.assertEqual(len(wf["links"]), 14)
+        for l in wf["links"]:
+            self.assertIn(l[1], ids)
+            self.assertIn(l[3], ids)
+        stylenode = [n for n in wf["nodes"] if n["type"] == "ImageStylePrompt"][0]
+        self.assertIn(stylenode["widgets_values"][1], pkg.nodes.STYLES)
+        self.assertIn(stylenode["widgets_values"][2], core.ratio_names())
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)

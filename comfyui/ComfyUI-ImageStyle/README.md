@@ -46,6 +46,10 @@ Outputs: `positive`, `negative`, `width`, `height`, `report`.
 
 **Image Style Prompt (all ratios)**: the same, but if you ask for `/16:9 /9:16` it returns one item per ratio, so the nodes after it run once for each.
 
+## Example workflow
+
+`example_workflows/image-style-z-image-turbo.json` is a complete Z-Image-Turbo workflow with the Image Style node already wired in (prompt into CLIP Text Encode, width and height into Empty SD3 Latent Image, report into Preview Any). Drag the file onto the ComfyUI canvas, or find it under **Templates** (custom node templates) after a restart. Check the three model names in the loader nodes match your files (`z_image_turbo_bf16`, `qwen_3_4b`, `ae`).
+
 ## Command helper in the request box
 
 Click into the `request` box of an Image Style node and type `/`:
