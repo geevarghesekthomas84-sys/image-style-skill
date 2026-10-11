@@ -231,6 +231,8 @@ It includes a searchable command browser (click to add), one-click copy, and a p
 
 ![Plain-English request turned into two Kling prompts, with a panel showing what each command added](docs/plain-english.jpg)
 
+**Share links:** when the page is served from a web address (not opened as a local file), a **Copy link** button makes a URL like `...#r=a lighthouse /storm /24mm /16:9&t=mj` that reopens the same request and target for anyone. Your own saved recipes are expanded into plain commands first, so the link works for others.
+
 Also in the page: **Copy and open** buttons (Flow, Kling, ChatGPT, Gemini, Midjourney) and **your own saved recipes**.
 
 <details>

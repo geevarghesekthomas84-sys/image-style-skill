@@ -49,7 +49,7 @@ input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10
   <section class="card"><h2>2 · Target</h2><div class="targets" id="targets"></div></section>
   <section class="card"><h2>3 · Result</h2>
    <div class="res"><pre id="out"></pre></div>
-   <div class="row"><button class="copy" id="cp">Copy</button><!--FULL--><button class="copy gen" id="gen">Generate image</button><!--/FULL--><span class="note" id="note"></span></div>
+   <div class="row"><button class="copy" id="cp">Copy</button><button class="chip" id="lk" title="Copy a link that opens this request">Copy link</button><!--FULL--><button class="copy gen" id="gen">Generate image</button><!--/FULL--><span class="note" id="note"></span></div>
    <!--FULL--><div class="gal" id="gal"></div>
    <div class="row"><span class="priv" style="margin:0">Copy and open:</span><button class="chip" data-o="https://labs.google/fx/tools/flow">Google Flow</button><button class="chip" data-o="https://klingai.com">Kling</button><button class="chip" data-o="https://chatgpt.com">ChatGPT</button><button class="chip" data-o="https://gemini.google.com">Gemini</button><button class="chip" data-o="https://www.midjourney.com">Midjourney</button></div><div class="priv">Generate image uses your local helper (imagegen.py + your own API key) if it is running, otherwise the free image.pollinations.ai service. Copy never leaves your device.</div><!--/FULL--></section>
   <section class="card"><h2>What each command added</h2><div id="exp" class="exp"></div></section>
@@ -136,7 +136,7 @@ function run(){
  $("exp").innerHTML=(sel.map(k=>`<div><b>/${k}</b>${D.mods[k].phrase}</div>`).join("")+dropped.map(k=>`<div><s><b>/${k.split(" ")[0]}</b>dropped: ${k.includes("over")?"over the 8-modifier limit":"conflicts with a later command"}</s></div>`).join("")+ars.map(a=>`<div><b>/${a.r}</b>aspect ratio ${a.r} (${a.px})</div>`).join("")+(nl?`<div><b>avoid</b>${nl}</div>`:""))||'<div class="none">Type a request with /commands to see what each one adds.</div>';
  $("out").textContent=o;
  $("note").textContent=[dropped.length?"Dropped: "+dropped.join(", "):"",unknown.length?"Unknown: /"+unknown.join(", /"):""].filter(Boolean).join("  ·  ");
- drawList();
+ drawList();syncHash();
 }
 
 /* command browser */
@@ -193,5 +193,15 @@ $("sv").onclick=()=>{const n=norm($("rn").value),msg=t=>{$("rmsg").textContent=t
  MY[n]=flat.join(" ");PRE[n]={t:MY[n],a:null};
  if(!saveMy(MY))return msg("Saved for this session only (browser storage blocked).");
  rebuild();cat="Mine";drawCats();drawList();msg("Saved /"+n+". Use it like any command.")};
-$("in").oninput=run;drawTargets();drawCats();run();
+
+/* shareable links: #r=<request>&t=<target> */
+function expandMine(t){return t.replace(/(^|\s)\/([^\s/]+)/g,(m,sp,raw)=>MY[norm(raw)]?sp+MY[norm(raw)].split(" ").map(x=>"/"+x).join(" "):m)}
+function encReq(){return "#r="+encodeURIComponent(expandMine($("in").value))+"&t="+encodeURIComponent(target)}
+function shareUrl(){return location.href.split("#")[0]+encReq()}
+function syncHash(){try{if($("in").value.trim())history.replaceState(null,"",encReq());else history.replaceState(null,"",location.pathname+location.search)}catch(e){}}
+function loadHash(){try{const q=new URLSearchParams(location.hash.slice(1)),r=q.get("r"),t=q.get("t");if(r)$("in").value=r.slice(0,2000);if(t&&mods[t])target=t}catch(e){}}
+if(!/^https?:$/.test(location.protocol)||/^(127\.0\.0\.1|localhost)$/.test(location.hostname))$("lk").style.display="none";
+$("lk").onclick=()=>{const t=shareUrl(),b=$("lk"),done=ok=>{b.textContent=ok?"Link copied ✓":"Press Ctrl+C";setTimeout(()=>b.textContent="Copy link",1600)};
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>done(true),()=>done(legacyCopy(t)));else done(legacyCopy(t))};
+$("in").oninput=run;loadHash();drawTargets();drawCats();run();
 </script></body></html>
