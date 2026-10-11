@@ -5,11 +5,13 @@
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
   <img src="https://img.shields.io/badge/version-1.5.0-5b3fd6" alt="version 1.5.0">
+  <a href="https://geevarghesekthomas84-sys.github.io/image-style-skill/"><img src="https://img.shields.io/badge/live%20demo-open-d6479a" alt="live demo"></a>
   <img src="https://img.shields.io/badge/commands-402-1f8f7a" alt="402 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
 
 <p align="center">
+  <a href="https://geevarghesekthomas84-sys.github.io/image-style-skill/"><b>Live demo</b></a> ·
   <a href="#-quick-start">Quick start</a> ·
   <a href="#-what-you-get">What you get</a> ·
   <a href="#-commands">Commands</a> ·
@@ -216,7 +218,7 @@ Everything is pre-built in [`dist/`](dist). Pick your tool:
 | **Claude.ai** | `dist/platforms/claude-ai/image-style.zip` | Settings → Capabilities → Skills → Upload skill |
 | **ChatGPT** | `dist/platforms/chatgpt/` | Create a Custom GPT. Paste `instructions.txt`, upload `image-style-knowledge.md`, enable Image Generation. No GPT access? Paste `custom-instructions-short.txt` into Custom instructions. |
 | **Gemini** | `dist/platforms/gemini/` | Create a Gem. Paste `instructions.txt`, add `image-style-knowledge.md` as knowledge. |
-| **Google Flow, Kling, anything else** | `dist/platforms/flow-kling-anywhere/expander.html` | Open in a browser (works offline). Type, pick the tool, copy. |
+| **Google Flow, Kling, anything else** | [Live demo](https://geevarghesekthomas84-sys.github.io/image-style-skill/) or `dist/platforms/flow-kling-anywhere/expander.html` | Open the site, or save the file and open it offline. Type, pick the tool, copy. |
 
 Plugin commands are namespaced (`/image-style:goldenhour a quiet harbor`). The skill also understands bare tokens in normal messages.
 Claude.ai has no image generator, so it returns the final prompt for you to paste.
@@ -224,6 +226,8 @@ Claude.ai has no image generator, so it returns the final prompt for you to past
 ## 💻 The expander page
 
 Google Flow and Kling have no skill or plugin system, so there is a single offline web page that does the same job.
+
+**Try it now: https://geevarghesekthomas84-sys.github.io/image-style-skill/** (nothing is uploaded; it runs in your browser).
 
 ![The expander page: type a request, pick a target, copy the result](docs/expander.jpg)
 

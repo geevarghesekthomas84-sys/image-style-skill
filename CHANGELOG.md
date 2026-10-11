@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.1
+- Live demo on GitHub Pages (served from `docs/`): the expander page and cheat sheet.
+
 ## 1.5.0
 - Couple and wedding commands (16, adults only): `/couple` `/prewedding` `/engagement` `/wedding` `/anniversary` `/romantic` `/holdinghands` `/embrace` `/foreheadtouch` `/walkingtogether` `/dancingcouple` `/laughingtogether` `/backtoback` `/candidcouple` `/silhouettecouple` `/sunsetcouple`.
 - Presets `/couplepro` and `/weddingclassic`. 402 commands in total.
