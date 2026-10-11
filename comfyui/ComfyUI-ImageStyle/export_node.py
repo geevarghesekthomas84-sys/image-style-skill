@@ -121,16 +121,17 @@ class ImageStyleUploadConvert(object):
         else:
             raise ValueError("Choose a picture (click 'choose file to upload') or connect an IMAGE to 'images'.")
 
-        saved, ui_images, svg_text = [], [], ""
+        saved, ui_images, files, svg_text = [], [], [], ""
         for pil in pils:
             stem, subfolder = _save_target(filename_prefix, pil.width, pil.height)
             path, svg = convert.save_as(pil, format, stem, quality, svg_colors, max_trace_size, smoothness)
             saved.append(path)
+            files.append({"filename": os.path.basename(path), "subfolder": subfolder, "type": "output"})
             if not svg_text:
                 svg_text = svg
             if format in PREVIEWABLE:
                 ui_images.append({"filename": os.path.basename(path), "subfolder": subfolder, "type": "output"})
-        ui = {"text": ["\n".join(saved)]}
+        ui = {"text": ["\n".join(saved)], "files": files}
         if ui_images:
             ui["images"] = ui_images
         return {"ui": ui, "result": (out_tensor, "\n".join(saved), svg_text)}

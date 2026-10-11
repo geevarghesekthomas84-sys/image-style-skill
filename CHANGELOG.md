@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.3
+- ComfyUI Upload & Convert: new **Download last result** button on the node. After a run it saves the produced file(s) (SVG, PNG, ...) through the browser, so you don't have to dig in the `output` folder. Checked in the ComfyUI front end: run, press the button, the SVG downloaded (10 KB, valid `<svg>`). Pressing it before a run shows a short hint.
+
 ## 1.10.2
 - ComfyUI Upload & Convert: no more empty "(none)" picker that showed "Image failed to load". A small sample picture (`image-style-sample.png`) is copied into ComfyUI's `input` folder and selected by default, so pressing Run works at once; "choose file to upload" uses your own picture, and a connected `images` input still wins. Run through the ComfyUI front end: sample picture to SVG saved with previews. Example workflows updated.
 

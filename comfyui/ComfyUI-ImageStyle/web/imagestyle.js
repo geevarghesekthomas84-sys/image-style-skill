@@ -266,8 +266,38 @@ function onFocusOut(e) {
   hideTimer = setTimeout(hide, 150);
 }
 
+// "Download" button on the Upload & Convert node: saves the files made by the last run through the browser
+function downloadSaved(node) {
+  const files = node._imgstyleFiles || [];
+  if (!files.length) { alert("Run the workflow first, then press Download."); return; }
+  files.forEach((f, i) => setTimeout(async () => {
+    const url = api.apiURL("/view?" + new URLSearchParams({ filename: f.filename, subfolder: f.subfolder || "", type: f.type || "output" }));
+    const blob = await (await fetch(url)).blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = f.filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  }, i * 400));
+}
+
 app.registerExtension({
   name: "ImageStyle.CommandHelper",
+  async beforeRegisterNodeDef(nodeType, nodeData) {
+    if (nodeData.name !== "ImageStyleUploadConvert") return;
+    const created = nodeType.prototype.onNodeCreated;
+    nodeType.prototype.onNodeCreated = function () {
+      const r = created ? created.apply(this, arguments) : undefined;
+      this.addWidget("button", "Download last result", null, () => downloadSaved(this), { serialize: false });
+      return r;
+    };
+    const executed = nodeType.prototype.onExecuted;
+    nodeType.prototype.onExecuted = function (message) {
+      this._imgstyleFiles = (message && message.files) || [];
+      return executed ? executed.apply(this, arguments) : undefined;
+    };
+  },
   setup() {
     document.addEventListener("focusin", onFocusIn, true);
     document.addEventListener("focusout", onFocusOut, true);
