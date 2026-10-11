@@ -75,7 +75,22 @@ Create a Gem. Paste `dist/platforms/gemini/instructions.txt` into Instructions a
 These have no skill or plugin system. Open `dist/platforms/flow-kling-anywhere/expander.html`
 in a browser (works offline). Type a request, pick the target, copy the result.
 It has a command browser, a "what each command added" panel, and one-click copy-and-open buttons.
-The Generate image button uses a free third-party service and is often rate-limited.
+
+### Generate image (optional, your own API key)
+
+The Generate image button tries your own API first, then a free third-party service
+(often rate-limited). Your key never goes into the web page: a small local helper holds it.
+
+```bash
+# PowerShell
+$env:OPENAI_API_KEY = "sk-..."      # and/or $env:GEMINI_API_KEY = "..."
+python imagegen.py
+```
+
+Then open http://127.0.0.1:8787/app and click Generate image. Images are billed to your provider account.
+Provider model names change often. Override with `OPENAI_IMAGE_MODEL` (default `gpt-image-2`) or
+`GEMINI_IMAGE_MODEL` (default `gemini-3.1-flash-image`) if one is rejected. Google Imagen has been shut down.
+The helper is checked against mock servers only; it has not been run with a real key.
 
 ## Edit and rebuild
 

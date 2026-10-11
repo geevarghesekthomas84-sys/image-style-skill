@@ -71,6 +71,13 @@ except FileNotFoundError:
 finally:
     tmp.unlink(missing_ok=True)
 
+import py_compile
+try:
+    py_compile.compile(str(ROOT / "imagegen.py"), doraise=True, cfile=str(ROOT / "_ig.pyc"))
+except py_compile.PyCompileError as e:
+    fails.append("imagegen.py: " + str(e)[:200])
+(ROOT / "_ig.pyc").unlink(missing_ok=True)
+
 print(f"{len(names)} commands checked, {len(fails)} problems")
 for f in fails:
     print(" -", f)

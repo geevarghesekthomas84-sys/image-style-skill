@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0
+- `imagegen.py`: local helper so Generate image can use your own OpenAI or Gemini key (key stays in an environment variable, not the page). Falls back to the free service.
+
 ## 1.2.0
 - Subject controls: age, expression, pose, gaze, outfit, hair (29).
 - Reference commands: `/sameface`, `/samestyle`, `/samepose`, `/samecomposition`, `/samecolors`, `/samelighting`.
