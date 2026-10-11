@@ -46,6 +46,28 @@ Outputs: `positive`, `negative`, `width`, `height`, `report`.
 
 **Image Style Prompt (all ratios)**: the same, but if you ask for `/16:9 /9:16` it returns one item per ratio, so the nodes after it run once for each.
 
+## Upload & Convert node (SVG, PNG, JPG, WebP, BMP, TIFF, GIF)
+
+**Image Style Upload & Convert** has an **upload button** (choose a file from your computer) and saves the picture in the format you pick. You can also connect an `IMAGE` from your workflow to `images` instead, for example the output of a sampler. If you connect one, the uploaded file is ignored.
+
+| Setting | What it does |
+|---|---|
+| `format` | `png`, `jpg`, `webp`, `bmp`, `tiff`, `gif`, `svg (trace to vector)` or `svg (embed image)`. |
+| `quality` | For `jpg` and `webp`. |
+| `svg_colors` | How many flat colours the tracer uses (2 to 32). More colours give more detail and a bigger file. |
+| `max_trace_size` | Longest side, in pixels, used while tracing (64 to 1024). Bigger is slower. |
+| `smoothness` | Higher values give simpler, smoother outlines. |
+| `filename_prefix` | Files are saved in ComfyUI's `output` folder, numbered like `image-style_00001_.svg`. |
+
+Outputs: `image` (passes the picture on), `saved_path`, and `svg_text` (the SVG source, empty for other formats).
+
+**Be clear about what SVG means here**
+- `svg (trace to vector)` turns the picture into flat-colour vector paths. It is good for **logos, icons, flat illustrations and stylised art**. **Photos become a posterised look** (flat colour bands), not a photographic vector. It takes about a second for a 512 px image. Transparency is flattened onto white.
+- `svg (embed image)` only wraps the picture inside an SVG file. It scales in a viewer but is **not** vector artwork.
+- Files are only written into ComfyUI's output folder. A file name that tries to climb out of it is refused.
+
+![The Upload and Convert node with its upload button and preview](../../docs/comfyui-upload-convert.jpg)
+
 ## Example workflow
 
 `example_workflows/image-style-z-image-turbo.json` is a complete Z-Image-Turbo workflow with the Image Style node already wired in (prompt into CLIP Text Encode, width and height into Empty SD3 Latent Image, report into Preview Any). Drag the file onto the ComfyUI canvas, or find it under **Templates** (custom node templates) after a restart. Check the three model names in the loader nodes match your files (`z_image_turbo_bf16`, `qwen_3_4b`, `ae`).
@@ -73,7 +95,8 @@ It appears only in the `request` box, not in other text boxes, and hides when yo
 
 - Loads and runs in **ComfyUI 0.39.0** (CPU mode): both nodes register, run, and their width and height reach Empty Latent Image and Empty Image (sizes read back as 1344x768, 768x1344, 1024x1024, 896x1120). The all-ratios node ran four times for four ratios. Invalid input is rejected by ComfyUI.
 - The browser helper was tried with real keyboard input in ComfyUI's own interface (frontend 1.55.14): the list appears, the arrow keys and Tab insert a command and ComfyUI stores the new text, the preview updates, and it stays away from other text boxes.
-- 20 unit tests, including exact agreement with the project's web page on 28 recorded requests (`python tests/test_core.py`).
+- **Upload & Convert** was run in ComfyUI 0.39.0: an image uploaded through ComfyUI's own upload endpoint was saved in all 8 formats, a batch of 2 gave 2 files, the image passed on to the next node, a missing image gave a clear error, and a path-escape file name was refused. The node shows the upload button and a preview on the canvas.
+- 28 unit tests, including exact agreement with the project's web page on 28 recorded requests (`python tests/test_core.py`).
 - **Not tested:** older ComfyUI versions, other operating systems, other browsers, and combining it with other custom node packs.
 
 ## License

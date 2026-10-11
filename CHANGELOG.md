@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.0
+- ComfyUI: new node **Image Style Upload & Convert**. Upload an image (or connect one) and save it as PNG, JPG, WebP, BMP, TIFF, GIF, SVG (traced to flat-colour vector paths) or SVG (picture embedded). The tracer is plain NumPy and Pillow, with no extra installs. Photos come out posterised; best for logos, icons and flat art. Run end to end in ComfyUI 0.39.0; 28 unit tests.
+
 ## 1.9.0
 - Fix: lens and camera phrases no longer name equipment. `/200mm` used to say "200mm telephoto lens", and some models then drew a lens or camera (even with "300 mm" written on it) into the picture. 19 phrases now describe the look instead, for example "200mm look, extreme background compression, isolated subject" and "85mm portrait framing". Affected: the focal lengths (`/14mm` to `/200mm`), `/tiltshift`, `/telephoto`, `/macrolens`, `/wideangle`, `/fisheye`, `/anamorphic`, `/lensflare`, `/topdown`, `/highangle`, `/lowangle`, `/wildlifephotography`, `/disposablecamera`.
 - New avoid-list `/nogear` (camera, lens, DSLR, lens markings). 403 commands.

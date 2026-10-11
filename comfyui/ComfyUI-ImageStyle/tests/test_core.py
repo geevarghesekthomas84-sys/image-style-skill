@@ -96,7 +96,8 @@ class Nodes(unittest.TestCase):
         self.kw = "keywords (SD, SDXL, Pony)"
 
     def test_registered(self):
-        self.assertEqual(set(pkg.NODE_CLASS_MAPPINGS), {"ImageStylePrompt", "ImageStylePromptAllRatios"})
+        self.assertEqual(set(pkg.NODE_CLASS_MAPPINGS),
+                         {"ImageStylePrompt", "ImageStylePromptAllRatios", "ImageStyleUploadConvert"})
         self.assertEqual(set(pkg.NODE_DISPLAY_NAME_MAPPINGS), set(pkg.NODE_CLASS_MAPPINGS))
 
     def test_input_types_shape(self):
@@ -188,6 +189,94 @@ class WebHelper(unittest.TestCase):
             r = subprocess.run([node, "--check", tmp], capture_output=True, text=True)
             self.assertEqual(r.returncode, 0, r.stderr)
 
+
+
+class Convert(unittest.TestCase):
+    """The converter and the upload/convert node (no ComfyUI needed)."""
+
+    @classmethod
+    def setUpClass(cls):
+        from PIL import Image, ImageDraw
+        cls.Image = Image
+        cls.convert = sys.modules["ComfyUI_ImageStyle.convert"]
+        im = Image.new("RGB", (160, 100), (255, 255, 255))
+        d = ImageDraw.Draw(im)
+        d.ellipse((15, 15, 80, 85), fill=(220, 30, 30))
+        d.rectangle((100, 25, 145, 75), fill=(30, 60, 200))
+        cls.img = im
+
+    def test_trace_is_valid_svg_with_the_right_colours(self):
+        import xml.dom.minidom as md
+        svg = self.convert.trace_svg(self.img, colors=4)
+        md.parseString(svg)
+        self.assertIn('viewBox="0 0', svg)
+        self.assertIn('width="160" height="100"', svg)          # keeps the original size
+        self.assertNotIn("<script", svg)
+        self.assertNotIn("<image", svg)                          # real paths, not an embedded picture
+        fills = set(re.findall(r'fill="(#[0-9a-f]{6})"', svg))
+        self.assertIn("#ffffff", fills)                          # background
+        reds = [f for f in fills if int(f[1:3], 16) > 180 and int(f[3:5], 16) < 80]
+        blues = [f for f in fills if int(f[5:7], 16) > 150 and int(f[1:3], 16) < 80]
+        self.assertTrue(reds and blues, fills)
+
+    def test_trace_handles_flat_and_tiny_images(self):
+        for im in (self.Image.new("RGB", (1, 1), (5, 5, 5)), self.Image.new("RGB", (40, 40), (9, 99, 199)),
+                   self.Image.new("RGBA", (30, 20), (255, 0, 0, 0))):
+            svg = self.convert.trace_svg(im, colors=8)
+            self.assertTrue(svg.startswith("<svg") and svg.endswith("</svg>"))
+
+    def test_embed_svg_wraps_the_picture(self):
+        svg = self.convert.embed_svg(self.img)
+        self.assertIn("data:image/png;base64,", svg)
+
+    def test_every_format_writes_a_readable_file(self):
+        import tempfile
+        d = tempfile.mkdtemp()
+        for fmt in self.convert.FORMATS:
+            path, svg = self.convert.save_as(self.img, fmt, os.path.join(d, "t_" + fmt.split()[0] + fmt[-2:]), 80)
+            self.assertTrue(os.path.getsize(path) > 100, fmt)
+            if fmt.startswith("svg"):
+                self.assertTrue(svg.startswith("<svg") and path.endswith(".svg"))
+            else:
+                with self.Image.open(path) as back:
+                    self.assertEqual(back.size, (160, 100), fmt)
+
+    def test_unknown_format_is_rejected(self):
+        with self.assertRaises(ValueError):
+            self.convert.save_as(self.img, "exe", "x")
+
+    def test_alpha_is_flattened_on_white(self):
+        rgba = self.Image.new("RGBA", (4, 4), (0, 0, 0, 0))
+        self.assertEqual(self.convert.flatten(rgba).getpixel((0, 0)), (255, 255, 255))
+
+    def test_node_converts_a_connected_image(self):
+        import numpy as np, tempfile, shutil
+        mod = sys.modules["ComfyUI_ImageStyle.export_node"]
+
+        class FakeTensor(object):            # stands in for a torch IMAGE tensor
+            def __init__(self, a): self.a = a
+            def cpu(self): return self
+            def numpy(self): return self.a
+
+        arr = np.asarray(self.img, dtype=np.float32)[None, ...] / 255.0
+        old = os.getcwd()
+        tmp = tempfile.mkdtemp()
+        os.chdir(tmp)
+        try:
+            node = mod.ImageStyleUploadConvert()
+            out = node.run("svg (trace to vector)", 90, 6, 512, 1.0, "demo", images=FakeTensor(arr))
+            tensor, paths, svg = out["result"]
+            self.assertTrue(paths.endswith(".svg") and os.path.isfile(paths))
+            self.assertTrue(svg.startswith("<svg"))
+            out2 = node.run("png", 90, 6, 512, 1.0, "demo", images=FakeTensor(arr))
+            self.assertTrue(out2["result"][1].endswith(".png"))
+            self.assertEqual(out2["ui"]["images"][0]["type"], "output")
+            self.assertNotEqual(paths, out2["result"][1])
+            with self.assertRaises(ValueError):
+                node.run("png", 90, 6, 512, 1.0, "demo")        # nothing uploaded, nothing connected
+        finally:
+            os.chdir(old)
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 class ExampleWorkflow(unittest.TestCase):
