@@ -74,6 +74,7 @@ Outputs: `image` (passes the picture on), `saved_path`, and `svg_text` (the SVG 
 
 Two more workflows in the same folder:
 - `image-style-upload-to-svg.json`: Upload & Convert node on its own. Press Run to try it on the bundled sample picture (`image-style-sample.png`, copied into ComfyUI's `input` folder the first time the node loads), or click **choose file to upload** to use your own. The SVG lands in `ComfyUI/output` and the path shows in a preview node. Press **Download last result** on the node to save the file(s) from the last run through your browser. When an IMAGE is connected to `images`, it is used instead of the picker.
+- `image-style-z-image-turbo-img2img.json`: upload a picture and describe the change with /commands. The picture is scaled to about 1 megapixel, encoded, and used as the starting point (Z-Image-Turbo image-to-image). `denoise` on the KSampler decides how much changes: 0.4 keeps most of the picture, 0.6 is the default, 1.0 ignores it. Click **choose file to upload** on the Load Image node; it starts on the bundled sample.
 - `image-style-z-image-turbo-svg.json`: the Z-Image-Turbo workflow above plus a step that also saves every generated picture as SVG (traced, flat colours; photos come out posterised).
 
 ## Command helper in the request box

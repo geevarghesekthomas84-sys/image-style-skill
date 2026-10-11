@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.4
+- ComfyUI: new example workflow `image-style-z-image-turbo-img2img.json`: upload a picture, write the change with /commands, and Z-Image-Turbo redraws it (Load Image, Scale to 1 megapixel, VAE Encode into the KSampler at denoise 0.6). Loads with no missing nodes; the upload and scale steps were run in ComfyUI 0.39.0; the model itself was not run (no GPU).
+
 ## 1.10.3
 - ComfyUI Upload & Convert: new **Download last result** button on the node. After a run it saves the produced file(s) (SVG, PNG, ...) through the browser, so you don't have to dig in the `output` folder. Checked in the ComfyUI front end: run, press the button, the SVG downloaded (10 KB, valid `<svg>`). Pressing it before a run shows a short hint.
 
