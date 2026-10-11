@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.9.0
+- Fix: lens and camera phrases no longer name equipment. `/200mm` used to say "200mm telephoto lens", and some models then drew a lens or camera (even with "300 mm" written on it) into the picture. 19 phrases now describe the look instead, for example "200mm look, extreme background compression, isolated subject" and "85mm portrait framing". Affected: the focal lengths (`/14mm` to `/200mm`), `/tiltshift`, `/telephoto`, `/macrolens`, `/wideangle`, `/fisheye`, `/anamorphic`, `/lensflare`, `/topdown`, `/highangle`, `/lowangle`, `/wildlifephotography`, `/disposablecamera`.
+- New avoid-list `/nogear` (camera, lens, DSLR, lens markings). 403 commands.
+- Tests: the web page and the ComfyUI node were re-checked against each other on 28 requests (0 mismatches).
+
 ## 1.8.1
 - ComfyUI: example workflow `example_workflows/image-style-z-image-turbo.json` (Z-Image-Turbo with the Image Style node wired in). Loads with no missing nodes; not run end to end on a GPU.
 

@@ -6,3 +6,4 @@ notext|text, letters, words, typography, numbers
 nocrop|cropped, cut off, out of frame, partial subject
 nooversat|oversaturated, neon colors, harsh contrast, burnt highlights
 noai|plastic skin, waxy texture, over-smoothed, uncanny, cgi look, oversharpened halos
+nogear|camera, lens, DSLR, camera body, lens barrel, camera equipment, lens markings, text on lens

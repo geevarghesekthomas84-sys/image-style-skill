@@ -4,11 +4,15 @@ import pathlib
 OUT = pathlib.Path(__file__).parent / "docs" / "demo.svg"
 
 REQUEST = "a lighthouse on a cliff /storm /dramaticlighting /24mm /16:9 /mj"
-LINES = [
-    "a lighthouse on a cliff, 24mm wide lens, environmental context with natural",
-    "perspective, violent storm, dark roiling clouds, lightning, wind, dramatic",
-    "lighting, strong contrast between light and shadow --ar 16:9",
-]
+import sys
+import textwrap
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent / "comfyui" / "ComfyUI-ImageStyle"))
+import imagestyle_core as _core  # noqa: E402  (data file is written earlier in the build)
+
+_res = _core.expand("a lighthouse on a cliff /storm /dramaticlighting /24mm /16:9 /mj")
+LINES = textwrap.wrap(_res["keywords"] + " --ar 16:9", 76)
+assert len(LINES) <= 3, "demo layout has room for 3 output lines"
 CW_REQ = 12.0   # px per char for the typed line (font-size 20), forced with textLength
 CW_OUT = 10.8   # px per char for the output (font-size 18)
 X0 = 74         # left edge of text

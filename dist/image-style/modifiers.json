@@ -25,15 +25,15 @@
  },
  "topdown": {
   "category": "angle",
-  "phrase": "top-down view, camera directly overhead looking straight down"
+  "phrase": "top-down view, seen from directly overhead looking straight down"
  },
  "highangle": {
   "category": "angle",
-  "phrase": "high-angle shot, camera above subject looking down"
+  "phrase": "high-angle shot, viewed from above looking down"
  },
  "lowangle": {
   "category": "angle",
-  "phrase": "low-angle shot, camera below subject looking up, imposing perspective"
+  "phrase": "low-angle shot, viewed from below looking up, imposing perspective"
  },
  "sideview": {
   "category": "angle",
@@ -53,11 +53,11 @@
  },
  "wideangle": {
   "category": "angle",
-  "phrase": "wide-angle lens, expansive field of view"
+  "phrase": "wide-angle perspective, expansive field of view"
  },
  "fisheye": {
   "category": "angle",
-  "phrase": "fisheye lens, strong barrel distortion, ultra-wide curved view"
+  "phrase": "fisheye distortion, strong barrel curvature, ultra-wide curved view"
  },
  "pov": {
   "category": "angle",
@@ -165,7 +165,7 @@
  },
  "anamorphic": {
   "category": "lens",
-  "phrase": "anamorphic lens, widescreen cinematic framing, horizontal flares, oval bokeh"
+  "phrase": "anamorphic cinematic look, widescreen framing, horizontal flares, oval bokeh"
  },
  "bokeh": {
   "category": "lens",
@@ -229,7 +229,7 @@
  },
  "disposablecamera": {
   "category": "film",
-  "phrase": "disposable camera snapshot, direct flash, grainy, imperfect candid"
+  "phrase": "candid flash snapshot, harsh direct flash, grainy, imperfect framing, 1990s snapshot look"
  },
  "35mmfilm": {
   "category": "film",
@@ -537,7 +537,7 @@
  },
  "lensflare": {
   "category": "lens",
-  "phrase": "lens flare, streaks of light across the frame"
+  "phrase": "bright flare streaks of light across the frame, soft light bloom"
  },
  "sunflare": {
   "category": "lens",
@@ -609,7 +609,7 @@
  },
  "wildlifephotography": {
   "category": "genre",
-  "phrase": "wildlife photography, animal in natural habitat, telephoto"
+  "phrase": "wildlife photography, animal in natural habitat, shot from a distance with strong compression"
  },
  "landscapephotography": {
   "category": "genre",
@@ -1153,31 +1153,31 @@
  },
  "14mm": {
   "category": "camera",
-  "phrase": "14mm ultra-wide lens, dramatic perspective stretch"
+  "phrase": "ultra-wide 14mm field of view, dramatic perspective stretch"
  },
  "24mm": {
   "category": "camera",
-  "phrase": "24mm wide lens, environmental context with natural perspective"
+  "phrase": "wide 24mm field of view, environmental context with natural perspective"
  },
  "35mm": {
   "category": "camera",
-  "phrase": "35mm lens, natural documentary field of view"
+  "phrase": "35mm field of view, natural documentary perspective"
  },
  "50mm": {
   "category": "camera",
-  "phrase": "50mm lens, natural human-eye perspective"
+  "phrase": "50mm field of view, natural human-eye perspective"
  },
  "85mm": {
   "category": "camera",
-  "phrase": "85mm portrait lens, flattering compression, creamy background"
+  "phrase": "85mm portrait framing, flattering compression, creamy background"
  },
  "135mm": {
   "category": "camera",
-  "phrase": "135mm telephoto lens, strong background compression"
+  "phrase": "135mm look, strong background compression"
  },
  "200mm": {
   "category": "camera",
-  "phrase": "200mm telephoto lens, extreme compression, isolated subject"
+  "phrase": "200mm look, extreme background compression, isolated subject"
  },
  "f1.4": {
   "category": "camera",
@@ -1193,15 +1193,15 @@
  },
  "tiltshift": {
   "category": "camera",
-  "phrase": "tilt-shift lens, miniature-scale effect, selective focus band"
+  "phrase": "tilt-shift look, miniature-scale effect, selective focus band"
  },
  "telephoto": {
   "category": "camera",
-  "phrase": "telephoto compression, distant subject pulled close"
+  "phrase": "long focal length compression, distant subject pulled close"
  },
  "macrolens": {
   "category": "camera",
-  "phrase": "100mm macro lens, true close-focus detail"
+  "phrase": "macro-scale close-focus detail, razor-thin focus, true-to-scale texture"
  },
  "dolly": {
   "category": "motion",

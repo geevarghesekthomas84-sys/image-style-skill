@@ -19,15 +19,15 @@
 ### angle
 
 - `/droneview` → drone view, elevated aerial vantage point looking down at the scene
-- `/topdown` → top-down view, camera directly overhead looking straight down
-- `/highangle` → high-angle shot, camera above subject looking down
-- `/lowangle` → low-angle shot, camera below subject looking up, imposing perspective
+- `/topdown` → top-down view, seen from directly overhead looking straight down
+- `/highangle` → high-angle shot, viewed from above looking down
+- `/lowangle` → low-angle shot, viewed from below looking up, imposing perspective
 - `/sideview` → side view, profile perspective
 - `/aerialview` → aerial view from high altitude, wide sweeping scene
 - `/closeup` → close-up shot, subject fills the frame
 - `/extremecloseup` → extreme close-up, tiny details filling the frame
-- `/wideangle` → wide-angle lens, expansive field of view
-- `/fisheye` → fisheye lens, strong barrel distortion, ultra-wide curved view
+- `/wideangle` → wide-angle perspective, expansive field of view
+- `/fisheye` → fisheye distortion, strong barrel curvature, ultra-wide curved view
 - `/pov` → first-person point-of-view shot
 - `/overtheshoulder` → over-the-shoulder shot, foreground shoulder framing the subject
 - `/birdseyeview` → bird's-eye view, high overhead perspective
@@ -99,14 +99,14 @@
 ### lens
 
 - `/filmgrain` → visible film grain, analog texture
-- `/anamorphic` → anamorphic lens, widescreen cinematic framing, horizontal flares, oval bokeh
+- `/anamorphic` → anamorphic cinematic look, widescreen framing, horizontal flares, oval bokeh
 - `/bokeh` → beautiful bokeh, creamy out-of-focus highlights
 - `/shallowdepth` → shallow depth of field, sharp subject, blurred background
 - `/motionblur` → motion blur, sense of speed and movement
 - `/longexposure` → long exposure, light streaks, smooth flowing water or motion trails
 - `/freezeaction` → high-speed capture, frozen action mid-motion, crisp detail
 - `/softfocus` → soft focus, dreamy gentle blur
-- `/lensflare` → lens flare, streaks of light across the frame
+- `/lensflare` → bright flare streaks of light across the frame, soft light bloom
 - `/sunflare` → sun flare, bright sun starburst and glow
 - `/chromaticaberration` → chromatic aberration, color fringing at edges
 - `/halation` → halation, red-orange glow bleeding around bright highlights
@@ -119,7 +119,7 @@
 ### film
 
 - `/polaroid` → Polaroid instant photo look, white border, soft faded colors
-- `/disposablecamera` → disposable camera snapshot, direct flash, grainy, imperfect candid
+- `/disposablecamera` → candid flash snapshot, harsh direct flash, grainy, imperfect framing, 1990s snapshot look
 - `/35mmfilm` → shot on 35mm film, natural grain, organic color
 - `/instantphoto` → instant photo, soft focus, washed colors, nostalgic frame
 
@@ -247,7 +247,7 @@
 - `/documentary` → documentary photography, honest unstaged storytelling
 - `/photojournalism` → photojournalism, news-style raw real-moment capture
 - `/sportsphotography` → sports photography, peak action, fast shutter
-- `/wildlifephotography` → wildlife photography, animal in natural habitat, telephoto
+- `/wildlifephotography` → wildlife photography, animal in natural habitat, shot from a distance with strong compression
 - `/landscapephotography` → landscape photography, sweeping vista, deep depth of field
 - `/astrophotography` → astrophotography, crisp stars, night sky detail
 - `/underwaterphotography` → underwater photography, clear water, natural blue light
@@ -356,19 +356,19 @@
 
 ### camera
 
-- `/14mm` → 14mm ultra-wide lens, dramatic perspective stretch
-- `/24mm` → 24mm wide lens, environmental context with natural perspective
-- `/35mm` → 35mm lens, natural documentary field of view
-- `/50mm` → 50mm lens, natural human-eye perspective
-- `/85mm` → 85mm portrait lens, flattering compression, creamy background
-- `/135mm` → 135mm telephoto lens, strong background compression
-- `/200mm` → 200mm telephoto lens, extreme compression, isolated subject
+- `/14mm` → ultra-wide 14mm field of view, dramatic perspective stretch
+- `/24mm` → wide 24mm field of view, environmental context with natural perspective
+- `/35mm` → 35mm field of view, natural documentary perspective
+- `/50mm` → 50mm field of view, natural human-eye perspective
+- `/85mm` → 85mm portrait framing, flattering compression, creamy background
+- `/135mm` → 135mm look, strong background compression
+- `/200mm` → 200mm look, extreme background compression, isolated subject
 - `/f1.4` → aperture f/1.4, razor-thin focus plane, heavy background blur
 - `/f2.8` → aperture f/2.8, soft background separation
 - `/f8` → aperture f/8, deep depth of field, edge-to-edge sharpness
-- `/tiltshift` → tilt-shift lens, miniature-scale effect, selective focus band
-- `/telephoto` → telephoto compression, distant subject pulled close
-- `/macrolens` → 100mm macro lens, true close-focus detail
+- `/tiltshift` → tilt-shift look, miniature-scale effect, selective focus band
+- `/telephoto` → long focal length compression, distant subject pulled close
+- `/macrolens` → macro-scale close-focus detail, razor-thin focus, true-to-scale texture
 
 ### motion
 
@@ -468,6 +468,7 @@ into one list, deduplicated. Show it as a separate `Negative:` / `--no` / senten
 - `/nocrop` -> avoid: cropped, cut off, out of frame, partial subject
 - `/nooversat` -> avoid: oversaturated, neon colors, harsh contrast, burnt highlights
 - `/noai` -> avoid: plastic skin, waxy texture, over-smoothed, uncanny, cgi look, oversharpened halos
+- `/nogear` -> avoid: camera, lens, DSLR, camera body, lens barrel, camera equipment, lens markings, text on lens
 
 ## Presets (one command = a tested bundle)
 Expand a preset into its commands, then process as normal. The user's own ratio overrides the preset's default ratio; user commands that conflict with the preset win.

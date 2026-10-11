@@ -48,9 +48,9 @@
 <text class="badgetxt" x="126" y="146" text-anchor="middle">Midjourney</text>
 <text class="hint" x="194" y="146">3 styles expanded, ratio and target applied</text>
 
-<text class="line l1" x="74" y="196" font-size="18" textLength="810.0" lengthAdjust="spacing"><tspan class="out">a lighthouse on a cliff, 24mm wide lens, environmental context with natural</tspan></text>
-  <text class="line l2" x="74" y="226" font-size="18" textLength="799.2" lengthAdjust="spacing"><tspan class="out">perspective, violent storm, dark roiling clouds, lightning, wind, dramatic</tspan></text>
-  <text class="line l3" x="74" y="256" font-size="18" textLength="648.0" lengthAdjust="spacing"><tspan class="out">lighting, strong contrast between light and shadow </tspan><tspan class="flag">--ar 16:9</tspan></text>
+<text class="line l1" x="74" y="196" font-size="18" textLength="820.8" lengthAdjust="spacing"><tspan class="out">a lighthouse on a cliff, wide 24mm field of view, environmental context with</tspan></text>
+  <text class="line l2" x="74" y="226" font-size="18" textLength="788.4" lengthAdjust="spacing"><tspan class="out">natural perspective, violent storm, dark roiling clouds, lightning, wind,</tspan></text>
+  <text class="line l3" x="74" y="256" font-size="18" textLength="745.2" lengthAdjust="spacing"><tspan class="out">dramatic lighting, strong contrast between light and shadow </tspan><tspan class="flag">--ar 16:9</tspan></text>
 
 <text class="foot" x="74" y="304">Swap /mj for /kling, /flux, /sd, /dalle or /gemini to get the same request in that tool's format.</text>
 </svg>

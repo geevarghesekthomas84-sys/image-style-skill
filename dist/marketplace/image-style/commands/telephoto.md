@@ -1,10 +1,10 @@
 ---
-description: "[camera] telephoto compression, distant subject pulled close"
+description: "[camera] long focal length compression, distant subject pulled close"
 argument-hint: "<what to draw> [more /modifiers]"
 ---
 Use the image-style skill. Subject and any extra /modifiers: $ARGUMENTS
 
-Apply this modifier: `telephoto compression, distant subject pulled close`
+Apply this modifier: `long focal length compression, distant subject pulled close`
 
 Then follow the image-style skill: expand any other /tokens in the arguments, merge, resolve
 conflicts, and generate the image (or output the final prompt if no image tool is available).

@@ -4,15 +4,15 @@ hdreal|quality|HD, true-to-life realism, clean sharp detail
 cinematic|quality|cinematic look, movie-still composition, filmic lighting and color
 ultrarealistic|quality|ultra-realistic, indistinguishable from a real photograph
 droneview|angle|drone view, elevated aerial vantage point looking down at the scene
-topdown|angle|top-down view, camera directly overhead looking straight down
-highangle|angle|high-angle shot, camera above subject looking down
-lowangle|angle|low-angle shot, camera below subject looking up, imposing perspective
+topdown|angle|top-down view, seen from directly overhead looking straight down
+highangle|angle|high-angle shot, viewed from above looking down
+lowangle|angle|low-angle shot, viewed from below looking up, imposing perspective
 sideview|angle|side view, profile perspective
 aerialview|angle|aerial view from high altitude, wide sweeping scene
 closeup|angle|close-up shot, subject fills the frame
 extremecloseup|angle|extreme close-up, tiny details filling the frame
-wideangle|angle|wide-angle lens, expansive field of view
-fisheye|angle|fisheye lens, strong barrel distortion, ultra-wide curved view
+wideangle|angle|wide-angle perspective, expansive field of view
+fisheye|angle|fisheye distortion, strong barrel curvature, ultra-wide curved view
 pov|angle|first-person point-of-view shot
 overtheshoulder|angle|over-the-shoulder shot, foreground shoulder framing the subject
 birdseyeview|angle|bird's-eye view, high overhead perspective
@@ -39,7 +39,7 @@ godrays|light|god rays, visible beams of light through atmosphere
 volumetriclight|light|volumetric lighting, light beams in hazy air
 studio|light|professional studio setup, controlled lighting, clean backdrop
 filmgrain|lens|visible film grain, analog texture
-anamorphic|lens|anamorphic lens, widescreen cinematic framing, horizontal flares, oval bokeh
+anamorphic|lens|anamorphic cinematic look, widescreen framing, horizontal flares, oval bokeh
 bokeh|lens|beautiful bokeh, creamy out-of-focus highlights
 shallowdepth|lens|shallow depth of field, sharp subject, blurred background
 motionblur|lens|motion blur, sense of speed and movement
@@ -55,7 +55,7 @@ fashion|style|high-fashion photography, styled wardrobe, runway-grade polish
 streetstyle|style|street style photography, candid urban fashion
 magazinecover|style|magazine cover layout, strong hero subject, space for masthead and headlines
 polaroid|film|Polaroid instant photo look, white border, soft faded colors
-disposablecamera|film|disposable camera snapshot, direct flash, grainy, imperfect candid
+disposablecamera|film|candid flash snapshot, harsh direct flash, grainy, imperfect framing, 1990s snapshot look
 35mmfilm|film|shot on 35mm film, natural grain, organic color
 instantphoto|film|instant photo, soft focus, washed colors, nostalgic frame
 underwater|scene|underwater scene, light rays from the surface, floating particles, blue-green tint
@@ -132,7 +132,7 @@ lowcontrast|color|low contrast, soft flat tonal range
 overexposed|color|overexposed, blown-out bright highlights, washed light
 underexposed|color|underexposed, dark crushed shadows, dim mood
 softfocus|lens|soft focus, dreamy gentle blur
-lensflare|lens|lens flare, streaks of light across the frame
+lensflare|lens|bright flare streaks of light across the frame, soft light bloom
 sunflare|lens|sun flare, bright sun starburst and glow
 chromaticaberration|lens|chromatic aberration, color fringing at edges
 halation|lens|halation, red-orange glow bleeding around bright highlights
@@ -150,7 +150,7 @@ streetphotography|genre|street photography, candid urban life, decisive moment
 documentary|genre|documentary photography, honest unstaged storytelling
 photojournalism|genre|photojournalism, news-style raw real-moment capture
 sportsphotography|genre|sports photography, peak action, fast shutter
-wildlifephotography|genre|wildlife photography, animal in natural habitat, telephoto
+wildlifephotography|genre|wildlife photography, animal in natural habitat, shot from a distance with strong compression
 landscapephotography|genre|landscape photography, sweeping vista, deep depth of field
 astrophotography|genre|astrophotography, crisp stars, night sky detail
 underwaterphotography|genre|underwater photography, clear water, natural blue light
@@ -286,19 +286,19 @@ robotics|scene|advanced robotics, mechanical joints, precision machines
 mechdesign|scene|mech design, giant armored piloted robot, hard-surface detail
 cybernetic|scene|cybernetic, human-machine fusion, implants
 technologicaldystopia|scene|technological dystopia, oppressive surveillance tech, grim megacity
-14mm|camera|14mm ultra-wide lens, dramatic perspective stretch
-24mm|camera|24mm wide lens, environmental context with natural perspective
-35mm|camera|35mm lens, natural documentary field of view
-50mm|camera|50mm lens, natural human-eye perspective
-85mm|camera|85mm portrait lens, flattering compression, creamy background
-135mm|camera|135mm telephoto lens, strong background compression
-200mm|camera|200mm telephoto lens, extreme compression, isolated subject
+14mm|camera|ultra-wide 14mm field of view, dramatic perspective stretch
+24mm|camera|wide 24mm field of view, environmental context with natural perspective
+35mm|camera|35mm field of view, natural documentary perspective
+50mm|camera|50mm field of view, natural human-eye perspective
+85mm|camera|85mm portrait framing, flattering compression, creamy background
+135mm|camera|135mm look, strong background compression
+200mm|camera|200mm look, extreme background compression, isolated subject
 f1.4|camera|aperture f/1.4, razor-thin focus plane, heavy background blur
 f2.8|camera|aperture f/2.8, soft background separation
 f8|camera|aperture f/8, deep depth of field, edge-to-edge sharpness
-tiltshift|camera|tilt-shift lens, miniature-scale effect, selective focus band
-telephoto|camera|telephoto compression, distant subject pulled close
-macrolens|camera|100mm macro lens, true close-focus detail
+tiltshift|camera|tilt-shift look, miniature-scale effect, selective focus band
+telephoto|camera|long focal length compression, distant subject pulled close
+macrolens|camera|macro-scale close-focus detail, razor-thin focus, true-to-scale texture
 dolly|motion|slow dolly camera move toward the subject
 pan|motion|smooth horizontal pan across the scene
 orbit|motion|camera orbiting around the subject

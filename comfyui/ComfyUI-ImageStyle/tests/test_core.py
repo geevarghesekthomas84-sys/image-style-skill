@@ -109,7 +109,8 @@ class Nodes(unittest.TestCase):
 
     def test_single_node_outputs(self):
         pos, neg, w, h, rep = self.A.run("a lighthouse /storm /24mm /16:9 /clean", self.kw, "1:1", 1.0, 0)
-        self.assertTrue(pos.startswith("a lighthouse, 24mm wide lens"))
+        self.assertTrue(pos.startswith("a lighthouse, wide 24mm field of view"))
+        self.assertNotIn("lens", pos)  # equipment words make some models draw the lens itself
         self.assertIn("lowres", neg)
         self.assertEqual((w, h), (1344, 768))
         self.assertIn("ratio 16:9", rep)

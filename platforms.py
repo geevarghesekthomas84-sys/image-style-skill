@@ -110,7 +110,7 @@ DOCS = ROOT / "docs"
 site = hosted_html
 meta = ('<meta name="description" content="Turn short /commands into finished prompts for Midjourney, Flux, Gemini, Kling, Google Flow and more. Free, offline, no account.">\n'
         '<meta property="og:title" content="Image Style Expander">\n'
-        '<meta property="og:description" content="402 slash commands that turn a short request into a finished image prompt.">\n'
+        '<meta property="og:description" content="403 slash commands that turn a short request into a finished image prompt.">\n'
         '<meta property="og:type" content="website">\n')
 site = site.replace("<title>Image Style Expander</title>", "<title>Image Style Expander</title>\n" + meta, 1)
 (DOCS / "index.html").write_text(site, encoding="utf-8")

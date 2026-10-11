@@ -1,10 +1,10 @@
 ---
-description: "[camera] 100mm macro lens, true close-focus detail"
+description: "[camera] macro-scale close-focus detail, razor-thin focus, true-to-scale texture"
 argument-hint: "<what to draw> [more /modifiers]"
 ---
 Use the image-style skill. Subject and any extra /modifiers: $ARGUMENTS
 
-Apply this modifier: `100mm macro lens, true close-focus detail`
+Apply this modifier: `macro-scale close-focus detail, razor-thin focus, true-to-scale texture`
 
 Then follow the image-style skill: expand any other /tokens in the arguments, merge, resolve
 conflicts, and generate the image (or output the final prompt if no image tool is available).

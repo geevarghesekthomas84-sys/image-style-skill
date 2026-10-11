@@ -10,7 +10,7 @@ becomes
 
 | Output | Value |
 |---|---|
-| positive | `a lone lighthouse on a cliff, 24mm wide lens, environmental context with natural perspective, violent storm, dark roiling clouds, lightning, wind, dramatic lighting, strong contrast between light and shadow` |
+| positive | `a lone lighthouse on a cliff, wide 24mm field of view, environmental context with natural perspective, violent storm, dark roiling clouds, lightning, wind, dramatic lighting, strong contrast between light and shadow` |
 | negative | `lowres, blurry, bad anatomy, watermark, text, logo, signature, caption, username` |
 | width, height | `1344`, `768` |
 | report | one line per command used, dropped (conflicts, over the 8-modifier limit) or unknown |
@@ -67,7 +67,7 @@ It appears only in the `request` box, not in other text boxes, and hides when yo
 
 ## Commands
 
-402 commands, including styles, camera and lens (`/85mm`, `/f1.4`), subject controls, couple and wedding, avoid-lists (`/clean`, `/nodeform`), aspect ratios (`/16:9`, `/9:16`, `/4:5`) and presets (`/productshot`, `/portraitpro`). The full list is in the [cheat sheet](https://github.com/geevarghesekthomas84-sys/image-style-skill#-cheat-sheet) of the main project. Target-tool commands such as `/mj` or `/kling` are accepted but ignored here, because this node chooses its format with `style`.
+403 commands, including styles, camera and lens (`/85mm`, `/f1.4`), subject controls, couple and wedding, avoid-lists (`/clean`, `/nodeform`), aspect ratios (`/16:9`, `/9:16`, `/4:5`) and presets (`/productshot`, `/portraitpro`). The full list is in the [cheat sheet](https://github.com/geevarghesekthomas84-sys/image-style-skill#-cheat-sheet) of the main project. Target-tool commands such as `/mj` or `/kling` are accepted but ignored here, because this node chooses its format with `style`.
 
 ## Tested
 
