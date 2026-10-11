@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+- Couple and wedding commands (16, adults only): `/couple` `/prewedding` `/engagement` `/wedding` `/anniversary` `/romantic` `/holdinghands` `/embrace` `/foreheadtouch` `/walkingtogether` `/dancingcouple` `/laughingtogether` `/backtoback` `/candidcouple` `/silhouettecouple` `/sunsetcouple`.
+- Presets `/couplepro` and `/weddingclassic`. 402 commands in total.
+
 ## 1.4.1
 - Root `.claude-plugin/marketplace.json`: the plugin installs straight from GitHub with `claude plugin marketplace add geevarghesekthomas84-sys/image-style-skill`.
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="image-style: 384 slash commands for AI image prompts">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="image-style: 402 slash commands for AI image prompts">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#15121f"/>
@@ -33,7 +33,7 @@
   </g>
 
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" fill="#ffffff" text-anchor="middle">
-    <text x="1060" y="150" font-size="120" font-weight="700">384</text>
+    <text x="1060" y="150" font-size="120" font-weight="700">402</text>
     <text x="1060" y="190" font-size="24" fill="#d9d4ff">slash commands</text>
     <text x="1060" y="228" font-size="18" fill="#b9acff">Claude · ChatGPT · Gemini</text>
     <text x="1060" y="254" font-size="18" fill="#b9acff">Flow · Kling · Midjourney</text>

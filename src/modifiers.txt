@@ -344,3 +344,19 @@ samepose|reference|match the pose of the attached reference image
 samecomposition|reference|match the composition and framing of the attached reference image
 samecolors|reference|match the color palette of the attached reference image
 samelighting|reference|match the lighting of the attached reference image
+couple|couple|couple portrait of two adults close together, natural connection and warmth
+prewedding|couple|pre-wedding photoshoot, romantic adult couple in elegant coordinated styling
+engagement|couple|engagement photo, adult couple celebrating, joyful intimacy, ring visible
+wedding|couple|wedding photograph, bride and groom in formal wedding attire, celebratory mood
+anniversary|couple|anniversary portrait of a long-married couple, deep familiarity and affection
+romantic|couple|romantic mood, tender glances, soft intimacy
+holdinghands|couple|couple holding hands, gentle connected gesture
+embrace|couple|couple in a gentle warm embrace
+foreheadtouch|couple|couple with foreheads touching, quiet tenderness
+walkingtogether|couple|couple walking together side by side, relaxed natural stride
+dancingcouple|couple|couple dancing together, flowing movement, joyful
+laughingtogether|couple|couple laughing together, genuine shared joy
+backtoback|couple|couple standing back to back, playful confident pose
+candidcouple|couple|candid couple moment, unposed natural interaction
+silhouettecouple|couple|couple silhouette against a bright sky, shared outline
+sunsetcouple|couple|couple at sunset, warm backlight, golden rim light on both

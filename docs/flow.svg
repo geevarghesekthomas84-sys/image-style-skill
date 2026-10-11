@@ -21,7 +21,7 @@
   <rect x="412" y="70" width="280" height="180" rx="16" fill="#1f8f7a"/>
   <text x="436" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">2 · image-style</text>
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#e3fbf5">
-    <text x="436" y="146">Expands 384 commands</text>
+    <text x="436" y="146">Expands 402 commands</text>
     <text x="436" y="172">Orders: subject, camera, light, style</text>
     <text x="436" y="198">Caps at 8, resolves conflicts</text>
     <text x="436" y="224">One prompt per aspect ratio</text>

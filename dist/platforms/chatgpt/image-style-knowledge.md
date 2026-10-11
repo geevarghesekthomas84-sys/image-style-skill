@@ -424,6 +424,25 @@
 - `/samecolors` → match the color palette of the attached reference image
 - `/samelighting` → match the lighting of the attached reference image
 
+### couple
+
+- `/couple` → couple portrait of two adults close together, natural connection and warmth
+- `/prewedding` → pre-wedding photoshoot, romantic adult couple in elegant coordinated styling
+- `/engagement` → engagement photo, adult couple celebrating, joyful intimacy, ring visible
+- `/wedding` → wedding photograph, bride and groom in formal wedding attire, celebratory mood
+- `/anniversary` → anniversary portrait of a long-married couple, deep familiarity and affection
+- `/romantic` → romantic mood, tender glances, soft intimacy
+- `/holdinghands` → couple holding hands, gentle connected gesture
+- `/embrace` → couple in a gentle warm embrace
+- `/foreheadtouch` → couple with foreheads touching, quiet tenderness
+- `/walkingtogether` → couple walking together side by side, relaxed natural stride
+- `/dancingcouple` → couple dancing together, flowing movement, joyful
+- `/laughingtogether` → couple laughing together, genuine shared joy
+- `/backtoback` → couple standing back to back, playful confident pose
+- `/candidcouple` → candid couple moment, unposed natural interaction
+- `/silhouettecouple` → couple silhouette against a bright sky, shared outline
+- `/sunsetcouple` → couple at sunset, warm backlight, golden rim light on both
+
 ## Aspect-ratio commands
 Accept ratios written as `/16:9`, `/16x9` or `/16-9`, plus the named aliases below. If several
 are given, produce ONE prompt per ratio (labelled), not just the last. The pixel size is for models that need it (sd, flux).
@@ -464,6 +483,8 @@ Expand a preset into its commands, then process as normal. The user's own ratio 
 - `/cyberpunkcity` (Cyberpunk city) = /cyberpunk /nightcity /rainynight /neonlights /anamorphic (default ratio /21:9)
 - `/epicfantasy` (Epic fantasy scene) = /fantasy /mattepainting /godrays /wideangle /highdetail (default ratio /16:9)
 - `/portraitpro` (Pro portrait) = /portrait /85mm /f1.4 /softlighting /bokeh /naturalcolors /nodeform (default ratio /3:4)
+- `/couplepro` (Couple portrait) = /couple /romantic /candid /85mm /softlighting /goldenhour /naturalcolors /nodeform (default ratio /4:5)
+- `/weddingclassic` (Classic wedding photo) = /wedding /50mm /softlighting /naturalcolors /colorgraded /nodeform /clean (default ratio /3:2)
 
 ## Output-format commands (target model)
 At most one. If none is given, use `/generic`. Adapt the final prompt to the model's style:

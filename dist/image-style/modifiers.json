@@ -1382,5 +1382,69 @@
  "samelighting": {
   "category": "reference",
   "phrase": "match the lighting of the attached reference image"
+ },
+ "couple": {
+  "category": "couple",
+  "phrase": "couple portrait of two adults close together, natural connection and warmth"
+ },
+ "prewedding": {
+  "category": "couple",
+  "phrase": "pre-wedding photoshoot, romantic adult couple in elegant coordinated styling"
+ },
+ "engagement": {
+  "category": "couple",
+  "phrase": "engagement photo, adult couple celebrating, joyful intimacy, ring visible"
+ },
+ "wedding": {
+  "category": "couple",
+  "phrase": "wedding photograph, bride and groom in formal wedding attire, celebratory mood"
+ },
+ "anniversary": {
+  "category": "couple",
+  "phrase": "anniversary portrait of a long-married couple, deep familiarity and affection"
+ },
+ "romantic": {
+  "category": "couple",
+  "phrase": "romantic mood, tender glances, soft intimacy"
+ },
+ "holdinghands": {
+  "category": "couple",
+  "phrase": "couple holding hands, gentle connected gesture"
+ },
+ "embrace": {
+  "category": "couple",
+  "phrase": "couple in a gentle warm embrace"
+ },
+ "foreheadtouch": {
+  "category": "couple",
+  "phrase": "couple with foreheads touching, quiet tenderness"
+ },
+ "walkingtogether": {
+  "category": "couple",
+  "phrase": "couple walking together side by side, relaxed natural stride"
+ },
+ "dancingcouple": {
+  "category": "couple",
+  "phrase": "couple dancing together, flowing movement, joyful"
+ },
+ "laughingtogether": {
+  "category": "couple",
+  "phrase": "couple laughing together, genuine shared joy"
+ },
+ "backtoback": {
+  "category": "couple",
+  "phrase": "couple standing back to back, playful confident pose"
+ },
+ "candidcouple": {
+  "category": "couple",
+  "phrase": "candid couple moment, unposed natural interaction"
+ },
+ "silhouettecouple": {
+  "category": "couple",
+  "phrase": "couple silhouette against a bright sky, shared outline"
+ },
+ "sunsetcouple": {
+  "category": "couple",
+  "phrase": "couple at sunset, warm backlight, golden rim light on both"
  }
 }

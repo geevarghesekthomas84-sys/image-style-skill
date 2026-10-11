@@ -64,13 +64,13 @@ input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10
 const D=__DATA__;
 const $=i=>document.getElementById(i);
 const norm=s=>s.toLowerCase().replace(/[\s_-]+/g,"");
-const ORDER=["subject","angle","camera","motion","composition","lens","film","genre","portrait","macro","scene","landscape","architecture","space","weather","light","era","style","art","render","material","technique","effect","color","quality","reference"];
+const ORDER=["subject","couple","angle","camera","motion","composition","lens","film","genre","portrait","macro","scene","landscape","architecture","space","weather","light","era","style","art","render","material","technique","effect","color","quality","reference"];
 const GROUPS=[["age20s","age30s","age40s","age50s","elderly"],["smile","serious","laughing","thoughtful","surprised","calm"],["standing","sitting","walking","running","leaning"],["lookingatcamera","lookingaway"],["longhair","shorthair"],["hdreal","4k","8k","8ktextures"],["photorealistic","hyperrealistic","ultrarealistic","rawphoto"],["14mm","24mm","35mm","50mm","85mm","135mm","200mm"],["f1.4","f2.8","f8"],["highkeylighting","lowkeylighting"],["warmtones","cooltones"],["blackandwhite","vibrantcolors","pastelcolors","monochrome","duotone"],["overexposed","underexposed"],["highcontrast","lowcontrast"]];
 const asp={},negs={},mods={},PRE={};D.presets.forEach(([n,l,t,a])=>PRE[n]={t,a});const KEY="imagestyle.recipes";
 function loadMy(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}}
 function saveMy(o){try{localStorage.setItem(KEY,JSON.stringify(o));return true}catch(e){return false}}
 let MY=loadMy();Object.entries(MY).forEach(([n,t])=>PRE[n]={t,a:null});
-const MAX=8;const PRIO=["genre","subject","reference","style","scene","portrait","macro","angle","camera","lens","light","weather","landscape","architecture","space","film","art","render","material","technique","effect","motion","color","era","composition","quality"];let target="generic";
+const MAX=8;const PRIO=["genre","subject","couple","reference","style","scene","portrait","macro","angle","camera","lens","light","weather","landscape","architecture","space","film","art","render","material","technique","effect","motion","color","era","composition","quality"];let target="generic";
 D.aspect.forEach(([n,r,px,note])=>{const v={r,px};asp[norm(n)]=v;asp[norm(r)]=v;asp[norm(r.replace(":","x"))]=v;
  const m=/aliases?:\s*(.*)$/.exec(note);if(m)m[1].split(/\s+/).forEach(a=>asp[norm(a)]=v)});
 D.negatives.forEach(([n,t])=>negs[n]=t);

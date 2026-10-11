@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="image-style: 384 slash commands for AI image prompts" width="100%">
+  <img src="docs/banner.svg" alt="image-style: 402 slash commands for AI image prompts" width="100%">
 </p>
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.4.1-5b3fd6" alt="version 1.4.1">
-  <img src="https://img.shields.io/badge/commands-384-1f8f7a" alt="384 commands">
+  <img src="https://img.shields.io/badge/version-1.5.0-5b3fd6" alt="version 1.5.0">
+  <img src="https://img.shields.io/badge/commands-402-1f8f7a" alt="402 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
 
@@ -149,22 +149,23 @@ a forest path, 24mm wide lens, environmental context with natural perspective, f
 | 🛡️ **Guard rails** | Max 8 style modifiers, one winner for conflicting commands (`/4k` vs `/8k`), unknown words kept as text. |
 | 📐 **Many ratios, many prompts** | Ask for `16:9` and `9:16` together and get one prompt for each. |
 | 🗣️ **Plain English** | Style words and ratios are recognised without slashes; filler like "create me a" is dropped. |
-| 💾 **Your own recipes** | Save a bundle as `/mylook` and reuse it. Plus 12 built-in presets such as `/productshot`. |
+| 💾 **Your own recipes** | Save a bundle as `/mylook` and reuse it. Plus 14 built-in presets such as `/productshot`. |
 
 ## 🧰 Commands
 
-384 in total. Browse them all in the [cheat sheet](#-cheat-sheet).
+402 in total. Browse them all in the [cheat sheet](#-cheat-sheet).
 
 | Group | Count | Examples |
 |---|---:|---|
 | Style | 288 | `/cinematic` `/goldenhour` `/droneview` `/chiaroscuro` `/oilpainting` `/cyberpunk` |
 | Camera and lens | 13 | `/85mm` `/f1.4` `/tiltshift` `/macrolens` |
 | Video motion | 10 | `/dolly` `/orbit` `/handheld` `/slowmotion` |
+| Couple and wedding | 16 | `/couple` `/prewedding` `/wedding` `/holdinghands` `/sunsetcouple` |
 | Subject controls | 29 | `/age30s` `/smile` `/walking` `/suit` `/longhair` |
 | Reference images | 6 | `/sameface` `/samestyle` `/samepose` |
 | Aspect ratios | 10 | `/16:9` `/9:16` `/square` `/4:5` (also `/16x9`) |
 | Avoid-lists | 8 | `/clean` `/nodeform` `/nopeople` `/notext` |
-| Presets | 12 | `/productshot` `/linkedinheadshot` `/moviepost` `/youtubethumb` `/albumcover` |
+| Presets | 14 | `/productshot` `/linkedinheadshot` `/moviepost` `/youtubethumb` `/albumcover` |
 | Target tools | 8 | `/mj` `/sd` `/flux` `/dalle` `/gemini` `/flow` `/kling` `/generic` |
 
 <details>
@@ -197,6 +198,8 @@ a forest path, 24mm wide lens, environmental context with natural perspective, f
 | `/cyberpunkcity` | cyberpunk, night city, rainy night, neon, anamorphic | 21:9 |
 | `/epicfantasy` | fantasy, matte painting, god rays, wide angle, high detail | 16:9 |
 | `/portraitpro` | portrait, 85mm, f1.4, soft light, bokeh, natural colors | 3:4 |
+| `/couplepro` | couple, romantic, candid, 85mm, soft light, golden hour, natural colors | 4:5 |
+| `/weddingclassic` | wedding, 50mm, soft light, natural colors, color graded, clean | 3:2 |
 
 Your own ratio always overrides a preset's default.
 
@@ -288,7 +291,7 @@ GitHub Actions runs `build.py` and `test.py` on every push.
 | Area | State |
 |---|---|
 | Data, build, plugin validation, page script | Tested automatically on every push |
-| Claude Code skill and plugin | 8 end-to-end cases pass through real `claude -p` runs (`run_claude_tests.py`) |
+| Claude Code skill and plugin | 9 end-to-end cases pass through real `claude -p` runs (`run_claude_tests.py`) |
 | Expander page (parsing, ratios, presets, recipes, cap, copy) | Tested by hand in a browser |
 | `imagegen.py` | Checked against mock OpenAI and Gemini servers only, **not yet with a real key** |
 | Claude.ai, ChatGPT and Gemini uploads | **Not yet tested in the real apps** |

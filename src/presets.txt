@@ -10,3 +10,5 @@ fashioneditorial|Fashion editorial|fashion editorial dramaticlighting 85mm color
 cyberpunkcity|Cyberpunk city|cyberpunk nightcity rainynight neonlights anamorphic|21:9
 epicfantasy|Epic fantasy scene|fantasy mattepainting godrays wideangle highdetail|16:9
 portraitpro|Pro portrait|portrait 85mm f1.4 softlighting bokeh naturalcolors nodeform|3:4
+couplepro|Couple portrait|couple romantic candid 85mm softlighting goldenhour naturalcolors nodeform|4:5
+weddingclassic|Classic wedding photo|wedding 50mm softlighting naturalcolors colorgraded nodeform clean|3:2
