@@ -9,7 +9,7 @@
       "name": "image-style",
       "source": "./dist/marketplace/image-style",
       "description": "Slash-command image style modifiers",
-      "version": "1.10.0"
+      "version": "1.10.1"
     }
   ]
 }

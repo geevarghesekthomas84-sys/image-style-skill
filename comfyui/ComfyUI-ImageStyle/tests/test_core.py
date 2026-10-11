@@ -280,20 +280,34 @@ class Convert(unittest.TestCase):
 
 
 class ExampleWorkflow(unittest.TestCase):
-    def test_example_workflow_is_consistent(self):
-        path = os.path.join(PKG, "example_workflows", "image-style-z-image-turbo.json")
-        with open(path, encoding="utf-8") as fh:
-            wf = json.load(fh)
-        ids = set(n["id"] for n in wf["nodes"])
-        types = [n["type"] for n in wf["nodes"]]
-        self.assertIn("ImageStylePrompt", types)
-        self.assertEqual(len(wf["links"]), 14)
-        for l in wf["links"]:
-            self.assertIn(l[1], ids)
-            self.assertIn(l[3], ids)
+    EXPECT = {"image-style-z-image-turbo.json": 14, "image-style-z-image-turbo-svg.json": 16,
+              "image-style-upload-to-svg.json": 3}
+
+    def _load(self, name):
+        with open(os.path.join(PKG, "example_workflows", name), encoding="utf-8") as fh:
+            return json.load(fh)
+
+    def test_all_example_workflows_are_consistent(self):
+        found = sorted(f for f in os.listdir(os.path.join(PKG, "example_workflows")) if f.endswith(".json"))
+        self.assertEqual(found, sorted(self.EXPECT))
+        for name, nlinks in self.EXPECT.items():
+            wf = self._load(name)
+            ids = set(n["id"] for n in wf["nodes"])
+            self.assertEqual(len(wf["links"]), nlinks, name)
+            for l in wf["links"]:
+                self.assertIn(l[1], ids, name)
+                self.assertIn(l[3], ids, name)
+
+    def test_style_node_values(self):
+        wf = self._load("image-style-z-image-turbo.json")
         stylenode = [n for n in wf["nodes"] if n["type"] == "ImageStylePrompt"][0]
         self.assertIn(stylenode["widgets_values"][1], pkg.nodes.STYLES)
         self.assertIn(stylenode["widgets_values"][2], core.ratio_names())
+
+    def test_convert_node_values(self):
+        for name in ("image-style-z-image-turbo-svg.json", "image-style-upload-to-svg.json"):
+            conv = [n for n in self._load(name)["nodes"] if n["type"] == "ImageStyleUploadConvert"][0]
+            self.assertIn(conv["widgets_values"][0], sys.modules["ComfyUI_ImageStyle.convert"].FORMATS)
 
 
 if __name__ == "__main__":

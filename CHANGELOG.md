@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.1
+- ComfyUI: two more example workflows. `image-style-upload-to-svg.json` (upload a picture, save it as SVG, preview the path) ran end to end in ComfyUI 0.39.0. `image-style-z-image-turbo-svg.json` is the Z-Image-Turbo workflow plus a step that also saves every picture as SVG; it loads with no missing nodes but the model was not run on a GPU.
+
 ## 1.10.0
 - ComfyUI: new node **Image Style Upload & Convert**. Upload an image (or connect one) and save it as PNG, JPG, WebP, BMP, TIFF, GIF, SVG (traced to flat-colour vector paths) or SVG (picture embedded). The tracer is plain NumPy and Pillow, with no extra installs. Photos come out posterised; best for logos, icons and flat art. Run end to end in ComfyUI 0.39.0; 28 unit tests.
 
