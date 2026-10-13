@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-imagestyle"
-version = "1.10.7"
+version = "1.11.0"
 description = "Turn short /commands (e.g. /storm /24mm /16:9) into full prompts, negative prompts and sizes."
 license = { text = "MIT" }
 readme = "README.md"

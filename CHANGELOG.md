@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.11.0
+- Website redesign (the page served at glogee.online and in the downloadable `expander.html`): a proper landing page with a header and GitHub button, a hero ("Type a short idea. Get a finished image prompt."), how-it-works cards, a numbered three-step tool, a "works with" section and a footer. Same engine underneath: the page logic is unchanged, and the numbers (403 commands, 8 tools) now come from the data. Checked at desktop and phone width (no sideways scroll, no console errors), and a sample request gave the expected prompt.
+
 ## 1.10.7
 - ComfyUI: new example workflow `image-style-prompt-generator.json`, a prompt generator that makes no image and loads no model (Image Style Prompt and All Ratios nodes with copyable previews and a how-to note). Run end to end in ComfyUI 0.39.0: positive, negative and report came out as expected, and the All Ratios group gave one prompt per ratio. Also added a social preview image at `.github/social-preview.png`.
 

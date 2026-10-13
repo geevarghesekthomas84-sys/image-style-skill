@@ -3,8 +3,12 @@
 </p>
 
 <p align="center">
+  <b><a href="https://glogee.online">Try it in your browser: glogee.online</a></b>
+</p>
+
+<p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.10.0-5b3fd6" alt="version 1.10.0">
+  <img src="https://img.shields.io/badge/version-1.11.0-5b3fd6" alt="version 1.11.0">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
 </p>
@@ -229,7 +233,7 @@ Claude.ai has no image generator, so it returns the final prompt for you to past
 
 ## 💻 The expander page
 
-Google Flow and Kling have no skill or plugin system, so there is a single offline web page that does the same job.
+Google Flow and Kling have no skill or plugin system, so there is a single offline web page that does the same job. A copy runs online at [glogee.online](https://glogee.online).
 
 ![The expander page: type a request, pick a target, copy the result](docs/expander.jpg)
 
