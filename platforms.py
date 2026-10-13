@@ -49,8 +49,10 @@ _tpl = (ROOT / "src" / "expander.template.html").read_text(encoding="utf-8").rep
     "__DATA__", json.dumps(data, ensure_ascii=False))
 _MARK = _re.compile(r"<!--/?FULL-->|/\*/?FULL\*/")
 _BLOCK = _re.compile(r"<!--FULL-->.*?<!--/FULL-->|/\*FULL\*/.*?/\*/FULL\*/", _re.S)
-html = _MARK.sub("", _tpl)                 # downloadable version: everything
-hosted_html = _BLOCK.sub("", _tpl)         # website version: no helper, no copy-and-open, no image generation
+_SMARK = _re.compile(r"<!--/?SITE-->|/\*/?SITE\*/")
+_SBLOCK = _re.compile(r"<!--SITE-->.*?<!--/SITE-->|/\*SITE\*/.*?/\*/SITE\*/", _re.S)
+html = _MARK.sub("", _SBLOCK.sub("", _tpl))        # downloadable version: everything except the website-only examples
+hosted_html = _SMARK.sub("", _BLOCK.sub("", _tpl)) # website version: no helper, no copy-and-open, no image generation; has the examples
 (PF / "flow-kling-anywhere" / "expander.html").write_text(html, encoding="utf-8")
 (PF / "flow-kling-anywhere" / "SETUP.txt").write_text(
     "Google Flow and Kling have no skills or plugins.\n"

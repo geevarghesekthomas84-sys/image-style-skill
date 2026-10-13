@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.12.0
+- Website, more premium: glass header with logo mark, a hero with a live-looking "you type / you get" card (real engine output), glowing gradient buttons, hover-lift cards, a "Get it" section with install commands and a closing call to action.
+- New **Examples** section on the website: a drag-to-compare before/after slider with tabs for the five example sets (lighthouse, two cafe portraits, mug, forest), the exact commands used, and a button that loads those commands into the builder. The examples live only on the website page; the downloadable `expander.html` does not include them (it has no image files).
+
 ## 1.11.0
 - Website redesign (the page served at glogee.online and in the downloadable `expander.html`): a proper landing page with a header and GitHub button, a hero ("Type a short idea. Get a finished image prompt."), how-it-works cards, a numbered three-step tool, a "works with" section and a footer. Same engine underneath: the page logic is unchanged, and the numbers (403 commands, 8 tools) now come from the data. Checked at desktop and phone width (no sideways scroll, no console errors), and a sample request gave the expected prompt.
 
