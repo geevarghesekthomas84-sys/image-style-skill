@@ -51,7 +51,7 @@ _MARK = _re.compile(r"<!--/?FULL-->|/\*/?FULL\*/")
 _BLOCK = _re.compile(r"<!--FULL-->.*?<!--/FULL-->|/\*FULL\*/.*?/\*/FULL\*/", _re.S)
 _SMARK = _re.compile(r"<!--/?SITE-->|/\*/?SITE\*/")
 _SBLOCK = _re.compile(r"<!--SITE-->.*?<!--/SITE-->|/\*SITE\*/.*?/\*/SITE\*/", _re.S)
-html = _MARK.sub("", _SBLOCK.sub("", _tpl))        # downloadable version: everything except the website-only examples
+html = _re.sub(r"<!--/?(?:H1|LEAD)-->", "", _MARK.sub("", _SBLOCK.sub("", _tpl)))        # downloadable version: everything except the website-only examples
 hosted_html = _SMARK.sub("", _BLOCK.sub("", _tpl)) # website version: no helper, no copy-and-open, no image generation; has the examples
 (PF / "flow-kling-anywhere" / "expander.html").write_text(html, encoding="utf-8")
 (PF / "flow-kling-anywhere" / "SETUP.txt").write_text(
@@ -114,107 +114,13 @@ li.hide{{display:none}}
 print("cheat sheet written")
 
 
-# ---- GitHub Pages site (served from /docs) ----
-import datetime as _dt
+# ---- GitHub Pages site (served from /docs): home, one page per AI tool, guide, sitemap (see seo_pages.py) ----
+import seo_pages
 DOCS = ROOT / "docs"
-SITE_URL = "https://glogee.online/"
-SITE_TITLE = "SlashFrame: Free AI Image Prompt Generator for Midjourney & Flux"
-SITE_DESC = ("Free AI image prompt generator: type an idea plus /storm, /85mm or /16:9 and get a finished prompt "
-             "for Midjourney, Flux, Gemini and more. No account.")
-
-FAQ = [
-    ("What is SlashFrame?",
-     "SlashFrame is a free tool that turns a short idea plus slash commands (like /storm, /85mm or /16:9) into a finished, well-structured prompt for AI image and video tools."),
-    ("Is SlashFrame free?",
-     "Yes. It is free and open source under the MIT license. There is no account, no sign-up and nothing to install to use the website."),
-    ("Which AI tools does it work with?",
-     "It formats prompts for Midjourney, Stable Diffusion, Flux, DALL-E, Gemini, Google Flow and Kling. It also ships as a Claude skill and plugin, ChatGPT and Gemini instruction packs, and ComfyUI nodes."),
-    ("How do the slash commands work?",
-     "Each command stands for a piece of prompt wording. For example /storm adds violent storm, dark roiling clouds, lightning and wind, and /24mm adds a wide 24mm field of view. SlashFrame puts the pieces in a sensible order, resolves clashes and keeps the prompt short."),
-    ("Does SlashFrame generate images?",
-     "No. The website builds the prompt for you to copy into your image tool. It does not generate pictures itself."),
-    ("Is my text sent anywhere?",
-     "No. Your request is processed in your browser. The page only asks GitHub for the public star count."),
-    ("How many commands are there?",
-     "There are over 400: camera and lens, lighting, weather, style, color, portrait, product, aspect ratios, negative prompt lists and ready-made presets."),
-]
-
-
-def _faq_html():
-    items = "".join(
-        "<details class=\"qa\"><summary>%s</summary><p>%s</p></details>" % (_html.escape(a), _html.escape(b)) for a, b in FAQ)
-    return items
-
-
-def _jsonld():
-    app = {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "SlashFrame",
-        "alternateName": "image-style",
-        "url": SITE_URL,
-        "description": SITE_DESC,
-        "applicationCategory": "DesignApplication",
-        "operatingSystem": "Any (web browser)",
-        "browserRequirements": "Requires JavaScript",
-        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        "image": SITE_URL + "social-preview.png",
-        "license": "https://opensource.org/licenses/MIT",
-        "sameAs": ["https://github.com/geevarghesekthomas84-sys/image-style-skill"],
-    }
-    faq = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{"@type": "Question", "name": a,
-                        "acceptedAnswer": {"@type": "Answer", "text": b}} for a, b in FAQ],
-    }
-    return "".join('<script type="application/ld+json">%s</script>\n' % json.dumps(x, ensure_ascii=False) for x in (app, faq))
-
-
-site = hosted_html.replace("<!--FAQ-->", _faq_html())
-site = _re.sub(r"<title>[^<]*</title>", "<title>%s</title>" % _html.escape(SITE_TITLE), site, count=1)
-_img = SITE_URL + "social-preview.png"
-meta = "\n".join([
-    '<meta name="description" content="%s">' % _html.escape(SITE_DESC, quote=True),
-    '<link rel="canonical" href="%s">' % SITE_URL,
-    '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
-    '<meta name="theme-color" content="#2a2163">',
-    '<meta property="og:type" content="website">',
-    '<meta property="og:site_name" content="SlashFrame">',
-    '<meta property="og:title" content="%s">' % _html.escape(SITE_TITLE, quote=True),
-    '<meta property="og:description" content="%s">' % _html.escape(SITE_DESC, quote=True),
-    '<meta property="og:url" content="%s">' % SITE_URL,
-    '<meta property="og:image" content="%s">' % _img,
-    '<meta property="og:image:width" content="1280">',
-    '<meta property="og:image:height" content="640">',
-    '<meta property="og:image:alt" content="SlashFrame: slash commands that turn a short idea into an AI image prompt">',
-    '<meta name="twitter:card" content="summary_large_image">',
-    '<meta name="twitter:title" content="%s">' % _html.escape(SITE_TITLE, quote=True),
-    '<meta name="twitter:description" content="%s">' % _html.escape(SITE_DESC, quote=True),
-    '<meta name="twitter:image" content="%s">' % _img,
-    '<link rel="icon" type="image/svg+xml" href="favicon.svg">',
-    '<script>if(location.protocol==="http:"&&location.hostname==="glogee.online")location.replace("https://glogee.online"+location.pathname+location.search+location.hash)</script>',
-]) + "\n" + _jsonld()
-_t = _re.search(r"<title>[^<]*</title>", site).group(0)
-site = site.replace(_t, _t + chr(10) + meta, 1)
-(DOCS / "index.html").write_text(site, encoding="utf-8")
+_site_urls = seo_pages.build(DOCS, ROOT, hosted_html)
 (DOCS / "cheatsheet.html").write_text((ROOT / "dist" / "cheatsheet.html").read_text(encoding="utf-8"), encoding="utf-8")
 (DOCS / ".nojekyll").write_text("", encoding="utf-8")
-shutil.copy(ROOT / ".github" / "social-preview.png", DOCS / "social-preview.png")
-_today = _dt.date.today().isoformat()
-(DOCS / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + SITE_URL + "sitemap.xml\n", encoding="utf-8")
-(DOCS / "sitemap.xml").write_text(
-    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    + "".join("  <url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%s</priority></url>\n" % (u, _today, c, p)
-              for u, c, p in ((SITE_URL, "weekly", "1.0"), (SITE_URL + "cheatsheet.html", "monthly", "0.7")))
-    + "</urlset>\n", encoding="utf-8")
-(DOCS / "llms.txt").write_text(
-    "# SlashFrame\n\n> Free, open-source tool that turns a short idea plus slash commands (/storm, /85mm, /16:9) into a finished prompt "
-    "for Midjourney, Flux, Stable Diffusion, Gemini, DALL-E, Google Flow and Kling.\n\n"
-    "- [Website](" + SITE_URL + "): build prompts in the browser, no account\n"
-    "- [Cheat sheet](" + SITE_URL + "cheatsheet.html): all commands on one page\n"
-    "- [Source code](https://github.com/geevarghesekthomas84-sys/image-style-skill): MIT license, Claude plugin, ComfyUI nodes\n", encoding="utf-8")
-print("pages site written to docs/")
+print("pages site written to docs/:", len(_site_urls), "pages")
 
 
 # ---- ComfyUI node data (single source of truth: the same src/*.txt files) ----

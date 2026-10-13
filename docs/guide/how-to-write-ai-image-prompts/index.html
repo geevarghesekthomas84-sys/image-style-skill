@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Write AI Image Prompts: Simple Formula | SlashFrame</title>
+<meta name="description" content="A simple formula for writing AI image prompts that work in Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT, with before and after examples.">
+<link rel="canonical" href="https://glogee.online/guide/how-to-write-ai-image-prompts/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#2a2163">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="SlashFrame">
+<meta property="og:title" content="How to Write AI Image Prompts: Simple Formula | SlashFrame">
+<meta property="og:description" content="A simple formula for writing AI image prompts that work in Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT, with before and after examples.">
+<meta property="og:url" content="https://glogee.online/guide/how-to-write-ai-image-prompts/">
+<meta property="og:image" content="https://glogee.online/social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="SlashFrame: free prompt generator for AI images">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Write AI Image Prompts: Simple Formula | SlashFrame">
+<meta name="twitter:description" content="A simple formula for writing AI image prompts that work in Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT, with before and after examples.">
+<meta name="twitter:image" content="https://glogee.online/social-preview.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script>if(location.protocol==="http:"&&location.hostname==="glogee.online")location.replace("https://glogee.online"+location.pathname+location.search+location.hash)</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to write AI image prompts: a simple formula", "description": "A simple formula for writing AI image prompts that work in Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT, with before and after examples.", "datePublished": "2026-10-13", "dateModified": "2026-10-13", "inLanguage": "en", "image": "https://glogee.online/social-preview.png", "mainEntityOfPage": "https://glogee.online/guide/how-to-write-ai-image-prompts/", "author": {"@type": "Organization", "name": "SlashFrame", "url": "https://glogee.online/"}, "publisher": {"@type": "Organization", "name": "SlashFrame", "url": "https://glogee.online/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://glogee.online/"}, {"@type": "ListItem", "position": 2, "name": "Guide", "item": "https://glogee.online/guide/how-to-write-ai-image-prompts/"}]}</script>
+
+<style>
+:root{--bg:#f6f5f1;--panel:#fff;--fg:#14141a;--mut:#5c5b67;--line:#e4e2db;--acc:#5b4bff;--code:#f1efea}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0b10;--panel:#15151c;--fg:#f0f0f5;--mut:#a3a2b2;--line:#26262f;--acc:#a79dff;--code:#101015}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}.top{border-bottom:1px solid var(--line)}.top .in{max-width:860px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.03em;color:var(--fg);text-decoration:none}.logo span{color:var(--acc)}
+.btn{background:linear-gradient(135deg,#6b5bff,#8a5bff);color:#fff!important;text-decoration:none;padding:10px 18px;border-radius:11px;font-weight:700;font-size:15px}
+main{max-width:760px;margin:0 auto;padding:36px 20px 70px}h1{font-size:clamp(30px,5vw,44px);line-height:1.12;letter-spacing:-.035em;margin:0 0 14px}
+h2{font-size:26px;letter-spacing:-.02em;margin:44px 0 10px}h3{font-size:19px;margin:26px 0 6px}.meta{color:var(--mut);font-size:14.5px;margin:0 0 26px}
+p,li{color:var(--fg)}pre{background:var(--code);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;font:14px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
+code{background:var(--code);padding:2px 7px;border-radius:6px;font-size:.92em}.cta{margin:40px 0;padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--line);text-align:center}
+.cta p{margin:0 0 14px}footer{border-top:1px solid var(--line);padding:26px 20px;color:var(--mut);font-size:14.5px;text-align:center}footer a{color:var(--mut)}
+nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--mut)}
+</style></head><body>
+<div class="top"><div class="in"><a class="logo" href="/">Slash<span>Frame</span></a><a class="btn" href="/#tool">Open the free generator</a></div></div>
+<main><nav class="bc"><a href="/">Home</a> &rsaquo; Guide</nav>
+<h1>How to write AI image prompts: a simple formula</h1>
+<p class="meta">Updated 2026-10-13 &middot; 5 minute read &middot; works for Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT</p>
+<p>A good AI image prompt is not long or magic. It is a short list of clear decisions, written in a sensible order. This guide gives you a formula you can reuse in any image tool, plus before and after examples. If you want to skip the typing, the <a href="/">free prompt generator</a> on this site builds the final wording for you from short slash commands.</p>
+<h2>The formula: subject, view, light, style, extras</h2>
+<ol>
+<li><b>Subject first.</b> Say what the picture is of, in plain words: "a lone lighthouse on a cliff". Models give the most weight to the start of the prompt.</li>
+<li><b>View and lens.</b> Say how close or far the camera is and the angle: "wide 24mm field of view", "close-up", "low angle", "top-down".</li>
+<li><b>Light and weather.</b> Light changes the mood more than anything else: "golden hour, warm low-angle sunlight", "violent storm, dark clouds", "soft window light".</li>
+<li><b>Style or medium.</b> Photo, oil painting, 3D render, matte painting, watercolor.</li>
+<li><b>Extras.</b> Colors, detail level, and things to avoid such as text or watermarks.</li>
+</ol>
+<h2>Before and after</h2>
+<p>Plain idea:</p><pre>a lone lighthouse on a cliff</pre>
+<p>The same idea, with the formula applied (Midjourney format):</p><pre>a lone lighthouse on a cliff, wide 24mm field of view, environmental context with natural perspective, violent storm, dark roiling clouds, lightning, wind, dramatic lighting, strong contrast between light and shadow --ar 16:9 --no text, watermark, logo, signature, caption, username</pre>
+<p>The wording after the subject came from four short slash commands: <code>/storm /dramaticlighting /24mm /16:9</code> plus <code>/clean</code> for the avoid list. You can try this exact request in the <a href="/">generator</a>.</p>
+<h2>Each tool likes a slightly different format</h2>
+<ul>
+<li><b>Midjourney</b> reads comma-separated phrases. Settings go at the end: <code>--ar 16:9</code> for the aspect ratio and <code>--no text</code> to leave things out. See the <a href="/midjourney-prompt-generator/">Midjourney prompt generator</a>.</li>
+<li><b>Flux</b> follows natural sentences well. See the <a href="/flux-prompt-generator/">Flux prompt generator</a>.</li>
+<li><b>Stable Diffusion</b> takes a prompt plus a separate negative prompt and a size. See the <a href="/stable-diffusion-prompt-generator/">Stable Diffusion prompt generator</a>.</li>
+<li><b>ChatGPT and DALL-E</b> and <b>Gemini</b> understand ordinary sentences. See the <a href="/chatgpt-image-prompt-generator/">ChatGPT</a> and <a href="/gemini-image-prompt-generator/">Gemini</a> generators.</li>
+<li><b>Google Flow and Kling</b> are video-oriented and use 16:9 or 9:16 frames. See the <a href="/google-flow-prompt-generator/">Google Flow</a> and <a href="/kling-prompt-generator/">Kling</a> generators.</li>
+</ul>
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Too many style words.</b> Stacking ten modifiers makes models ignore most of them. Keep about eight at most and drop clashing ones, such as "black and white" with "vibrant colors".</li>
+<li><b>Naming equipment.</b> Writing "200mm telephoto lens" can make some models draw a lens or camera in the picture. Describe the look instead: "200mm look, strong background compression".</li>
+<li><b>Hiding the subject.</b> If the subject is buried in the middle, results drift. Keep it first.</li>
+<li><b>Fighting the format.</b> Pasting Midjourney parameters into a sentence-based tool does nothing useful. Match the tool.</li>
+<li><b>Expecting an edit.</b> A prompt creates a new picture. To change an existing picture, use an image-to-image or instruction-edit model.</li>
+</ul>
+<h2>A quick checklist</h2>
+<ul><li>Subject in the first few words</li><li>One clear view or lens look</li><li>One clear lighting idea</li><li>One style or medium</li><li>The right aspect ratio for where the image will be used</li><li>An avoid list if you see unwanted text or watermarks</li></ul>
+<div class="cta"><p><b>Skip the typing.</b> Write your idea, add a few slash commands, pick your tool and copy the finished prompt. Free, no account.</p><a class="btn" href="/#tool">Open the free prompt generator</a></div>
+</main>
+<footer><div style="margin-bottom:6px">Free prompt generators: <a href="/midjourney-prompt-generator/">Midjourney</a> &middot; <a href="/flux-prompt-generator/">Flux</a> &middot; <a href="/stable-diffusion-prompt-generator/">Stable Diffusion</a> &middot; <a href="/chatgpt-image-prompt-generator/">ChatGPT &amp; DALL-E</a> &middot; <a href="/gemini-image-prompt-generator/">Gemini</a> &middot; <a href="/google-flow-prompt-generator/">Google Flow</a> &middot; <a href="/kling-prompt-generator/">Kling AI</a></div><p style="margin:14px 0 0">SlashFrame &middot; MIT license &middot; <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></p></footer>
+</body></html>

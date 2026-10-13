@@ -1,7 +1,19 @@
 # SlashFrame
 
-> Free, open-source tool that turns a short idea plus slash commands (/storm, /85mm, /16:9) into a finished prompt for Midjourney, Flux, Stable Diffusion, Gemini, DALL-E, Google Flow and Kling.
+> Free, open-source prompt generator for AI images. Type a short idea plus slash commands (/storm, /85mm, /16:9) and get a finished prompt for Midjourney, Flux, Stable Diffusion, Gemini, DALL-E and ChatGPT, Google Flow and Kling.
 
-- [Website](https://glogee.online/): build prompts in the browser, no account
-- [Cheat sheet](https://glogee.online/cheatsheet.html): all commands on one page
-- [Source code](https://github.com/geevarghesekthomas84-sys/image-style-skill): MIT license, Claude plugin, ComfyUI nodes
+## Generators
+- [Midjourney prompt generator](https://glogee.online/midjourney-prompt-generator/)
+- [Flux prompt generator](https://glogee.online/flux-prompt-generator/)
+- [Stable Diffusion prompt generator](https://glogee.online/stable-diffusion-prompt-generator/)
+- [ChatGPT & DALL-E prompt generator](https://glogee.online/chatgpt-image-prompt-generator/)
+- [Gemini prompt generator](https://glogee.online/gemini-image-prompt-generator/)
+- [Google Flow prompt generator](https://glogee.online/google-flow-prompt-generator/)
+- [Kling AI prompt generator](https://glogee.online/kling-prompt-generator/)
+
+## Learn
+- [How to write AI image prompts](https://glogee.online/guide/how-to-write-ai-image-prompts/)
+- [Command cheat sheet](https://glogee.online/cheatsheet.html)
+
+## Source
+- [GitHub](https://github.com/geevarghesekthomas84-sys/image-style-skill): MIT license, Claude plugin, ComfyUI nodes
