@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.18.0
+- Search engine optimisation, round two (aimed at "free prompt generator" searches): the home page now leads with "Free AI image prompt generator" (title, description, H1, first paragraph, FAQ); a dedicated page for each tool (Midjourney, Flux, Stable Diffusion, ChatGPT and DALL-E, Gemini, Google Flow, Kling) with its own title, headline, explanation of that tool's prompt format, a real example, FAQ and the tool preselected; a how-to guide ("How to write AI image prompts: simple formula"); a "pick your tool" section and footer links so every page links to the others; breadcrumb, FAQ and web-app structured data on every page; a complete sitemap (10 pages); an IndexNow key file. The generated pages come from `seo_pages.py`.
+
 ## 1.17.0
 - Eight new before/after example sets in the website slider (Tokyo at night, floating castle, sports car, modern house, perfume, ramen, fisherman, living room; 13 sets in total, best ones first) and in the README, with the exact prompts. Each pair comes from the same plain idea and the same idea plus commands. The images are the project author's AI-generated results, one per prompt, shown as made (the fisherman pair has two different shapes, so the left image is cropped to fit).
 
