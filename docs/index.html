@@ -458,10 +458,19 @@ addEventListener("resize",()=>open&&place());addEventListener("scroll",()=>open&
 
 {const EX=[
 {n:"Lighthouse",t:"A calm coast becomes a storm",d:"Same subject. The commands add weather, dramatic light and a wide lens.",pb:"a lighthouse on a cliff",c:"/storm /dramaticlighting /24mm /16:9",ar:"1/1",f:"lighthouse"},
+{n:"Tokyo night",t:"A rainy neon night in the city",d:"The commands add night, rain-wet streets, glowing neon and a cinematic look.",pb:"a street in Tokyo",c:"/nightcity /rainynight /neonlights /cinematic",ar:"1200/675",f:"tokyo"},
+{n:"Castle",t:"An epic fantasy scene",d:"The commands add a fantasy world, god rays, golden light and a matte-painting look.",pb:"a castle on a floating island",c:"/epicfantasy /goldenhour /volumetriclight /mattepainting",ar:"1200/675",f:"castle"},
+{n:"Sports car",t:"Speed, sunset and a low angle",d:"The commands add a low camera angle, motion blur, glossy reflections and sunset light.",pb:"a red sports car on a coastal road",c:"/automotivephotography /sunset /lowangle /motionblur",ar:"1200/675",f:"car"},
+{n:"Modern house",t:"A golden-hour architecture shot",d:"The commands add a wide view, clean lines and warm low sun.",pb:"a modern house on a hillside",c:"/architecturalphotography /goldenhour /wideangle /clean",ar:"1200/675",f:"house"},
+{n:"Perfume",t:"A premium product shot",d:"The commands add commercial lighting, macro detail, soft light and a clean background.",pb:"a glass perfume bottle on a marble table",c:"/productphotography /softlighting /macro /clean",ar:"1200/800",f:"perfume"},
+{n:"Ramen",t:"A food-photo close-up",d:"The commands add a close-up, shallow depth of field, appetising styling and warm tones.",pb:"a bowl of ramen",c:"/foodphotography /warmtones /closeup /shallowdepth",ar:"1200/800",f:"ramen"},
+{n:"Fisherman",t:"A portrait with golden light",d:"The commands add an environmental portrait look, golden hour light and fine detail. The two images have different shapes, so the left one is cropped to fit.",pb:"an elderly fisherman on a boat",c:"/environmentalportrait /goldenhour /85mm /highdetail",ar:"1200/800",f:"fisherman"},
+{n:"Living room",t:"Scandinavian, sunlit and cosy",d:"The commands add light wood, white walls, soft window light and a wide view.",pb:"a living room",c:"/scandinavianinterior /naturalwindowlight /wideangle /clean",ar:"1200/675",f:"living"},
 {n:"Cafe portrait",t:"From snapshot to portrait",d:"The commands add portrait lens look, golden light, a smile and a seated pose.",pb:"a woman at a cafe",c:"/portraitpro /goldenhour /smile /sitting",ar:"800/667",f:"cafe-a"},
 {n:"Cafe portrait 2",t:"Warm light, soft background",d:"A second run of the same request, with golden light and creamy background blur.",pb:"a woman at a cafe",c:"/portraitpro /goldenhour /smile /sitting",ar:"800/1072",f:"cafe-b"},
 {n:"Product",t:"A clean studio product shot",d:"One command swaps the rustic table for a clean background and commercial lighting.",pb:"a ceramic mug",c:"/productshot",ar:"800/1072",f:"mug"},
-{n:"Forest",t:"Fog, layers and golden light",d:"The commands add mist, depth layers, warm low sun and a wide lens.",pb:"a forest path",c:"/foggyforest /goldenhour /24mm",ar:"1/1",f:"forest"}];
+{n:"Forest",t:"Fog, layers and golden light",d:"The commands add mist, depth layers, warm low sun and a wide lens.",pb:"a forest path",c:"/foggyforest /goldenhour /24mm",ar:"1/1",f:"forest"}
+];
 let cur=0;const cmp=$("cmp"),rg=$("cmpR");
 function showEx(i){cur=i;const e=EX[i];$("tabs").innerHTML=EX.map((x,j)=>`<button class="tab" data-i="${j}" aria-pressed="${j===i}">${x.n}</button>`).join("");
  cmp.style.setProperty("--ar",e.ar);$("cmpA").src="examples/"+e.f+"-after.jpg";$("cmpB").src="examples/"+e.f+"-before.jpg";$("cmpA").alt="Result with commands: "+e.pb+" "+e.c;$("cmpB").alt="Result from the plain idea: "+e.pb;

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.17.0
+- Eight new before/after example sets in the website slider (Tokyo at night, floating castle, sports car, modern house, perfume, ramen, fisherman, living room; 13 sets in total, best ones first) and in the README, with the exact prompts. Each pair comes from the same plain idea and the same idea plus commands. The images are the project author's AI-generated results, one per prompt, shown as made (the fisherman pair has two different shapes, so the left image is cropped to fit).
+
 ## 1.16.0
 - Animated demo (`docs/demo.gif`, 15 seconds, real screen frames of the page): typing a short idea, the `/` autocomplete list, picking commands, choosing Midjourney and copying. Shown in a new "Watch" section on the website and at the top of the README quick start. The same file can be posted on Reddit, X and Discord.
 

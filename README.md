@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.16.0-5b3fd6" alt="version 1.16.0">
+  <img src="https://img.shields.io/badge/version-1.17.0-5b3fd6" alt="version 1.17.0">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
@@ -135,6 +135,85 @@ Each pair starts from the same plain idea. The right-hand image adds commands.
 </details>
 
 <details>
+<summary><b>More examples</b> (city, fantasy, car, architecture, product, food, portrait, interior)</summary>
+
+**Tokyo at night**: `a street in Tokyo` vs `a street in Tokyo /nightcity /rainynight /neonlights /cinematic`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/tokyo-before.jpg" alt="a street in Tokyo, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/tokyo-after.jpg" alt="a street in Tokyo, with commands"></td>
+  </tr>
+</table>
+
+**Floating castle (fantasy)**: `a castle on a floating island` vs `a castle on a floating island /epicfantasy /goldenhour /volumetriclight /mattepainting`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/castle-before.jpg" alt="a castle on a floating island, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/castle-after.jpg" alt="a castle on a floating island, with commands"></td>
+  </tr>
+</table>
+
+**Sports car (automotive)**: `a red sports car on a coastal road` vs `a red sports car on a coastal road /automotivephotography /sunset /lowangle /motionblur`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/car-before.jpg" alt="a red sports car on a coastal road, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/car-after.jpg" alt="a red sports car on a coastal road, with commands"></td>
+  </tr>
+</table>
+
+**Modern house (architecture)**: `a modern house on a hillside` vs `a modern house on a hillside /architecturalphotography /goldenhour /wideangle /clean`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/house-before.jpg" alt="a modern house on a hillside, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/house-after.jpg" alt="a modern house on a hillside, with commands"></td>
+  </tr>
+</table>
+
+**Perfume (product)**: `a glass perfume bottle on a marble table` vs `a glass perfume bottle on a marble table /productphotography /softlighting /macro /clean`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/perfume-before.jpg" alt="a glass perfume bottle on a marble table, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/perfume-after.jpg" alt="a glass perfume bottle on a marble table, with commands"></td>
+  </tr>
+</table>
+
+**Ramen (food)**: `a bowl of ramen` vs `a bowl of ramen /foodphotography /warmtones /closeup /shallowdepth`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/ramen-before.jpg" alt="a bowl of ramen, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/ramen-after.jpg" alt="a bowl of ramen, with commands"></td>
+  </tr>
+</table>
+
+**Fisherman (portrait)**: `an elderly fisherman on a boat` vs `an elderly fisherman on a boat /environmentalportrait /goldenhour /85mm /highdetail`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/fisherman-before.jpg" alt="an elderly fisherman on a boat, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/fisherman-after.jpg" alt="an elderly fisherman on a boat, with commands"></td>
+  </tr>
+</table>
+
+**Living room (interior)**: `a living room` vs `a living room /scandinavianinterior /naturalwindowlight /wideangle /clean`
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/examples/living-before.jpg" alt="a living room, plain prompt"></td>
+    <td width="50%"><img src="docs/examples/living-after.jpg" alt="a living room, with commands"></td>
+  </tr>
+</table>
+
+Left: the plain idea. Right: the same idea with the commands shown above. Made by the project author with AI image tools (tool and seed not recorded), one result per prompt, shown as made.
+
+</details>
+
+<details>
 <summary>Exact prompts and honest notes</summary>
 
 The commands side is the expander's output for each request (the lighthouse one is the `/mj` form without flags; the others use `/gemini` sentences):
@@ -154,6 +233,28 @@ a forest path, 24mm wide lens, environmental context with natural perspective, f
 - One result per prompt, shown as made. This is a set of examples, not a benchmark: results vary by tool and seed.
 - Aspect-ratio commands (`/16:9`, `/9:16`) were not applied by the tools used, so the outputs are square or 3:4.
 - The two cafe pairs are separate runs of the same request.
+
+Prompts for the "More examples" (Gemini/ChatGPT sentence format from the expander):
+
+```text
+a street in Tokyo. City at night, lit windows, streetlights, urban glow. Rainy night, wet reflective surfaces, glowing lights in rain. Vivid neon lights, glowing signs, colorful light spill. Cinematic look, movie-still composition, filmic lighting and color.
+
+a castle on a floating island. Wide-angle perspective, expansive field of view. Fantasy world, magical, epic imaginative setting. God rays, visible beams of light through atmosphere. Golden hour, warm low-angle sunlight, long soft shadows. Volumetric lighting, light beams in hazy air. Matte painting, grand cinematic environment. Highly detailed, intricate fine details.
+Aspect ratio: 16:9
+
+a red sports car on a coastal road. Low-angle shot, viewed from below looking up, imposing perspective. Motion blur, sense of speed and movement. Automotive photography, sleek car, glossy reflections, dynamic angle. Sunset, warm orange-pink sky, low sun.
+
+a modern house on a hillside. Wide-angle perspective, expansive field of view. Architectural photography, clean lines, precise perspective. Golden hour, warm low-angle sunlight, long soft shadows. Avoid text, watermark, logo, signature, caption, username.
+
+a glass perfume bottle on a marble table. Product photography, clean hero shot, clean background, commercial lighting. Macro photography, extreme magnification. Soft diffused lighting, gentle shadows, flattering glow. Avoid text, watermark, logo, signature, caption, username.
+
+a bowl of ramen. Close-up shot, subject fills the frame. Shallow depth of field, sharp subject, blurred background. Food photography, appetizing, styled plating, fresh textures. Warm tones, golden amber hues.
+
+an elderly fisherman on a boat. 85mm portrait framing, flattering compression, creamy background. Environmental portrait, subject shown in their meaningful surroundings. Golden hour, warm low-angle sunlight, long soft shadows. Highly detailed, intricate fine details.
+
+a living room. Wide-angle perspective, expansive field of view. Scandinavian interior, light wood, white, cozy minimalism. Natural window light, soft directional daylight. Avoid text, watermark, logo, signature, caption, username.
+```
+
 
 </details>
 
