@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.14.0
+- Website and downloadable page: inline slash-command autocomplete in the request box, like Discord or Slack. Typing `/` opens a floating list under the text cursor and `/ne` filters it instantly (prefix matches first, shortest first; your saved recipes first). Up and Down move the highlight (it wraps), Enter or Tab inserts the command, Esc closes it, and clicking an item works too. Dark popup with a purple highlight. It uses the same command list as the command browser, so every command is covered, and it does not trigger on URLs like `http://`. The popup flips above the cursor when there is no room below. Tested with real key presses in the browser.
+
 ## 1.13.0
 - New brand: **SlashFrame** (formerly image-style) with a new logo: a frame-corner square with a bold slash. Updated on the website (header, title, tab icon, hero card, footer), the cheat sheet, the README banner and flow diagram, and the social preview image. The repository name, the Claude plugin id, the skill commands (`/image-style:...`), the ComfyUI node names and the install commands are unchanged, so nothing that was installed breaks.
 

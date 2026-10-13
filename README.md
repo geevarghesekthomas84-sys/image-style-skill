@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.13.0-5b3fd6" alt="version 1.13.0">
+  <img src="https://img.shields.io/badge/version-1.14.0-5b3fd6" alt="version 1.14.0">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
