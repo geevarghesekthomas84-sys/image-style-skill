@@ -20,6 +20,12 @@ a{color:var(--acc)}
 .nav nav a.gh{color:#fff;background:linear-gradient(135deg,#6b5bff,#8a5bff);font-weight:600;margin-left:6px;box-shadow:0 6px 18px -6px rgba(107,91,255,.7)}
 .nav nav a.gh:hover{filter:brightness(1.08);color:#fff}
 @media(max-width:700px){.nav nav a:not(.gh){display:none}}
+.star{display:inline-flex;align-items:center;gap:7px}.star .sc{display:none;font-weight:700;padding:1px 8px;border-radius:999px;background:rgba(255,255,255,.18);font-size:.86em}.star .sc.on{display:inline}
+.nav nav a.star{color:var(--fg);background:var(--chip);font-weight:600;margin-left:6px;border:1px solid var(--line)}
+.nav nav a.star:hover{border-color:var(--acc);color:var(--fg);background:var(--acc2)}
+.nav nav a.star .sc{background:var(--acc2);color:var(--acc)}
+.star i{font-style:normal;color:#f5b301}
+@media(max-width:700px){.nav nav a.star .sc{display:none!important}}
 /* hero */
 .hero{position:relative;overflow:hidden;background:#0c0a16;color:#fff;padding:84px 0 96px}
 .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 12% 0%,rgba(91,63,214,.55),transparent 70%),radial-gradient(680px 460px at 92% 10%,rgba(255,122,217,.30),transparent 70%),radial-gradient(900px 500px at 60% 120%,rgba(60,90,255,.35),transparent 70%)}
@@ -144,13 +150,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 </style></head><body>
 <div class="nav"><div class="wrap"><a class="logo" href="#top"><i>&#10022;</i><b>image<span>-style</span></b></a>
-<nav><a href="#how">How it works</a><!--SITE--><a href="#demo">Examples</a><!--/SITE--><a href="#tool">Try it</a><a href="#get">Get it</a><a class="gh" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></nav></div></div>
+<nav><a href="#how">How it works</a><!--SITE--><a href="#demo">Examples</a><!--/SITE--><a href="#tool">Try it</a><a href="#get">Get it</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></nav></div></div>
 <header class="hero" id="top"><div class="wrap">
 <div>
 <span class="badge">Free &middot; works offline &middot; no account</span>
 <h1>Type a short idea.<br><em>Get a finished image prompt.</em></h1>
 <p class="lead"><span data-nc>400+</span> slash commands like <b>/storm</b>, <b>/85mm</b> and <b>/16:9</b> turn a few words into a clear prompt for Midjourney, Flux, Gemini, ChatGPT, Google Flow and Kling.</p>
-<div class="cta"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">Get it on GitHub</a></div>
+<div class="cta"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill"><i>&#9733;</i>Star on GitHub<span class="sc" data-stars></span></a></div>
 <div class="stats"><div><b data-nc>400+</b>commands</div><div><b data-nt>8</b>target tools</div><div><b>$0</b>no account, no install</div></div>
 </div>
 <div class="hcard"><div>
@@ -220,7 +226,7 @@ claude plugin install image-style@image-style-market</pre></div>
 <div class="info"><h3>Save your looks</h3><p>Save a set of commands as your own recipe, or copy a link that opens your exact request.</p></div>
 <div class="info"><h3>Free and open source</h3><p>MIT licensed. Everything is on <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a>.</p></div>
 </div></div></section>
-<div class="fcta"><div class="wrap"><h2>Stop rewriting prompts by hand.</h2><p>Free, open source, and works with the tools you already use.</p><div class="cta" style="justify-content:center"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">Star on GitHub</a></div></div></div>
+<div class="fcta"><div class="wrap"><h2>Stop rewriting prompts by hand.</h2><p>Free, open source, and works with the tools you already use.</p><div class="cta" style="justify-content:center"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill"><i>&#9733;</i>Star on GitHub<span class="sc" data-stars></span></a></div></div></div>
 <footer><div class="wrap"><div>image-style &middot; MIT license &middot; your request stays in your browser</div><div><a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a> &middot; <a href="https://glogee.online/cheatsheet.html">Cheat sheet</a></div></div></footer>
 <script>
 const D=__DATA__;
@@ -381,6 +387,13 @@ rg.oninput=()=>cmp.style.setProperty("--p",rg.value+"%");
 $("tabs").onclick=e=>{const b=e.target.closest("[data-i]");if(b)showEx(+b.dataset.i)};
 $("cU").onclick=()=>{const e=EX[cur];$("in").value=e.pb+" "+e.c;run();$("tool").scrollIntoView({behavior:"smooth"})};
 showEx(0)}
+/*/SITE*/
+/*SITE*/
+{const fmt=n=>n>=1000?(n/1000).toFixed(n>=10000?0:1)+"k":String(n);
+const put=n=>n>0&&document.querySelectorAll("[data-stars]").forEach(e=>{e.textContent=fmt(n);e.classList.add("on")});
+let c=null;try{c=JSON.parse(sessionStorage.getItem("is-stars")||"null")}catch(e){}
+if(c&&Date.now()-c.t<600000)put(c.n);
+else try{fetch("https://api.github.com/repos/geevarghesekthomas84-sys/image-style-skill").then(r=>r.ok?r.json():null).then(j=>{if(j&&typeof j.stargazers_count==="number"){put(j.stargazers_count);try{sessionStorage.setItem("is-stars",JSON.stringify({n:j.stargazers_count,t:Date.now()}))}catch(e){}}}).catch(()=>{})}catch(e){}}
 /*/SITE*/
 {const nc=Object.keys(D.mods).length+D.aspect.length+D.negatives.length+D.models.length+D.presets.length;document.querySelectorAll("[data-nc]").forEach(e=>e.textContent=nc);document.querySelectorAll("[data-nt]").forEach(e=>e.textContent=D.models.length)}
 </script></body></html>

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.1
+- Star option: a "★ Star" pill in the website header, a "★ Star on GitHub" button in the hero and in the closing banner (all three show the live star count, read from GitHub's public API and cached for 10 minutes; if the call fails, the count is simply hidden). A star badge and a "Star this repo" line in the README. The count is only on the website, not in the downloadable `expander.html`, which stays offline.
+
 ## 1.12.0
 - Website, more premium: glass header with logo mark, a hero with a live-looking "you type / you get" card (real engine output), glowing gradient buttons, hover-lift cards, a "Get it" section with install commands and a closing call to action.
 - New **Examples** section on the website: a drag-to-compare before/after slider with tabs for the five example sets (lighthouse, two cafe portraits, mug, forest), the exact commands used, and a button that loads those commands into the builder. The examples live only on the website page; the downloadable `expander.html` does not include them (it has no image files).
