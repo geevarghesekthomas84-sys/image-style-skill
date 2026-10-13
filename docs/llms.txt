@@ -1,0 +1,7 @@
+# SlashFrame
+
+> Free, open-source tool that turns a short idea plus slash commands (/storm, /85mm, /16:9) into a finished prompt for Midjourney, Flux, Stable Diffusion, Gemini, DALL-E, Google Flow and Kling.
+
+- [Website](https://glogee.online/): build prompts in the browser, no account
+- [Cheat sheet](https://glogee.online/cheatsheet.html): all commands on one page
+- [Source code](https://github.com/geevarghesekthomas84-sys/image-style-skill): MIT license, Claude plugin, ComfyUI nodes

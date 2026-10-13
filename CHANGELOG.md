@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.15.0
+- Search engine optimisation for the website: a clear title and description, canonical link, robots meta, Open Graph and Twitter cards with the social preview image, structured data (WebApplication and FAQPage), a visible FAQ section with seven questions, `robots.txt`, `sitemap.xml`, `llms.txt`, a favicon link, and a better title, description and back link on the cheat sheet page. Repo topics extended for GitHub search.
+
 ## 1.14.0
 - Website and downloadable page: inline slash-command autocomplete in the request box, like Discord or Slack. Typing `/` opens a floating list under the text cursor and `/ne` filters it instantly (prefix matches first, shortest first; your saved recipes first). Up and Down move the highlight (it wraps), Enter or Tab inserts the command, Esc closes it, and clicking an item works too. Dark popup with a purple highlight. It uses the same command list as the command browser, so every command is covered, and it does not trigger on URLs like `http://`. The popup flips above the cursor when there is no room below. Tested with real key presses in the browser.
 
