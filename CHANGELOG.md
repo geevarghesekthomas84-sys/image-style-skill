@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.16.0
+- Animated demo (`docs/demo.gif`, 15 seconds, real screen frames of the page): typing a short idea, the `/` autocomplete list, picking commands, choosing Midjourney and copying. Shown in a new "Watch" section on the website and at the top of the README quick start. The same file can be posted on Reddit, X and Discord.
+
 ## 1.15.2
 - Website: a small script sends anyone who opens `http://glogee.online` to `https://glogee.online` (keeps the path and the #request link). This is a backup; the proper fix is Cloudflare's "Always Use HTTPS" switch. The canonical link already points to the https address.
 

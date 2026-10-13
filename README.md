@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.15.2-5b3fd6" alt="version 1.15.2">
+  <img src="https://img.shields.io/badge/version-1.16.0-5b3fd6" alt="version 1.16.0">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
@@ -31,6 +31,10 @@
 </p>
 
 ---
+
+<p align="center">
+  <img src="docs/demo.gif" alt="Demo: type a short idea, pick slash commands from the autocomplete list, choose Midjourney and copy the finished prompt" width="760">
+</p>
 
 ## ⚡ Quick start
 
