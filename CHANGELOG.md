@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.15.1
+- Support QR code: a "Enjoying SlashFrame?" section on the website with your Buy Me a Coffee QR code (checked: it decodes to your page `buymeacoffee.com/geevarghes2`) and a coffee button, and a Support section with the QR code at the bottom of the README.
+
 ## 1.15.0
 - Search engine optimisation for the website: a clear title and description, canonical link, robots meta, Open Graph and Twitter cards with the social preview image, structured data (WebApplication and FAQPage), a visible FAQ section with seven questions, `robots.txt`, `sitemap.xml`, `llms.txt`, a favicon link, and a better title, description and back link on the cheat sheet page. Repo topics extended for GitHub search.
 

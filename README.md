@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.15.0-5b3fd6" alt="version 1.15.0">
+  <img src="https://img.shields.io/badge/version-1.15.1-5b3fd6" alt="version 1.15.1">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
@@ -324,6 +324,14 @@ GitHub Actions runs `build.py` and `test.py` on every push.
 | Output formats for Flow, Kling, Midjourney, Flux | Written from general knowledge, **not benchmarked**. Please report outputs that look wrong. |
 
 No command names a living artist or studio. `test.py` enforces a small blocklist.
+
+## ☕ Support
+
+SlashFrame is free and open source. If it saves you time, you can [buy me a coffee](https://buymeacoffee.com/geevarghes2) or scan the code:
+
+<p align="center">
+  <a href="https://buymeacoffee.com/geevarghes2"><img src="docs/support-qr.webp" alt="Buy Me a Coffee QR code" width="180"></a>
+</p>
 
 ## 📄 License
 
