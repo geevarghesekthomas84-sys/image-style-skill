@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-label="Your request goes through image-style and comes out in the format of each tool">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="320" viewBox="0 0 1100 320" role="img" aria-label="Your request goes through SlashFrame and comes out in the format of each tool">
   <defs>
     <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#8a80c9"/>
@@ -19,7 +19,7 @@
 
   <!-- engine -->
   <rect x="412" y="70" width="280" height="180" rx="16" fill="#1f8f7a"/>
-  <text x="436" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">2 · image-style</text>
+  <text x="436" y="108" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">2 · SlashFrame</text>
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#e3fbf5">
     <text x="436" y="146">Expands 403 commands</text>
     <text x="436" y="172">Orders: subject, camera, light, style</text>

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.13.0
+- New brand: **SlashFrame** (formerly image-style) with a new logo: a frame-corner square with a bold slash. Updated on the website (header, title, tab icon, hero card, footer), the cheat sheet, the README banner and flow diagram, and the social preview image. The repository name, the Claude plugin id, the skill commands (`/image-style:...`), the ComfyUI node names and the install commands are unchanged, so nothing that was installed breaks.
+
 ## 1.12.2
 - Support option: a yellow "Buy me a coffee" button in the website's closing banner and a link in the footer, a Buy Me a Coffee badge and link in the README, and `.github/FUNDING.yml` so GitHub shows a **Sponsor** button on the repo page. The downloadable `expander.html` gets the link too (a plain link, no network calls).
 

@@ -1,5 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Image Style Expander</title>
+<title>SlashFrame: turn short ideas into image prompts</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id=%22g%22%20x1=%220%22%20y1=%220%22%20x2=%221%22%20y2=%221%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%236b5bff%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%23ff6fd8%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2216%22%20fill=%22url%28%23g%29%22/%3E%3Cpath%20d=%22M16%2026v-6a4%204%200%200%201%204-4h6M38%2016h6a4%204%200%200%201%204%204v6M48%2038v6a4%204%200%200%201-4%204h-6M26%2048h-6a4%204%200%200%201-4-4v-6%22%20fill=%22none%22%20stroke=%22%23fff%22%20stroke-width=%224%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22/%3E%3Cpath%20d=%22M37%2022%2027%2042%22%20stroke=%22%23fff%22%20stroke-width=%225.5%22%20stroke-linecap=%22round%22/%3E%3C/svg%3E">
 <style>
 :root{--bg:#f6f5f1;--bg2:#efede8;--panel:#fff;--fg:#14141a;--mut:#64636f;--line:#e4e2db;--acc:#5b4bff;--acc2:#ece9ff;--accfg:#fff;--chip:#f1efea;--ok:#1e8a5a;--warn:#b4630a;--code:#faf9f6;--glow:rgba(91,75,255,.18);--shadow:0 1px 2px rgba(20,18,40,.05),0 12px 32px -8px rgba(20,18,40,.12)}
 @media(prefers-color-scheme:dark){:root{--bg:#0b0b10;--bg2:#101016;--panel:#15151c;--fg:#f0f0f5;--mut:#9998a8;--line:#26262f;--acc:#a79dff;--acc2:#28244d;--accfg:#13111d;--chip:#1e1e27;--ok:#4cd39a;--warn:#f0a24a;--code:#101015;--glow:rgba(167,157,255,.16);--shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -10px rgba(0,0,0,.5)}}
@@ -11,9 +12,9 @@ a{color:var(--acc)}
 /* nav */
 .nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.03em;color:var(--fg);text-decoration:none}
-.logo i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#7c6bff,#ff7ad9);display:grid;place-items:center;color:#fff;font-style:normal;font-size:15px;box-shadow:0 4px 14px -2px rgba(124,107,255,.6)}
-.logo b{font-weight:800}.logo span{color:var(--mut);font-weight:600}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:21px;letter-spacing:-.03em;color:var(--fg);text-decoration:none}
+.logo .lm{width:36px;height:36px;flex:none;filter:drop-shadow(0 4px 12px rgba(124,107,255,.55))}
+.logo b{font-weight:800;letter-spacing:-.035em}.logo span{background:linear-gradient(95deg,#7c6bff,#ff6fd8);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
 .nav nav{display:flex;gap:4px;align-items:center}
 .nav nav a{color:var(--mut);text-decoration:none;font-size:14.5px;font-weight:500;padding:8px 13px;border-radius:9px;transition:.15s}
 .nav nav a:hover{color:var(--fg);background:var(--chip)}
@@ -150,7 +151,7 @@ footer{padding:28px 0 44px;color:var(--mut);font-size:14.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 </style></head><body>
-<div class="nav"><div class="wrap"><a class="logo" href="#top"><i>&#10022;</i><b>image<span>-style</span></b></a>
+<div class="nav"><div class="wrap"><a class="logo" href="#top"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b5bff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg)"/><path d="M16 26v-6a4 4 0 0 1 4-4h6M38 16h6a4 4 0 0 1 4 4v6M48 38v6a4 4 0 0 1-4 4h-6M26 48h-6a4 4 0 0 1-4-4v-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 22 27 42" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg><b>Slash<span>Frame</span></b></a>
 <nav><a href="#how">How it works</a><!--SITE--><a href="#demo">Examples</a><!--/SITE--><a href="#tool">Try it</a><a href="#get">Get it</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></nav></div></div>
 <header class="hero" id="top"><div class="wrap">
 <div>
@@ -164,7 +165,7 @@ footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 <div class="dots"><i></i><i></i><i></i></div>
 <p class="hl">You type</p>
 <div class="hin">a lone lighthouse on a cliff <b>/storm /dramaticlighting /24mm /16:9</b></div>
-<div class="harrow">image-style</div>
+<div class="harrow">SlashFrame</div>
 <p class="hl">You get (Midjourney format)</p>
 <div class="hout">a lone lighthouse on a cliff, <u>wide 24mm field of view, environmental context with natural perspective</u>, <u>violent storm, dark roiling clouds, lightning, wind</u>, <u>dramatic lighting, strong contrast between light and shadow</u> <s>--ar 16:9</s></div>
 <div class="htags"><span>Midjourney</span><span>Flux</span><span>Gemini</span><span>ChatGPT</span><span>Flow</span><span>Kling</span></div>
@@ -216,7 +217,7 @@ footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 <p class="eyebrow">Get it</p><h2 class="title">Use it where you already create</h2><p class="sub">The same commands work as a Claude skill and plugin, a ChatGPT GPT, a Gemini Gem, this web page, and ComfyUI nodes.</p>
 <div class="plat"><span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Midjourney</span><span>Stable Diffusion</span><span>Flux</span><span>Google Flow</span><span>Kling</span><span>ComfyUI</span></div>
 <div class="inst" style="margin-top:28px">
-<div class="info"><h3>Claude Code</h3><p>Install the plugin in two commands.</p><pre class="cmd">claude plugin marketplace add geevarghesekthomas84-sys/image-style-skill
+<div class="info"><h3>Claude Code</h3><p>Install the plugin in two commands. (Its id is still <span class="mono">image-style</span>.)</p><pre class="cmd">claude plugin marketplace add geevarghesekthomas84-sys/image-style-skill
 claude plugin install image-style@image-style-market</pre></div>
 <div class="info"><h3>ComfyUI</h3><p>Prompt, upload and SVG nodes, plus ready workflows. Unzip into <span class="mono">custom_nodes</span> and restart.</p><pre class="cmd">ComfyUI-ImageStyle.zip</pre></div>
 <div class="info"><h3>ChatGPT, Gemini, Claude.ai</h3><p>Ready-made files for a Custom GPT, a Gemini Gem and a Claude.ai skill upload. Steps are in the README.</p><pre class="cmd">dist/platforms/</pre></div>
@@ -228,7 +229,7 @@ claude plugin install image-style@image-style-market</pre></div>
 <div class="info"><h3>Free and open source</h3><p>MIT licensed. Everything is on <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a>.</p></div>
 </div></div></section>
 <div class="fcta"><div class="wrap"><h2>Stop rewriting prompts by hand.</h2><p>Free, open source, and works with the tools you already use.</p><div class="cta" style="justify-content:center"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill"><i>&#9733;</i>Star on GitHub<span class="sc" data-stars></span></a><a class="btn cof" href="https://buymeacoffee.com/geevarghes2" rel="noopener">&#9749; Buy me a coffee</a></div></div></div>
-<footer><div class="wrap"><div>image-style &middot; MIT license &middot; your request stays in your browser</div><div><a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a> &middot; <a href="https://glogee.online/cheatsheet.html">Cheat sheet</a> &middot; <a href="https://buymeacoffee.com/geevarghes2" rel="noopener">&#9749; Buy me a coffee</a></div></div></footer>
+<footer><div class="wrap"><div>SlashFrame &middot; MIT license &middot; your request stays in your browser</div><div><a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a> &middot; <a href="https://glogee.online/cheatsheet.html">Cheat sheet</a> &middot; <a href="https://buymeacoffee.com/geevarghes2" rel="noopener">&#9749; Buy me a coffee</a></div></div></footer>
 <script>
 const D=__DATA__;
 const $=i=>document.getElementById(i);

@@ -81,7 +81,7 @@ secs.append("<section><h2>presets</h2><ul>" + "".join(
 secs.append("<section><h2>target models</h2><ul>" + "".join(
     f"<li><b>/{_e(n)}</b> {_e(label)}</li>" for n, label, how in models) + "</ul></section>")
 sheet = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Image Style Cheat Sheet</title>
+<title>SlashFrame Cheat Sheet</title>
 <style>
 :root{{--bg:#fff;--fg:#1c1c22;--mut:#6c6b75;--line:#e2e0da;--acc:#5b4bff}}
 @media(prefers-color-scheme:dark){{:root{{--bg:#131316;--fg:#ececf1;--mut:#92919c;--line:#2d2d34;--acc:#9a8dff}}}}
@@ -97,7 +97,7 @@ h2 small{{color:var(--mut);font-weight:400}}
 ul{{list-style:none;margin:0;padding:0}}li{{padding:2px 0;color:var(--mut)}}li b{{color:var(--fg);font-family:ui-monospace,Consolas,monospace;margin-right:5px}}
 li.hide{{display:none}}
 </style></head><body>
-<h1>Image Style Cheat Sheet</h1>
+<h1>SlashFrame Cheat Sheet</h1>
 <p>{len(names_all)} commands. Add them to any image request, e.g. <code>a lighthouse /storm /85mm /16:9 /mj</code>. Print with Ctrl+P.</p>
 <input id="q" placeholder="Filter commands…" autocomplete="off">
 <main>{''.join(secs)}</main>
@@ -111,10 +111,11 @@ print("cheat sheet written")
 DOCS = ROOT / "docs"
 site = hosted_html
 meta = ('<meta name="description" content="Turn short /commands into finished prompts for Midjourney, Flux, Gemini, Kling, Google Flow and more. Free, offline, no account.">\n'
-        '<meta property="og:title" content="Image Style Expander">\n'
+        '<meta property="og:title" content="SlashFrame: turn short ideas into image prompts">\n'
         '<meta property="og:description" content="403 slash commands that turn a short request into a finished image prompt.">\n'
         '<meta property="og:type" content="website">\n')
-site = site.replace("<title>Image Style Expander</title>", "<title>Image Style Expander</title>\n" + meta, 1)
+_t = _re.search(r"<title>[^<]*</title>", site).group(0)
+site = site.replace(_t, _t + chr(10) + meta, 1)
 (DOCS / "index.html").write_text(site, encoding="utf-8")
 (DOCS / "cheatsheet.html").write_text((ROOT / "dist" / "cheatsheet.html").read_text(encoding="utf-8"), encoding="utf-8")
 (DOCS / ".nojekyll").write_text("", encoding="utf-8")

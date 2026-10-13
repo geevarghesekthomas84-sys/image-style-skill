@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="image-style: 403 slash commands for AI image prompts">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="SlashFrame: 403 slash commands for AI image prompts">
   <defs>
+    <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b5bff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#15121f"/>
       <stop offset="0.55" stop-color="#2a2163"/>
@@ -13,7 +14,8 @@
   <rect width="1280" height="320" rx="22" fill="url(#bg)"/>
   <rect width="1280" height="320" rx="22" fill="url(#glow)"/>
 
-  <text x="64" y="112" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="700" fill="#ffffff">image-style</text>
+  <g transform="translate(64,48) scale(1.18)"><rect width="64" height="64" rx="16" fill="url(#mg)"/><path d="M16 26v-6a4 4 0 0 1 4-4h6M38 16h6a4 4 0 0 1 4 4v6M48 38v6a4 4 0 0 1-4 4h-6M26 48h-6a4 4 0 0 1-4-4v-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 22 27 42" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></g>
+  <text x="158" y="112" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="800" fill="#ffffff">Slash<tspan fill="#ffb3ec">Frame</tspan></text>
   <text x="64" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#d9d4ff">Slash commands that turn a short request into a finished</text>
   <text x="64" y="196" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="#d9d4ff">prompt for any AI image or video tool.</text>
 

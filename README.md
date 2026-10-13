@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="image-style: 403 slash commands for AI image prompts" width="100%">
+  <img src="docs/banner.svg" alt="SlashFrame: 403 slash commands for AI image prompts" width="100%">
 </p>
 
 <p align="center">
@@ -8,12 +8,14 @@
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.12.2-5b3fd6" alt="version 1.12.2">
+  <img src="https://img.shields.io/badge/version-1.13.0-5b3fd6" alt="version 1.13.0">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
   <a href="https://buymeacoffee.com/geevarghes2"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-ffdd00?logo=buymeacoffee&logoColor=black" alt="Buy me a coffee"></a>
 </p>
+
+<p align="center"><b>SlashFrame</b> (formerly <i>image-style</i>). The repository, the Claude plugin and the install commands keep the id <code>image-style</code>, so nothing you installed breaks.</p>
 
 <p align="center">
   <a href="#-quick-start">Quick start</a> ·
@@ -55,7 +57,7 @@ Swap `/mj` for `/kling`, `/flux`, `/dalle`, `/gemini`, `/sd` or `/flow` and the 
 No slashes needed either: *"Create me a cinematic album double exposure, size 16:9 and 9:16"* works.
 
 <p align="center">
-  <img src="docs/flow.svg" alt="How it works: your request goes through image-style and comes out in each tool's format" width="100%">
+  <img src="docs/flow.svg" alt="How it works: your request goes through SlashFrame and comes out in each tool's format" width="100%">
 </p>
 
 ## 🖼️ Before and after
