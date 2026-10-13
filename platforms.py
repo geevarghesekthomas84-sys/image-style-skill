@@ -193,6 +193,7 @@ meta = "\n".join([
     '<meta name="twitter:description" content="%s">' % _html.escape(SITE_DESC, quote=True),
     '<meta name="twitter:image" content="%s">' % _img,
     '<link rel="icon" type="image/svg+xml" href="favicon.svg">',
+    '<script>if(location.protocol==="http:"&&location.hostname==="glogee.online")location.replace("https://glogee.online"+location.pathname+location.search+location.hash)</script>',
 ]) + "\n" + _jsonld()
 _t = _re.search(r"<title>[^<]*</title>", site).group(0)
 site = site.replace(_t, _t + chr(10) + meta, 1)

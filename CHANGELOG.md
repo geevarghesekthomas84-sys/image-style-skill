@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.15.2
+- Website: a small script sends anyone who opens `http://glogee.online` to `https://glogee.online` (keeps the path and the #request link). This is a backup; the proper fix is Cloudflare's "Always Use HTTPS" switch. The canonical link already points to the https address.
+
 ## 1.15.1
 - Support QR code: a "Enjoying SlashFrame?" section on the website with your Buy Me a Coffee QR code (checked: it decodes to your page `buymeacoffee.com/geevarghes2`) and a coffee button, and a Support section with the QR code at the bottom of the README.
 
