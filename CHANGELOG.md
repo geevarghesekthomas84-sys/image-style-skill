@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.12.2
+- Support option: a yellow "Buy me a coffee" button in the website's closing banner and a link in the footer, a Buy Me a Coffee badge and link in the README, and `.github/FUNDING.yml` so GitHub shows a **Sponsor** button on the repo page. The downloadable `expander.html` gets the link too (a plain link, no network calls).
+
 ## 1.12.1
 - Star option: a "★ Star" pill in the website header, a "★ Star on GitHub" button in the hero and in the closing banner (all three show the live star count, read from GitHub's public API and cached for 10 minutes; if the call fails, the count is simply hidden). A star badge and a "Star this repo" line in the README. The count is only on the website, not in the downloadable `expander.html`, which stays offline.
 

@@ -3,15 +3,16 @@
 </p>
 
 <p align="center">
-  <b><a href="https://glogee.online">Try it in your browser: glogee.online</a></b> &nbsp;·&nbsp; <b><a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">⭐ Star this repo</a></b> if it saves you time
+  <b><a href="https://glogee.online">Try it in your browser: glogee.online</a></b> &nbsp;·&nbsp; <b><a href="https://github.com/geevarghesekthomas84-sys/image-style-skill">⭐ Star this repo</a></b> if it saves you time &nbsp;·&nbsp; <a href="https://buymeacoffee.com/geevarghes2">☕ Buy me a coffee</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml"><img src="https://github.com/geevarghesekthomas84-sys/image-style-skill/actions/workflows/test.yml/badge.svg" alt="tests"></a>
-  <img src="https://img.shields.io/badge/version-1.12.1-5b3fd6" alt="version 1.12.1">
+  <img src="https://img.shields.io/badge/version-1.12.2-5b3fd6" alt="version 1.12.2">
   <img src="https://img.shields.io/badge/commands-403-1f8f7a" alt="403 commands">
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://github.com/geevarghesekthomas84-sys/image-style-skill/stargazers"><img src="https://img.shields.io/github/stars/geevarghesekthomas84-sys/image-style-skill?style=social" alt="GitHub stars"></a>
+  <a href="https://buymeacoffee.com/geevarghes2"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee-ffdd00?logo=buymeacoffee&logoColor=black" alt="Buy me a coffee"></a>
 </p>
 
 <p align="center">
