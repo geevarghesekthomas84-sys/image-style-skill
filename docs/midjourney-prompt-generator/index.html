@@ -461,7 +461,7 @@ function update(){const pos=ta.selectionStart,m=/(^|\s)\/([^\s/]*)$/.exec(ta.val
 function pick(i){const c=items[i];if(!c)return;const v=ta.value,end=ta.selectionStart,ins="/"+c.n+" ";
  ta.value=v.slice(0,start)+ins+v.slice(end);const p=start+ins.length;ta.setSelectionRange(p,p);hide();ta.focus();ta.dispatchEvent(new Event("input",{bubbles:true}))}
 function move(d){sel=(sel+d+items.length)%items.length;box.querySelectorAll(".it").forEach((e,i)=>e.setAttribute("aria-selected",i===sel));const e=$("ac"+sel);if(e)e.scrollIntoView({block:"nearest"});ta.setAttribute("aria-activedescendant","ac"+sel)}
-ta.setAttribute("role","combobox");ta.setAttribute("aria-autocomplete","list");ta.setAttribute("aria-controls","acList");ta.setAttribute("aria-expanded","false");
+ta.setAttribute("aria-autocomplete","list");ta.setAttribute("aria-controls","acList");ta.setAttribute("aria-expanded","false");ta.setAttribute("aria-haspopup","listbox");
 ta.addEventListener("input",update);ta.addEventListener("click",update);
 ta.addEventListener("keyup",e=>{if(["ArrowLeft","ArrowRight","Home","End"].includes(e.key))update()});
 ta.addEventListener("keydown",e=>{if(!open)return;
