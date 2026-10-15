@@ -373,7 +373,7 @@ nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--m
 <h2>Contact</h2>
 <div class="card">
 <p><b>Bug reports and feature requests</b><br>Open an issue on <a href="__REPO__/issues">GitHub Issues</a>.</p>
-<p><b>General questions</b><br>Email: <a href="mailto:gansolutions26@gmail.com">gansolutions26@gmail.com</a></p>
+<p><b>General questions</b><br>Email: <a href="mailto:geevarghesekthomas84@gmail.com">geevarghesekthomas84@gmail.com</a></p>
 <p style="margin:0"><b>Source code</b><br><a href="__REPO__">github.com/geevarghesekthomas84-sys/image-style-skill</a></p>
 </div>
 
@@ -386,7 +386,7 @@ nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--m
 def _about_page(today):
     url = SITE_URL + ABOUT_SLUG + "/"
     org = {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": SITE_URL,
-           "description": ABOUT_DESC, "email": "gansolutions26@gmail.com",
+           "description": ABOUT_DESC, "email": "geevarghesekthomas84@gmail.com",
            "sameAs": [REPO], "logo": SITE_URL + "social-preview.png"}
     crumbs = _crumb_ld([("Home", SITE_URL), ("About", url)])
     meta = _head_meta(url, ABOUT_TITLE, ABOUT_DESC, [org, crumbs])
