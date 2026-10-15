@@ -143,6 +143,10 @@ GUIDE_SLUG = "guide/how-to-write-ai-image-prompts"
 GUIDE_TITLE = "How to Write AI Image Prompts: Simple Formula | SlashFrame"
 GUIDE_DESC = "A simple formula for writing AI image prompts that work in Midjourney, Flux, Stable Diffusion, Gemini and ChatGPT, with before and after examples."
 
+ABOUT_SLUG = "about"
+ABOUT_TITLE = "About SlashFrame | Free AI Image Prompt Generator"
+ABOUT_DESC = "SlashFrame is a free, open-source AI image prompt generator. Learn who built it, how it works, and how to get in touch."
+
 
 def e(x):
     return _h.escape(x)
@@ -215,8 +219,8 @@ def _tools_html(current=None):
 def _foot_html():
     links = " &middot; ".join('<a href="/%s/">%s</a>' % (s, e(n)) for n, s, t in TARGET_INDEX)
     return ('<div class="wrap fl"><div><b>Free prompt generators</b><br>%s</div>'
-            '<div><b>Learn</b><br><a href="/%s/">How to write AI image prompts</a> &middot; <a href="/cheatsheet.html">Cheat sheet</a></div></div>'
-            % (links, GUIDE_SLUG + "/"))
+            '<div><b>Learn</b><br><a href="/%s/">How to write AI image prompts</a> &middot; <a href="/cheatsheet.html">Cheat sheet</a> &middot; <a href="/%s/">About & Contact</a></div></div>'
+            % (links, GUIDE_SLUG + "/", ABOUT_SLUG + "/"))
 
 
 def _render(base, url, title, desc, faq, ld_extra=None, target=None, h1=None, lead=None, about_html="", current=None):
@@ -331,6 +335,68 @@ def _guide_page(today):
     return out
 
 
+ABOUT_HTML = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__</title>
+__META__
+<style>
+:root{--bg:#f6f5f1;--panel:#fff;--fg:#14141a;--mut:#5c5b67;--line:#e4e2db;--acc:#5b4bff;--code:#f1efea}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0b10;--panel:#15151c;--fg:#f0f0f5;--mut:#a3a2b2;--line:#26262f;--acc:#a79dff;--code:#101015}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--acc)}.top{border-bottom:1px solid var(--line)}.top .in{max-width:860px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.03em;color:var(--fg);text-decoration:none}.logo span{color:var(--acc)}
+.btn{background:linear-gradient(135deg,#6b5bff,#8a5bff);color:#fff!important;text-decoration:none;padding:10px 18px;border-radius:11px;font-weight:700;font-size:15px}
+main{max-width:760px;margin:0 auto;padding:36px 20px 70px}h1{font-size:clamp(30px,5vw,44px);line-height:1.12;letter-spacing:-.035em;margin:0 0 14px}
+h2{font-size:26px;letter-spacing:-.02em;margin:44px 0 10px}h3{font-size:19px;margin:26px 0 6px}
+p,li{color:var(--fg)}
+code{background:var(--code);padding:2px 7px;border-radius:6px;font-size:.92em}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;margin:20px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cta{margin:40px 0;padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--line);text-align:center}
+.cta p{margin:0 0 14px}footer{border-top:1px solid var(--line);padding:26px 20px;color:var(--mut);font-size:14.5px;text-align:center}footer a{color:var(--mut)}
+nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--mut)}
+</style></head><body>
+<div class="top"><div class="in"><a class="logo" href="/">Slash<span>Frame</span></a><a class="btn" href="/#tool">Open the free generator</a></div></div>
+<main><nav class="bc"><a href="/">Home</a> &rsaquo; About</nav>
+<h1>About SlashFrame</h1>
+<p>SlashFrame is a free, open-source AI image prompt generator. It turns a short idea plus slash commands like <code>/storm</code>, <code>/85mm</code> or <code>/16:9</code> into a finished prompt for Midjourney, Flux, Stable Diffusion, ChatGPT, Gemini, Google Flow and Kling.</p>
+
+<h2>How it works</h2>
+<p>You type a subject and add slash commands. Each command stands for a piece of prompt wording: <code>/storm</code> becomes "violent storm, dark roiling clouds, lightning, wind", <code>/85mm</code> becomes a portrait-style lens look, <code>/16:9</code> sets a widescreen ratio. SlashFrame puts everything in a sensible order, resolves clashes and formats the result for your chosen tool.</p>
+<p>There are over 400 commands covering camera and lens, lighting, weather, style, color, portrait, product photography, aspect ratios, negative prompts and presets. Browse them all on the <a href="/cheatsheet.html">cheat sheet</a>.</p>
+
+<h2>What it runs on</h2>
+<p>The website runs entirely in your browser. Your text is never sent to any server. The only network request the page makes is to the GitHub API to show the public star count. There is no account, no tracking and no cookie banner.</p>
+<p>The source code is on <a href="__REPO__">GitHub</a> under the MIT license. It also ships as a Claude skill and plugin, ChatGPT and Gemini instruction packs, and ComfyUI nodes.</p>
+
+<h2>Who built it</h2>
+<p>SlashFrame is built and maintained by <b>Geevarghese K Thomas</b>, a developer focused on making AI tools more accessible. The project is open source and welcomes contributions on <a href="__REPO__">GitHub</a>.</p>
+
+<h2>Contact</h2>
+<div class="card">
+<p><b>Bug reports and feature requests</b><br>Open an issue on <a href="__REPO__/issues">GitHub Issues</a>.</p>
+<p><b>General questions</b><br>Email: <a href="mailto:gansolutions26@gmail.com">gansolutions26@gmail.com</a></p>
+<p style="margin:0"><b>Source code</b><br><a href="__REPO__">github.com/geevarghesekthomas84-sys/image-style-skill</a></p>
+</div>
+
+<div class="cta"><p><b>Try the free prompt generator.</b> Type an idea, add slash commands, pick your tool and copy the finished prompt.</p><a class="btn" href="/#tool">Open the generator</a></div>
+</main>
+<footer>__FOOT__<p style="margin:14px 0 0">SlashFrame &middot; MIT license &middot; <a href="__REPO__">GitHub</a></p></footer>
+</body></html>"""
+
+
+def _about_page(today):
+    url = SITE_URL + ABOUT_SLUG + "/"
+    org = {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": SITE_URL,
+           "description": ABOUT_DESC, "email": "gansolutions26@gmail.com",
+           "sameAs": [REPO], "logo": SITE_URL + "social-preview.png"}
+    crumbs = _crumb_ld([("Home", SITE_URL), ("About", url)])
+    meta = _head_meta(url, ABOUT_TITLE, ABOUT_DESC, [org, crumbs])
+    foot = '<div style="margin-bottom:6px">Free prompt generators: ' + " &middot; ".join('<a href="/%s/">%s</a>' % (s, e(n)) for n, s, t in TARGET_INDEX) + "</div>"
+    out = ABOUT_HTML
+    for k, v in (("__TITLE__", e(ABOUT_TITLE)), ("__META__", meta), ("__FOOT__", foot), ("__REPO__", REPO)):
+        out = out.replace(k, v)
+    return out
+
+
 def build(DOCS, ROOT, hosted_html):
     today = datetime.date.today().isoformat()
     urls = []
@@ -357,6 +423,13 @@ def build(DOCS, ROOT, hosted_html):
     g.mkdir(parents=True, exist_ok=True)
     (g / "index.html").write_text(_guide_page(today), encoding="utf-8")
     urls.append((SITE_URL + GUIDE_SLUG + "/", "monthly", "0.8"))
+
+    # about / contact
+    ab = DOCS / ABOUT_SLUG
+    ab.mkdir(parents=True, exist_ok=True)
+    (ab / "index.html").write_text(_about_page(today), encoding="utf-8")
+    urls.append((SITE_URL + ABOUT_SLUG + "/", "monthly", "0.6"))
+
     urls.append((SITE_URL + "cheatsheet.html", "monthly", "0.7"))
 
     shutil.copy(ROOT / ".github" / "social-preview.png", DOCS / "social-preview.png")
