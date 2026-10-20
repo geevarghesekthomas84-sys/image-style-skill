@@ -11,6 +11,14 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+_RE_PREAMBLE = re.compile(r"^(please\s+)?(create|make|generate|draw|design|give|show)\s+(me\s+)?(an?\s+|the\s+)?", re.I)
+_RE_SIZE_WORDS = re.compile(r"\b(size|sizes|ratio|ratios|frame|frames|aspect|both)\b", re.I)
+_RE_DUP_PREP = re.compile(r"\b(and|in|with|of|at|for)\b(?=\s+(and|in|with|of|at|for)\b)", re.I)
+_RE_TRAIL_PREP = re.compile(r"(\s|,)+(and|in|with|of|at|for)\s*$", re.I)
+_RE_LEAD_PREP = re.compile(r"^(and|in|with|of|at|for)\s+", re.I)
+_RE_MULTI_SPACE = re.compile(r"\s+")
+_RE_TRAIL_COMMA = re.compile(r"[,\s]+$")
+
 # These constants mirror the ones in src/expander.template.html (a test checks they stay equal).
 ORDER = ["subject", "couple", "angle", "camera", "motion", "composition", "lens", "film", "genre", "portrait", "macro",
          "scene", "landscape", "architecture", "space", "weather", "light", "era", "style", "art", "render", "material",
@@ -120,13 +128,13 @@ def _natural(text, sel, ars, T):
             keep.append(w[i])
             i += 1
     s = " ".join(keep)
-    s = re.sub(r"^(please\s+)?(create|make|generate|draw|design|give|show)\s+(me\s+)?(an?\s+|the\s+)?", "", s, flags=re.I)
-    s = re.sub(r"\b(size|sizes|ratio|ratios|frame|frames|aspect|both)\b", " ", s, flags=re.I)
-    s = re.sub(r"\b(and|in|with|of|at|for)\b(?=\s+(and|in|with|of|at|for)\b)", " ", s, flags=re.I)
-    s = re.sub(r"(\s|,)+(and|in|with|of|at|for)\s*$", "", s, flags=re.I)
-    s = re.sub(r"^(and|in|with|of|at|for)\s+", "", s, flags=re.I)
-    s = re.sub(r"\s+", " ", s)
-    s = re.sub(r"[,\s]+$", "", s)
+    s = _RE_PREAMBLE.sub("", s)
+    s = _RE_SIZE_WORDS.sub(" ", s)
+    s = _RE_DUP_PREP.sub(" ", s)
+    s = _RE_TRAIL_PREP.sub("", s)
+    s = _RE_LEAD_PREP.sub("", s)
+    s = _RE_MULTI_SPACE.sub(" ", s)
+    s = _RE_TRAIL_COMMA.sub("", s)
     return s.strip()
 
 

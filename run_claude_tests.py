@@ -6,8 +6,11 @@ Run:   python run_claude_tests.py            (all cases)
 Each case checks the reply for required and forbidden text (case-insensitive). Replies vary a little
 between runs, so a failure means "look at the printed reply", not always "broken".
 """
+import re
 import subprocess
 import sys
+
+_CODE_BLOCK_RE = re.compile(r"```[a-z]*\s(.*?)```", re.S)
 
 PRE = "Use the image-style skill. Do not generate an image. Output only the final prompt(s). Request: "
 
@@ -61,8 +64,7 @@ def main():
             continue
         low = out.lower()
         miss = [n for n in need if n.lower() not in low]
-        import re as _re
-        blocks = _re.findall(r"```[a-z]*\s(.*?)```", out, _re.S)
+        blocks = _CODE_BLOCK_RE.findall(out)
         scope = " ".join(blocks).lower() if blocks else low   # forbidden text only matters inside the prompt itself
         hit = [f for f in forbid if f.lower() in scope]
         if "failed to authenticate" in low:

@@ -51,7 +51,8 @@ _MARK = _re.compile(r"<!--/?FULL-->|/\*/?FULL\*/")
 _BLOCK = _re.compile(r"<!--FULL-->.*?<!--/FULL-->|/\*FULL\*/.*?/\*/FULL\*/", _re.S)
 _SMARK = _re.compile(r"<!--/?SITE-->|/\*/?SITE\*/")
 _SBLOCK = _re.compile(r"<!--SITE-->.*?<!--/SITE-->|/\*SITE\*/.*?/\*/SITE\*/", _re.S)
-html = _re.sub(r"<!--/?(?:H1|LEAD)-->", "", _MARK.sub("", _SBLOCK.sub("", _tpl)))        # downloadable version: everything except the website-only examples
+_HLMARK = _re.compile(r"<!--/?(?:H1|LEAD)-->")
+html = _HLMARK.sub("", _MARK.sub("", _SBLOCK.sub("", _tpl)))        # downloadable version: everything except the website-only examples
 hosted_html = _SMARK.sub("", _BLOCK.sub("", _tpl)) # website version: no helper, no copy-and-open, no image generation; has the examples
 (PF / "flow-kling-anywhere" / "expander.html").write_text(html, encoding="utf-8")
 (PF / "flow-kling-anywhere" / "SETUP.txt").write_text(

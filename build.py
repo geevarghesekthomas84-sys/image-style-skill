@@ -24,7 +24,7 @@ for n, c, p in rows:
 table = []
 for c, items in cats.items():
     table.append(f"\n### {c}\n")
-    table += [f"- `/{n}` → {p}" for n, p in items]
+    table.extend(f"- `/{n}` → {p}" for n, p in items)
 table = "\n".join(table)
 
 RULES = """\
