@@ -358,9 +358,12 @@ $("cp").onclick=()=>{const t=$("out").textContent;
  else flash(legacyCopy(t))};
 
 const HELPER="http://127.0.0.1:8787";
-async function viaHelper(prompt,ratio){const r=await fetch(HELPER+"/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt,ratio})});const j=await r.json();if(!r.ok)throw new Error(j.error||"helper error");return j.image}
+const HELPER_TOKEN = new URLSearchParams(location.search).get("token");
+const helperHeaders = {"Content-Type": "application/json"};
+if(HELPER_TOKEN) helperHeaders["Authorization"] = "Bearer " + HELPER_TOKEN;
+async function viaHelper(prompt,ratio){const r=await fetch(HELPER+"/generate",{method:"POST",headers:helperHeaders,body:JSON.stringify({prompt,ratio})});const j=await r.json();if(!r.ok)throw new Error(j.error||"helper error");return j.image}
 $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let helper=false;
- try{const h=await fetch(HELPER+"/");helper=h.ok&&(await h.json()).providers.length>0}catch(e){}
+ try{const h=await fetch(HELPER+"/",{headers:helperHeaders});helper=h.ok&&(await h.json()).providers.length>0}catch(e){}
  GEN.ars.forEach(async a=>{const[w,h]=a.px.split("x"),f=document.createElement("figure"),im=new Image(),cap=document.createElement("figcaption");
   im.alt=GEN.prompt;cap.innerHTML="<span>"+a.r+" · generating…</span>";f.append(im,cap);g.append(f);
   const done=(src,label)=>{im.src=src;cap.innerHTML="<span>"+a.r+" · "+label+"</span><a href='"+src+"' target='_blank' rel='noopener' download='image-"+a.r.replace(":","x")+"'>Open / save</a>"};
