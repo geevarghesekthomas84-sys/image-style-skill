@@ -320,11 +320,12 @@ function natural(text,sel,ars){
   .replace(/\s+/g," ").replace(/[,\s]+$/,"").trim()}
 
 /* targets */
-function drawTargets(){$("targets").innerHTML=D.models.map(([n,l])=>`<button class="t" data-m="${n}" aria-pressed="${n===target}">${l.split(" (")[0].split(" /")[0]}</button>`).join("")}
+function drawTargets(){$("targets").innerHTML=D.models.map(([n,l])=>`<button class="t" data-m="${esc(n)}" aria-pressed="${n===target}">${esc(l.split(" (")[0].split(" /")[0])}</button>`).join("")}
 $("targets").onclick=e=>{const b=e.target.closest("[data-m]");if(!b)return;target=b.dataset.m;drawTargets();run()};
 
 /* core */
 let used=new Set(),GEN=null;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function run(){
  let presetAr=null;const txt=$("in").value.replace(/(^|\s)\/([^\s/]+)/g,(m,sp,raw)=>{const P=PRE[norm(raw)];if(!P)return m;if(P.a)presetAr=asp[norm(P.a)];return sp+P.t.split(" ").map(x=>"/"+x).join(" ")}),dropped=[],unknown=[];let model=null,ars=[],sel=[];const neg=[];used=new Set();
  let subject=txt.replace(/(^|\s)\/([^\s/]+)/g,(_,sp,raw)=>{
@@ -356,7 +357,7 @@ function run(){
  GEN={prompt:sent+(nl?" Without "+nl+".":""),ars:ars.length?ars:[{r:"1:1",px:"1024x1024"}]};
  const outs=(ars.length?ars:[null]).map(build);
  const o=outs.length>1?outs.map((x,i)=>"── "+ars[i].r+" ──"+String.fromCharCode(10)+x).join(String.fromCharCode(10,10)):outs[0];
- $("exp").innerHTML=(sel.map(k=>`<div><b>/${k}</b>${D.mods[k].phrase}</div>`).join("")+dropped.map(k=>`<div><s><b>/${k.split(" ")[0]}</b>dropped: ${k.includes("over")?"over the 8-modifier limit":"conflicts with a later command"}</s></div>`).join("")+ars.map(a=>`<div><b>/${a.r}</b>aspect ratio ${a.r} (${a.px})</div>`).join("")+(nl?`<div><b>avoid</b>${nl}</div>`:""))||'<div class="none">Type a request with /commands to see what each one adds.</div>';
+ $("exp").innerHTML=(sel.map(k=>`<div><b>/${esc(k)}</b>${esc(D.mods[k].phrase)}</div>`).join("")+dropped.map(k=>`<div><s><b>/${esc(k.split(" ")[0])}</b>dropped: ${k.includes("over")?"over the 8-modifier limit":"conflicts with a later command"}</s></div>`).join("")+ars.map(a=>`<div><b>/${esc(a.r)}</b>aspect ratio ${esc(a.r)} (${esc(a.px)})</div>`).join("")+(nl?`<div><b>avoid</b>${esc(nl)}</div>`:""))||'<div class="none">Type a request with /commands to see what each one adds.</div>';
  $("out").textContent=o;
  $("note").textContent=[dropped.length?"Dropped: "+dropped.join(", "):"",unknown.length?"Unknown: /"+unknown.join(", /"):""].filter(Boolean).join("  ·  ");
  drawList();syncHash();
