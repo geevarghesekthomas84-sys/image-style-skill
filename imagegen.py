@@ -14,6 +14,7 @@ import json
 import os
 import pathlib
 import re
+import secrets
 import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -29,6 +30,8 @@ SIZES = {"1:1": "1024x1024", "4:3": "1152x896", "3:2": "1216x832", "16:9": "1344
 FIXED = {"wide": "1536x1024", "tall": "1024x1536", "square": "1024x1024"}  # older gpt-image-1 sizes
 GEMINI_RATIOS = {"1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"}
 B64 = re.compile(r"^[A-Za-z0-9+/=\s]{200,}$")
+
+TOKEN = os.environ.get("IMAGEGEN_TOKEN", secrets.token_urlsafe(16))
 
 
 def post(url, body, headers):
@@ -90,15 +93,24 @@ class H(BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header("Content-Type", "application/json")
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
         self.send_header("Access-Control-Allow-Private-Network", "true")
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
 
+    def _check_auth(self):
+        auth_header = self.headers.get("Authorization")
+        if not auth_header or not auth_header.startswith("Bearer ") or auth_header.split(" ")[1] != TOKEN:
+            self._send(401, {"error": "Unauthorized"})
+            return False
+        return True
+
     def do_OPTIONS(self):
+
         self._send(204, {})
+
 
     def do_GET(self):
         if self.path.startswith("/app"):  # serve the page from here: same origin, no browser blocking
@@ -112,9 +124,12 @@ class H(BaseHTTPRequestHandler):
                     self.end_headers()
                     return self.wfile.write(data)
             return self._send(404, {"error": "expander.html not found next to imagegen.py"})
+        if not self._check_auth(): return
         self._send(200, {"ok": True, "providers": [p for p, k in (("openai", "OPENAI_API_KEY"), ("gemini", "GEMINI_API_KEY")) if os.environ.get(k)]})
 
+
     def do_POST(self):
+        if not self._check_auth(): return
         try:
             body = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
             prompt = str(body.get("prompt", "")).strip()[:4000]
@@ -135,6 +150,9 @@ class H(BaseHTTPRequestHandler):
         pass
 
 
+
 if __name__ == "__main__":
-    print(f"imagegen listening on http://127.0.0.1:{PORT}  (Ctrl+C to stop)")
+    print(f"imagegen listening on http://127.0.0.1:{PORT}/app?token={TOKEN}  (Ctrl+C to stop)")
+    import sys
+    sys.stdout.flush()
     HTTPServer(("127.0.0.1", PORT), H).serve_forever()

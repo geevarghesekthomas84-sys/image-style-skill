@@ -1,0 +1,12 @@
+🔒 Fix missing authentication on local API
+
+🎯 **What:** The `imagegen.py` local server had no authentication check for its `GET` and `POST` endpoints (excluding `/app`).
+
+⚠️ **Risk:** Because it includes `Access-Control-Allow-Origin: *`, any malicious website a user visits while `imagegen.py` is running locally could issue cross-origin fetch requests to `http://127.0.0.1:8787/` or `/generate`, leveraging the user's OpenAI or Gemini API keys to generate images at their expense. This acts as a severe CSRF/SSRF-like vulnerability.
+
+🛡️ **Solution:**
+- Added a cryptographically secure `TOKEN` generation using `secrets.token_urlsafe(16)` when the server starts (or sourced from `IMAGEGEN_TOKEN`).
+- Implemented `_check_auth` to ensure `GET` and `POST` requests include the `Authorization: Bearer <TOKEN>` header.
+- Updated the printed startup message to include the token as a query parameter in the UI URL: `/app?token=<TOKEN>`.
+- Updated `expander.template.html` to parse the token from the URL query params and inject it into the `Authorization` headers for subsequent fetch calls to the helper server.
+- The `dist/platforms` files and ComfyUI/Claude payloads have been regenerated via `build.py` to reflect the frontend fixes.
