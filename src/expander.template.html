@@ -398,7 +398,7 @@ $("gen").onclick=async()=>{if(!GEN)return;const g=$("gal");g.innerHTML="";let he
  GEN.ars.forEach(async a=>{const[w,h]=a.px.split("x"),f=document.createElement("figure"),im=new Image(),cap=document.createElement("figcaption");
   im.alt=GEN.prompt;cap.innerHTML="<span>"+a.r+" · generating…</span>";f.append(im,cap);g.append(f);
   const done=(src,label)=>{im.src=src;cap.innerHTML="<span>"+a.r+" · "+label+"</span><a href='"+src+"' target='_blank' rel='noopener' download='image-"+a.r.replace(":","x")+"'>Open / save</a>"};
-  if(helper){try{done(await viaHelper(GEN.prompt,a.r),"your API");return}catch(e){cap.innerHTML="<span>"+a.r+" · helper failed: "+String(e.message).slice(0,160)+" · trying free service…</span>"}}
+  if(helper){try{done(await viaHelper(GEN.prompt,a.r),"your API");return}catch(e){cap.innerHTML="<span></span>";cap.firstChild.textContent=a.r+" · helper failed: "+String(e.message).slice(0,160)+" · trying free service…"}}
   const url="https://image.pollinations.ai/prompt/"+encodeURIComponent(GEN.prompt)+"?width="+w+"&height="+h+"&nologo=true&seed="+Math.floor(Math.random()*1e6);
   im.onload=()=>done(url,"free service");
   im.onerror=()=>{cap.innerHTML="<span>"+a.r+" · free service busy or limited. Start imagegen.py with an API key, or use a Copy and open button below.</span>"};
