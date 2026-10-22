@@ -89,7 +89,10 @@ class H(BaseHTTPRequestHandler):
         data = json.dumps(obj).encode()
         self.send_response(code)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
+        origin = self.headers.get("Origin")
+        allowed_origins = {f"http://127.0.0.1:{PORT}", f"http://localhost:{PORT}", "null"}
+        if origin in allowed_origins:
+            self.send_header("Access-Control-Allow-Origin", origin)
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.send_header("Access-Control-Allow-Private-Network", "true")
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")

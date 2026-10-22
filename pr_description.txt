@@ -1,0 +1,8 @@
+🎯 **What:** The vulnerability fixed
+The `Access-Control-Allow-Origin` header in `imagegen.py` was previously set to `*`, allowing any website to make cross-origin requests to this local server.
+
+⚠️ **Risk:** The potential impact if left unfixed
+A malicious website could make requests to `http://127.0.0.1:8787` and access the user's API keys (OpenAI or Gemini) or generate images at their expense if the local server is running. This is a Cross-Origin Resource Sharing (CORS) misconfiguration.
+
+🛡️ **Solution:** How the fix addresses the vulnerability
+The fix restricts `Access-Control-Allow-Origin` to a specific list of allowed origins: `http://127.0.0.1:8787`, `http://localhost:8787`, and `null`. It checks the incoming `Origin` header and only sets `Access-Control-Allow-Origin` if it matches one of these allowed origins.
