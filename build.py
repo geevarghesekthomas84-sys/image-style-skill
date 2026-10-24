@@ -1,3 +1,4 @@
+import platforms
 """Build outputs from src/modifiers.txt:
   dist/image-style/SKILL.md      -> Claude skill (copy folder to ~/.claude/skills/)
   dist/image-style/modifiers.json
@@ -197,7 +198,7 @@ for n, label, how in models:
     cmd(n, f"Format output for {label}", f"target model {label}. {how}"); n_cmds += 1
 print(f"plugin: {n_cmds} commands")
 
-exec(open(ROOT / "platforms.py", encoding="utf-8").read())
+platforms.build_platforms(ROOT, out, table, EXTRA_RULES, RULES, models, aspects, negs, presets, cats, rows, VERSION)
 
 # ---- root-level marketplace so `claude plugin marketplace add <owner>/<repo>` works from GitHub ----
 (ROOT / ".claude-plugin").mkdir(exist_ok=True)
