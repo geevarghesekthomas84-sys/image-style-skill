@@ -113,10 +113,13 @@ class H(BaseHTTPRequestHandler):
                     return self.wfile.write(data)
             return self._send(404, {"error": "expander.html not found next to imagegen.py"})
         self._send(200, {"ok": True, "providers": [p for p, k in (("openai", "OPENAI_API_KEY"), ("gemini", "GEMINI_API_KEY")) if os.environ.get(k)]})
-
     def do_POST(self):
         try:
-            body = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
+            content_length = int(self.headers.get("Content-Length", 0))
+            if content_length > 1024 * 1024:  # 1MB limit
+                return self._send(413, {"error": "request body too large"})
+            body = json.loads(self.rfile.read(content_length) or b"{}")
+
             prompt = str(body.get("prompt", "")).strip()[:4000]
             if not prompt:
                 return self._send(400, {"error": "empty prompt"})
