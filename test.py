@@ -1,5 +1,4 @@
 """Sanity tests for the image-style data and build outputs. Run: python test.py"""
-import json
 import pathlib
 import re
 import subprocess

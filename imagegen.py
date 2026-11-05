@@ -89,7 +89,11 @@ class H(BaseHTTPRequestHandler):
         data = json.dumps(obj).encode()
         self.send_response(code)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Access-Control-Allow-Origin", "*")
+        origin = self.headers.get("Origin", "")
+        if origin.startswith("http://127.0.0.1") or origin.startswith("http://localhost") or origin.startswith("file://"):
+            self.send_header("Access-Control-Allow-Origin", origin)
+        else:
+            self.send_header("Access-Control-Allow-Origin", "http://127.0.0.1:8787")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.send_header("Access-Control-Allow-Private-Network", "true")
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
@@ -116,7 +120,10 @@ class H(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
-            body = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
+            length = int(self.headers.get("Content-Length", 0))
+            if length > 1_000_000:
+                return self._send(413, {"error": "request body too large"})
+            body = json.loads(self.rfile.read(length) or b"{}")
             prompt = str(body.get("prompt", "")).strip()[:4000]
             if not prompt:
                 return self._send(400, {"error": "empty prompt"})
