@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<title>SlashFrame - Prompt Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#363341",
+            "secondary-fixed": "#ffd8ed",
+            "secondary": "#ffade2",
+            "tertiary-container": "#9147ff",
+            "tertiary-fixed-dim": "#d5baff",
+            "surface": "#14121e",
+            "on-secondary": "#5f004e",
+            "primary-fixed": "#e3dfff",
+            "primary-container": "#6b5bff",
+            "error": "#ffb4ab",
+            "inverse-on-surface": "#312f3c",
+            "surface-container-highest": "#363341",
+            "primary": "#c5c0ff",
+            "background": "#14121e",
+            "on-tertiary": "#42008a",
+            "on-primary": "#2500a2",
+            "on-secondary-fixed": "#3b002f",
+            "on-secondary-fixed-variant": "#86006f",
+            "outline": "#918ea1",
+            "surface-container-high": "#2b2836",
+            "on-primary-container": "#fffdff",
+            "inverse-surface": "#e6e0f2",
+            "on-surface-variant": "#c8c4d8",
+            "on-tertiary-fixed": "#270057",
+            "on-tertiary-container": "#fffcff",
+            "on-surface": "#e6e0f2",
+            "tertiary-fixed": "#ecdcff",
+            "surface-dim": "#14121e",
+            "surface-bright": "#3a3745",
+            "on-tertiary-fixed-variant": "#5e00c1",
+            "on-secondary-container": "#ffa1df",
+            "on-primary-fixed-variant": "#3a1bd0",
+            "surface-container-lowest": "#0f0d19",
+            "surface-tint": "#c5c0ff",
+            "secondary-container": "#920179",
+            "surface-container-low": "#1c1a27",
+            "outline-variant": "#474555",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#201e2b",
+            "secondary-fixed-dim": "#ffade2",
+            "tertiary": "#d5baff",
+            "primary-fixed-dim": "#c5c0ff",
+            "error-container": "#93000a",
+            "on-background": "#e6e0f2",
+            "inverse-primary": "#5340e7",
+            "on-primary-fixed": "#140067",
+            "on-error": "#690005"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "3xl": "1.25rem"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "label-mono": ["JetBrains Mono"],
+            "headline-sm": ["Inter"],
+            "code-sm": ["JetBrains Mono"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-hero": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "code-terminal": ["JetBrains Mono"],
+            "headline-xl": ["Inter"],
+            "display-hero-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-mono": ["0.6875rem", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "600" }],
+            "headline-sm": ["1.125rem", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "code-sm": ["0.75rem", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["0.75rem", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["1.75rem", { "lineHeight": "1.25", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["1rem", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "display-hero": ["3.5rem", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+            "headline-lg": ["1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["0.875rem", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+            "code-terminal": ["0.875rem", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "display-hero-mobile": ["2.25rem", { "lineHeight": "1.15", "letterSpacing": "-0.03em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f6f5f1;
+      color: #1c1a27;
+      font-family: 'Inter', sans-serif;
+    }
+    .scrollbar-none::-webkit-scrollbar, .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .scrollbar-none, .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-[#f6f5f1]/90 backdrop-blur-md shadow-sm border-b border-stone-200/80">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="text-headline-sm font-headline-sm font-bold tracking-tight text-stone-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+        SlashFrame
+      </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 hover:text-stone-900 font-code-sm text-code-sm transition-colors" href="#">Models</a>
+<a class="text-stone-600 hover:text-stone-900 font-code-sm text-code-sm transition-colors" href="#">Engine</a>
+<a class="text-stone-900 font-code-sm text-code-sm tracking-wide border-b-2 border-primary-container pb-1" href="#">Showcase</a>
+<a class="text-stone-600 hover:text-stone-900 font-code-sm text-code-sm transition-colors" href="#">Docs</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-stone-700 hover:bg-stone-200/60 transition-colors">
+<span class="material-symbols-outlined text-sm">code</span>
+          GitHub 4.8k
+        </button>
+<button class="px-4 py-2 rounded-lg text-xs font-semibold text-white bg-primary-container hover:opacity-95 transition-all shadow-sm active:scale-95">
+          Launch Studio
+        </button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow max-w-7xl mx-auto px-6 py-8 w-full">
+<div class="mb-8">
+<h1 class="text-headline-xl font-headline-xl text-stone-900 tracking-tight">Prompt Builder</h1>
+<p class="text-body-md text-stone-600 mt-1">Compose and fine-tune your generative AI prompts with precision slash commands.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-6">
+<!-- Card 1: Your request -->
+<div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-sm font-headline-sm text-stone-900 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-xs font-bold font-code-sm">1</span>
+              Your request
+            </h2>
+<span class="text-label-mono text-stone-400">INPUT SOURCE</span>
+</div>
+<div class="relative">
+<textarea class="w-full rounded-xl border-stone-200 bg-stone-50/50 p-4 text-stone-800 font-code-terminal focus:border-primary-container focus:ring-primary-container placeholder:text-stone-400 transition-all resize-none" placeholder="a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean" rows="3">a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean</textarea>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-4 pt-4 border-t border-stone-100">
+<p class="text-body-sm text-stone-500 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary-container">info</span>
+              Type <code class="text-primary-container font-code-sm bg-stone-100 px-1 py-0.5 rounded">/</code> to insert modifiers and advanced environmental tokens instantly.
+            </p>
+<button class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200/70 transition-all active:scale-95">
+<span class="material-symbols-outlined text-base">bookmark</span>
+              Save Recipe
+            </button>
+</div>
+</div>
+<!-- Card 2: Target tool -->
+<div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-sm font-headline-sm text-stone-900 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-xs font-bold font-code-sm">2</span>
+              Target tool
+            </h2>
+<span class="text-label-mono text-stone-400">ENGINE RUNTIME</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-primary-container to-purple-600 shadow-sm shadow-primary-container/20 transition-all">Midjourney</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Stable Diffusion</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Flux</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">DALL-E</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Gemini</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Flow</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Kling</button>
+<button class="px-4 py-2 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 transition-all">Generic</button>
+</div>
+</div>
+<!-- Card 3: Your prompt -->
+<div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-sm font-headline-sm text-stone-900 flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center text-xs font-bold font-code-sm">3</span>
+              Your prompt
+            </h2>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium text-stone-700 bg-stone-100 hover:bg-stone-200/70 transition-all">
+<span class="material-symbols-outlined text-sm">link</span>
+                Copy link
+              </button>
+<button class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-semibold text-white bg-primary-container hover:opacity-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                Copy Prompt
+              </button>
+</div>
+</div>
+<div class="bg-stone-900 rounded-2xl p-5 border-l-4 border-primary-container shadow-inner overflow-x-auto">
+<code class="text-stone-100 font-code-terminal text-sm leading-relaxed">
+              A lonely weathered stone lighthouse standing defiant on a jagged coastal cliff during a violent torrential thunderstorm, colossal waves crashing against sharp rocks below, volumetric cinematic lightning bolts piercing dark indigo clouds, photorealistic details, cinematic composition, shot on 35mm lens, depth of field, 8k resolution, wide-angle cinematic perspective, pristine clarity <span class="text-primary">--ar 16:9 --style raw --v 6.0</span>
+</code>
+</div>
+</div>
+<!-- Card 4: What each command added -->
+<div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-sm font-headline-sm text-stone-900">What each command added</h2>
+<span class="text-label-mono text-stone-400">SYNTHESIS BREAKDOWN</span>
+</div>
+<div class="space-y-3">
+<div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 flex items-start gap-3">
+<span class="font-code-sm px-2 py-1 bg-primary-container/10 text-primary-container rounded-lg font-bold">/storm</span>
+<div>
+<p class="text-body-sm font-semibold text-stone-900">Violent atmospheric tempest</p>
+<p class="text-body-sm text-stone-500 mt-0.5">Adds torrential rain, dark indigo thunderclouds, aggressive rolling swells, and dynamic turbulent motion.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 flex items-start gap-3">
+<span class="font-code-sm px-2 py-1 bg-primary-container/10 text-primary-container rounded-lg font-bold">/dramaticlighting</span>
+<div>
+<p class="text-body-sm font-semibold text-stone-900">High-contrast chiaroscuro illumination</p>
+<p class="text-body-sm text-stone-500 mt-0.5">Injects volumetric lightning bursts, deep atmospheric shadows, and brilliant edge highlights on wet surfaces.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 flex items-start gap-3">
+<span class="font-code-sm px-2 py-1 bg-primary-container/10 text-primary-container rounded-lg font-bold">/8k</span>
+<div>
+<p class="text-body-sm font-semibold text-stone-900">Micro-texture enhancement</p>
+<p class="text-body-sm text-stone-500 mt-0.5">Forces high-frequency details across stone textures, sea spray particle dispersion, and architectural erosion.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 flex items-start gap-3">
+<span class="font-code-sm px-2 py-1 bg-primary-container/10 text-primary-container rounded-lg font-bold">/wideangle</span>
+<div>
+<p class="text-body-sm font-semibold text-stone-900">Expansive panoramic optics</p>
+<p class="text-body-sm text-stone-500 mt-0.5">Applies sweeping perspective scaling, deep background separation, and immersive environmental framing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80 sticky top-24">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-headline-sm font-headline-sm text-stone-900">Command browser</h2>
+<span class="text-label-mono text-stone-400">435+ AVAILABLE</span>
+</div>
+<div class="relative mb-4">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-stone-400 text-lg">search</span>
+<input class="w-full pl-9 pr-4 py-2.5 rounded-xl border-stone-200 bg-stone-50/50 text-stone-800 text-xs focus:border-primary-container focus:ring-primary-container placeholder:text-stone-400" placeholder="Search 435+ commands..." type="text"/>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-3 scrollbar-none border-b border-stone-100">
+<button class="px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-primary-container whitespace-nowrap">All</button>
+<button class="px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 whitespace-nowrap">Lighting</button>
+<button class="px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 whitespace-nowrap">Camera</button>
+<button class="px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 whitespace-nowrap">Style</button>
+<button class="px-3 py-1.5 rounded-xl text-xs font-medium text-stone-600 bg-stone-100 hover:bg-stone-200/60 whitespace-nowrap">Aspect</button>
+</div>
+<div class="space-y-2.5 max-h-[520px] overflow-y-auto pr-1 hide-scrollbar">
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/storm</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Atmosphere</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Adds torrential rain, dark thunderclouds, and turbulent motion.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/dramaticlighting</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Lighting</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">High-contrast chiaroscuro illumination with volumetric bursts.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/8k</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Quality</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Forces high-frequency micro-textures and hyper-realistic detail.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/wideangle</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Camera</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Expansive panoramic optics with dramatic spatial depth.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/cinematic</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Style</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Hollywood feature film grading, anamorphic lens flare, and tone.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/cyberpunk</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Aesthetic</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Neon reflections, wet asphalt streets, and high-tech dystopia.</p>
+</div>
+<div class="p-3 rounded-2xl hover:bg-stone-50 border border-transparent hover:border-stone-200/60 transition-all cursor-pointer group">
+<div class="flex items-center justify-between">
+<code class="font-code-sm text-primary-container font-bold group-hover:underline">/macro</code>
+<span class="text-[10px] text-stone-400 uppercase tracking-wider">Camera</span>
+</div>
+<p class="text-body-sm text-stone-500 mt-1 line-clamp-1">Extreme close-up photography with microscopic detail sharpness.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-[#f6f5f1] border-t border-stone-200/80 mt-16">
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="text-headline-sm font-headline-sm font-bold text-stone-900">
+        SlashFrame AI
+      </div>
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">Prompt Syntax</a>
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">Model Matrix</a>
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">Changelog</a>
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">API Status</a>
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">Telemetry</a>
+<a class="text-stone-600 hover:text-stone-900 transition-colors text-body-sm font-medium hover:underline" href="#">Privacy</a>
+</div>
+<div class="text-body-sm text-stone-500 font-code-sm text-center md:text-right">
+        © 2025 SlashFrame AI. High-precision prompt engineering architecture.
+      </div>
+</div>
+</footer>
+</body></html>
