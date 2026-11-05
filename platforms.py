@@ -52,7 +52,9 @@ _BLOCK = _re.compile(r"<!--FULL-->.*?<!--/FULL-->|/\*FULL\*/.*?/\*/FULL\*/", _re
 _SMARK = _re.compile(r"<!--/?SITE-->|/\*/?SITE\*/")
 _SBLOCK = _re.compile(r"<!--SITE-->.*?<!--/SITE-->|/\*SITE\*/.*?/\*/SITE\*/", _re.S)
 _HLMARK = _re.compile(r"<!--/?(?:H1|LEAD)-->")
-html = _HLMARK.sub("", _MARK.sub("", _SBLOCK.sub("", _tpl)))        # downloadable version: everything except the website-only examples
+_offline_css = (ROOT / "docs" / "redesign.css").read_text(encoding="utf-8")
+html = _HLMARK.sub("", _MARK.sub("", _SBLOCK.sub("", _tpl))).replace(
+    '<link rel="stylesheet" href="/redesign.css">', '<style>' + _offline_css + '</style>')  # self-contained downloadable version
 hosted_html = _SMARK.sub("", _BLOCK.sub("", _tpl)) # website version: no helper, no copy-and-open, no image generation; has the examples
 (PF / "flow-kling-anywhere" / "expander.html").write_text(html, encoding="utf-8")
 (PF / "flow-kling-anywhere" / "SETUP.txt").write_text(
@@ -104,10 +106,11 @@ h2{{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.07em;
 h2 small{{color:var(--mut);font-weight:400}}
 ul{{list-style:none;margin:0;padding:0}}li{{padding:2px 0;color:var(--mut)}}li b{{color:var(--fg);font-family:ui-monospace,Consolas,monospace;margin-right:5px}}
 li.hide{{display:none}}
-</style></head><body>
-<h1>SlashFrame Cheat Sheet</h1><p><a href="https://glogee.online/">&larr; Back to SlashFrame, the free prompt builder</a></p>
-<p>{len(names_all)} commands. Add them to any image request, e.g. <code>a lighthouse /storm /85mm /16:9 /mj</code>. Print with Ctrl+P.</p>
-<input id="q" placeholder="Filter commands…" autocomplete="off">
+</style><link rel="stylesheet" href="/content.css"></head><body class="reference-page">
+<div class="reference-top"><a class="reference-logo" href="/">Slash<span>Frame</span></a><a class="reference-cta" href="/#tool">Open studio ↗</a></div>
+<div class="reference-intro"><p class="reference-kicker">THE SLASHFRAME LIBRARY</p><h1>Every command, in one place.</h1>
+<p>{len(names_all)} commands for lighting, camera, style and more. Add them to an idea, for example <code>a lighthouse /storm /85mm /16:9 /mj</code>.</p>
+<label for="q">Find a command</label><input id="q" placeholder="Filter commands…" autocomplete="off"></div>
 <main>{''.join(secs)}</main>
 <script>document.getElementById("q").oninput=e=>{{const q=e.target.value.toLowerCase();document.querySelectorAll("li").forEach(l=>l.classList.toggle("hide",q&&!l.textContent.toLowerCase().includes(q)));document.querySelectorAll("section").forEach(s=>s.style.display=s.querySelector("li:not(.hide)")?"":"none")}}</script>
 </body></html>"""

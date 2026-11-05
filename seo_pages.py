@@ -185,7 +185,7 @@ def _head_meta(url, title, desc, ld, target=None):
         '<meta name="description" content="%s">' % e(desc),
         '<link rel="canonical" href="%s">' % url,
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
-        '<meta name="theme-color" content="#2a2163">',
+        '<meta name="theme-color" content="#171322">',
         '<meta property="og:type" content="website">',
         '<meta property="og:locale" content="en_US">',
         '<meta property="og:site_name" content="%s">' % BRAND,
@@ -234,11 +234,6 @@ def _render(base, url, title, desc, faq, ld_extra=None, target=None, h1=None, le
     if lead:
         s = re.sub(r"<!--LEAD-->.*?<!--/LEAD-->", lambda m: lead, s, count=1, flags=re.S)
     s = re.sub(r"<!--/?(?:H1|LEAD)-->", "", s)
-    if target:
-        key_name = next(t["name"] for t in TARGETS if t["key"] == target)
-        s = s.replace("You get (Midjourney format)", "You get (%s format)" % e(key_name), 1)
-        s = re.sub(r'<div class="hout">.*?</div>', lambda m: '<div class="hout">%s</div>' % e(EX[target]).replace(chr(10), "<br>"), s, count=1, flags=re.S)
-        s = re.sub(r'<div class="hin">.*?</div>', lambda m: '<div class="hin">a lone lighthouse on a cliff <b>/storm /dramaticlighting /24mm /16:9 /clean</b></div>', s, count=1, flags=re.S)
     s = re.sub(r"<title>[^<]*</title>", lambda m: "<title>%s</title>" % e(title), s, count=1)
     ld = [_app_ld("SlashFrame prompt generator" if not target else title.split(" |")[0].replace("Free ", "SlashFrame ", 1), url, desc)]
     ld += ld_extra or []
@@ -277,7 +272,7 @@ p,li{color:var(--fg)}pre{background:var(--code);border:1px solid var(--line);bor
 code{background:var(--code);padding:2px 7px;border-radius:6px;font-size:.92em}.cta{margin:40px 0;padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--line);text-align:center}
 .cta p{margin:0 0 14px}footer{border-top:1px solid var(--line);padding:26px 20px;color:var(--mut);font-size:14.5px;text-align:center}footer a{color:var(--mut)}
 nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--mut)}
-</style></head><body>
+</style><link rel="stylesheet" href="/content.css"></head><body class="article-page">
 <div class="top"><div class="in"><a class="logo" href="/">Slash<span>Frame</span></a><a class="btn" href="/#tool">Open the free generator</a></div></div>
 <main><nav class="bc"><a href="/">Home</a> &rsaquo; Guide</nav>
 <h1>How to write AI image prompts: a simple formula</h1>
@@ -353,7 +348,7 @@ code{background:var(--code);padding:2px 7px;border-radius:6px;font-size:.92em}
 .cta{margin:40px 0;padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--line);text-align:center}
 .cta p{margin:0 0 14px}footer{border-top:1px solid var(--line);padding:26px 20px;color:var(--mut);font-size:14.5px;text-align:center}footer a{color:var(--mut)}
 nav.bc{font-size:14px;color:var(--mut);margin-bottom:18px}nav.bc a{color:var(--mut)}
-</style></head><body>
+</style><link rel="stylesheet" href="/content.css"></head><body class="article-page">
 <div class="top"><div class="in"><a class="logo" href="/">Slash<span>Frame</span></a><a class="btn" href="/#tool">Open the free generator</a></div></div>
 <main><nav class="bc"><a href="/">Home</a> &rsaquo; About</nav>
 <h1>About SlashFrame</h1>

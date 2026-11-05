@@ -3,7 +3,7 @@
 <meta name="description" content="Free Flux prompt generator. Turn a short idea plus slash commands into clear natural-language Flux prompts with the image size included. No sign-up.">
 <link rel="canonical" href="https://glogee.online/flux-prompt-generator/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-<meta name="theme-color" content="#2a2163">
+<meta name="theme-color" content="#171322">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="SlashFrame">
@@ -218,27 +218,55 @@ pre.ex{min-height:0!important;border-left-width:4px;margin:0 0 16px;font-size:13
 footer{padding:28px 0 44px;color:var(--mut);font-size:14.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
-</style></head><body>
+</style><link rel="stylesheet" href="/redesign.css"></head><body>
 <div class="nav"><div class="wrap"><a class="logo" href="#top"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b5bff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg)"/><path d="M16 26v-6a4 4 0 0 1 4-4h6M38 16h6a4 4 0 0 1 4 4v6M48 38v6a4 4 0 0 1-4 4h-6M26 48h-6a4 4 0 0 1-4-4v-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 22 27 42" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg><b>Slash<span>Frame</span></b></a>
-<nav><a href="#how">How it works</a><a href="#demo">Examples</a><a href="#tool">Try it</a><a href="#get">Get it</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></nav></div></div>
+<button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button><nav id="site-nav" aria-label="Main navigation"><a href="#tool">Studio</a><a href="#demo">Showcase</a><a href="#how">How it works</a><a href="#get">Install</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="#tool">Open studio <span aria-hidden="true">↗</span></a></nav></div></div>
 <main><header class="hero" id="top"><div class="wrap">
-<div>
-<span class="badge">v1.19 &middot; Free &middot; works offline &middot; no account</span>
+<div class="hero-copy">
+<span class="badge"><span class="status-dot" aria-hidden="true"></span> YOUR CREATIVE PROMPT WORKSPACE</span>
 <h1>Free Flux prompt generator.<br><em>Clear sentences, with the size included.</em></h1>
 <p class="lead">Flux follows natural sentences well. Type your idea and a few slash commands and SlashFrame writes a sentence-style Flux prompt and a recommended image size such as 1344x768. Free, in your browser, no sign-up.</p>
-<div class="cta"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill"><i>&#9733;</i>Star on GitHub<span class="sc" data-stars></span></a></div>
-<div class="stats"><div><b data-nc>400+</b>commands</div><div><b data-nt>8</b>target tools</div><div><b>$0</b>no account, no install</div></div>
+<div class="cta"><a class="btn pri" href="#tool">Start creating <span aria-hidden="true">↗</span></a><a class="btn sec" href="#demo">See the difference <span aria-hidden="true">↘</span></a></div>
+<div class="hero-proof"><span><strong data-nc>400+</strong> commands</span><span><strong data-nt>8</strong> output formats</span><span><strong>Free</strong> and open source</span></div>
 </div>
-<div class="hcard"><div>
-<div class="dots"><i></i><i></i><i></i></div>
-<p class="hl">You type</p>
-<div class="hin">a lone lighthouse on a cliff <b>/storm /dramaticlighting /24mm /16:9 /clean</b></div>
-<div class="harrow">SlashFrame</div>
-<p class="hl">You get (Flux format)</p>
-<div class="hout">a lone lighthouse on a cliff. Wide 24mm field of view, environmental context with natural perspective. Violent storm, dark roiling clouds, lightning, wind. Dramatic lighting, strong contrast between light and shadow. Clean image without text, watermark, logo, signature, caption, username.<br>Size: 1344x768</div>
-<div class="htags"><span>Midjourney</span><span>Flux</span><span>Gemini</span><span>ChatGPT</span><span>Flow</span><span>Kling</span></div>
-</div></div>
+<div class="hero-visual" aria-label="Examples of image prompts in action"><div class="hero-visual-head"><span><i aria-hidden="true"></i> VISUAL LAB / 001</span><span>IDEA → IMAGE</span></div><div class="hero-images"><figure><img src="/examples/lighthouse-before.jpg" width="600" height="600" alt="Plain image prompt: a lighthouse on a cliff"><figcaption>01 / THE IDEA</figcaption></figure><figure><img src="/examples/lighthouse-after.jpg" width="600" height="600" alt="Lighthouse with storm, lighting and camera commands"><figcaption>02 / WITH SLASHFRAME</figcaption></figure></div><div class="hero-visual-foot"><code>/storm</code><code>/dramaticlighting</code><code>/24mm</code><span>↗</span></div></div>
+
 </div></header>
+<section class="band studio" id="tool"><div class="wrap">
+<div class="section-heading"><div><p class="eyebrow">01 / THE STUDIO</p><h2 class="title">Turn words into a visual direction.</h2><p class="sub">Build a prompt in your browser. Pick a target, browse commands, and copy the result.</p></div><span class="studio-local"><span class="status-dot" aria-hidden="true"></span> RUNS IN YOUR BROWSER</span></div>
+<div class="grid">
+ <div class="studio-main">
+  <section class="card input-card"><h2><span class="lft"><span class="n">01</span>Your idea</span><span class="clabel">START HERE</span></h2>
+   <label class="visually-hidden" for="in">Describe the image you want</label><textarea id="in" placeholder="a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean" spellcheck="false"></textarea>
+   <div class="hint">Type <code>/</code> for suggestions, or tap a command in the browser.</div>
+   <div class="quick-row"><span>QUICK ADD</span><button type="button" class="quick-command" data-command="goldenhour">/goldenhour</button><button type="button" class="quick-command" data-command="cinematic">/cinematic</button><button type="button" class="quick-command" data-command="85mm">/85mm</button><button type="button" class="quick-command" data-command="clean">/clean</button></div>
+   <div class="recipe-row"><label class="visually-hidden" for="rn">Recipe name</label><input id="rn" placeholder="Name this recipe" maxlength="20"><button class="chip" id="sv">Save recipe</button><span class="note" id="rmsg"></span></div></section>
+  <section class="card target-card"><h2><span class="lft"><span class="n">02</span>Choose your tool</span><span class="clabel">OUTPUT FORMAT</span></h2><div class="targets" id="targets"></div></section>
+  <section class="card output-card"><h2><span class="lft"><span class="n">03</span>Ready to use</span><span class="clabel">YOUR PROMPT</span></h2>
+   <div class="res"><pre id="out"></pre></div>
+   <div class="row"><button class="copy" id="cp">Copy prompt</button><button class="chip" id="lk" title="Copy a link that opens this request">Copy link</button><span class="note" id="note"></span></div>
+   </section>
+  <section class="card breakdown-card"><h2><span class="lft">What your commands added</span><span class="clabel">BREAKDOWN</span></h2><div id="exp" class="exp"></div></section>
+ </div>
+ <aside class="card command-card"><h2><span class="lft">Explore commands</span><span class="clabel" data-nc>400+</span></h2><p class="command-intro">Find the details that make your image yours.</p>
+  <div class="srchwrap"><label class="visually-hidden" for="q">Search commands</label><input id="q" placeholder="Search lighting, camera, style…" autocomplete="off"></div>
+  <div class="cats" id="cats"></div>
+  <div class="list" id="list"></div>
+ </aside>
+</div></div></section>
+
+<section class="band alt" id="demo"><div class="wrap">
+<p class="eyebrow">02 / THE DIFFERENCE</p><h2 class="title">Same idea. A stronger image.</h2><p class="sub">Slide to compare a plain idea with one shaped by SlashFrame commands.</p>
+<div class="tabs" id="tabs"></div>
+<div class="show">
+<div class="cmpwrap"><div class="cmp" id="cmp"><img class="af" id="cmpA" alt="Result with commands" loading="lazy"><img class="bf" id="cmpB" alt="Result from the plain idea" loading="lazy"><span class="tag l">Before</span><span class="tag r">After</span><div class="hd"></div><input type="range" min="0" max="100" value="50" id="cmpR" aria-label="Drag to compare before and after"></div></div>
+<div class="cap"><h3 id="cT"></h3><p id="cD"></p>
+<div class="pl">Plain idea</div><div class="box" id="cP"></div>
+<div class="pl">With commands</div><div class="box hi" id="cC"></div>
+<button class="usebtn" id="cU">Use this in the studio &darr;</button>
+<div class="tiny">Made by the project author with AI image tools: one result per prompt, shown as made. Results vary by tool and seed.</div></div>
+</div></div></section>
+
 <section class="band" id="how"><div class="wrap">
 <p class="eyebrow">How it works</p><h2 class="title">Three steps, ten seconds</h2><p class="sub">You keep control of the idea. The commands add the camera, light and style wording that image tools respond to.</p>
 <div class="cards3">
@@ -270,40 +298,6 @@ footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 <div class="demo"><img src="/demo.gif" width="800" height="560" loading="lazy" alt="Demo: typing a short idea, picking slash commands from the autocomplete list, choosing Midjourney and copying the finished prompt"></div>
 </div></section>
 
-
-<section class="band alt" id="demo"><div class="wrap">
-<p class="eyebrow">Examples</p><h2 class="title">Same idea. Better result.</h2><p class="sub">Drag the slider. The left side is the plain idea, the right side adds commands.</p>
-<div class="tabs" id="tabs"></div>
-<div class="show">
-<div class="cmpwrap"><div class="cmp" id="cmp"><img class="af" id="cmpA" alt="Result with commands" loading="lazy"><img class="bf" id="cmpB" alt="Result from the plain idea" loading="lazy"><span class="tag l">Before</span><span class="tag r">After</span><div class="hd"></div><input type="range" min="0" max="100" value="50" id="cmpR" aria-label="Drag to compare before and after"></div></div>
-<div class="cap"><h3 id="cT"></h3><p id="cD"></p>
-<div class="pl">Plain idea</div><div class="box" id="cP"></div>
-<div class="pl">With commands</div><div class="box hi" id="cC"></div>
-<button class="usebtn" id="cU">Use these commands in the builder &darr;</button>
-<div class="tiny">Made by the project author with AI image tools: one result per prompt, shown as made. Results vary by tool and seed.</div></div>
-</div></div></section>
-
-<section class="band" id="tool"><div class="wrap">
-<p class="eyebrow">Try it</p><h2 class="title">Build your prompt</h2><p class="sub">Everything below runs in your browser. Click commands on the right to add them.</p>
-<div class="grid">
- <div>
-  <section class="card"><h2><span class="lft"><span class="n">1</span>Your request</span><span class="clabel">input source</span></h2>
-   <textarea id="in" placeholder="a lone lighthouse /storm /dramaticlighting /8k /wideangle /16:9 /clean" spellcheck="false"></textarea>
-   <div class="hint">Type <code style="color:var(--acc);background:var(--chip);padding:1px 6px;border-radius:5px;font-size:.9em">/</code> to insert modifiers and commands instantly.</div>
-   <div class="row"><input id="rn" placeholder="recipe name, e.g. mylook" maxlength="20" style="max-width:210px;padding-left:14px"><button class="chip" id="sv">Save Recipe</button><span class="note" id="rmsg"></span></div></section>
-  <section class="card"><h2><span class="lft"><span class="n">2</span>Target tool</span><span class="clabel">engine runtime</span></h2><div class="targets" id="targets"></div></section>
-  <section class="card"><h2><span class="lft"><span class="n">3</span>Your prompt</span><span class="clabel">output</span></h2>
-   <div class="res"><pre id="out"></pre></div>
-   <div class="row"><button class="copy" id="cp">Copy</button><button class="chip" id="lk" title="Copy a link that opens this request">Copy link</button><span class="note" id="note"></span></div>
-   </section>
-  <section class="card"><h2><span class="lft">What each command added</span><span class="clabel">synthesis breakdown</span></h2><div id="exp" class="exp"></div></section>
- </div>
- <aside class="card"><h2><span class="lft">Command browser</span><span class="clabel" data-nc>435+</span></h2>
-  <div class="srchwrap"><input id="q" placeholder="Search 435+ commands…" autocomplete="off"></div>
-  <div class="cats" id="cats"></div>
-  <div class="list" id="list"></div>
- </aside>
-</div></div></section>
 
 <section class="band" id="tools"><div class="wrap">
 <p class="eyebrow">Free prompt generators</p><h2 class="title">A prompt generator for every AI image tool</h2><p class="sub">Each tool wants a slightly different format. Pick yours and get the right one.</p>
@@ -435,7 +429,8 @@ $("cats").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.da
 function drawList(){
  const q=norm($("q").value);
  const items=CMDS.filter(c=>(cat==="All"||c.c===cat)&&(!q||c.key.includes(q)||c.tip.toLowerCase().includes($("q").value.toLowerCase()))).slice(0,400);
- $("list").innerHTML=`<div class="chips">`+items.map(c=>`<button class="chip${used.has(c.key)?" on":""}" data-n="${c.n}" title="${c.tip.replace(/"/g,"&quot;")}">/${c.n}</button>${c.c==="Mine"?`<button class="chip" data-del="${c.n}" title="Delete recipe">×</button>`:""}`).join("")+`</div>`+(items.length?"":`<div class="hint">No commands match.</div>`);
+ const esc=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+ $("list").innerHTML=items.map(c=>`<div class="command-row"><button class="command-item${used.has(c.key)?" on":""}" data-n="${esc(c.n)}" aria-pressed="${used.has(c.key)}" title="${used.has(c.key)?"Remove":"Add"} /${esc(c.n)}"><span class="command-top"><b>/${esc(c.n)}</b><small>${esc(c.c)}</small><span class="command-add" aria-hidden="true">${used.has(c.key)?"✓":"+"}</span></span><span class="command-tip">${esc(c.tip)}</span></button>${c.c==="Mine"?`<button class="command-delete" data-del="${esc(c.n)}" title="Delete recipe /${esc(c.n)}" aria-label="Delete recipe /${esc(c.n)}">×</button>`:""}</div>`).join("")+(items.length?"":`<div class="hint">No commands match.</div>`);
 }
 $("list").onclick=e=>{const d=e.target.closest("[data-del]");if(d){delete MY[d.dataset.del];delete PRE[d.dataset.del];saveMy(MY);rebuild();drawList();run();return}const b=e.target.closest("[data-n]");if(!b)return;const t="/"+b.dataset.n,i=$("in");
  const re=new RegExp("(^|\\s)"+t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?=\\s|$)");
@@ -445,7 +440,7 @@ $("q").oninput=drawList;
 /* copy */
 function legacyCopy(t){const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.focus();a.select();let ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(a);return ok}
 function selectOut(){const r=document.createRange();r.selectNodeContents($("out"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
-function flash(ok){const b=$("cp");b.textContent=ok?"Copied ✓":"Press Ctrl+C";setTimeout(()=>b.textContent="Copy",1600);if(!ok)selectOut()}
+function flash(ok){const b=$("cp");b.textContent=ok?"Copied ✓":"Press Ctrl+C";setTimeout(()=>b.textContent="Copy prompt",1600);if(!ok)selectOut()}
 $("out").onclick=selectOut;
 $("cp").onclick=()=>{const t=$("out").textContent;
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>flash(true),()=>flash(legacyCopy(t)));
@@ -472,6 +467,15 @@ if(!/^https?:$/.test(location.protocol)||/^(127\.0\.0\.1|localhost)$/.test(locat
 $("lk").onclick=()=>{const t=shareUrl(),b=$("lk"),done=ok=>{b.textContent=ok?"Link copied ✓":"Press Ctrl+C";setTimeout(()=>b.textContent="Copy link",1600)};
  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(()=>done(true),()=>done(legacyCopy(t)));else done(legacyCopy(t))};
 $("in").oninput=run;loadHash();if(window.__T&&mods[window.__T]&&!/(^|[#&])t=/.test(location.hash))target=window.__T;drawTargets();drawCats();run();
+document.querySelectorAll(".quick-command").forEach(button=>button.addEventListener("click",()=>{
+ const input=$("in"),token="/"+button.dataset.command;
+ if(!input.value.split(/\s+/).includes(token))input.value=(input.value.trim()+" "+token).trim();
+ run();input.focus();input.setSelectionRange(input.value.length,input.value.length);
+}));
+{const toggle=document.querySelector(".nav-toggle"),nav=$("site-nav");
+ toggle.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")!=="true";toggle.setAttribute("aria-expanded",String(open));nav.classList.toggle("open",open)});
+ nav.addEventListener("click",e=>{if(e.target.closest("a")){toggle.setAttribute("aria-expanded","false");nav.classList.remove("open")}});
+ document.addEventListener("keydown",e=>{if(e.key==="Escape"){toggle.setAttribute("aria-expanded","false");nav.classList.remove("open")}})}
 /* inline autocomplete for the request box */
 {const ta=$("in"),box=document.createElement("div");box.className="ac";box.id="acList";box.setAttribute("role","listbox");document.body.appendChild(box);
 let items=[],sel=0,start=0,open=false;
