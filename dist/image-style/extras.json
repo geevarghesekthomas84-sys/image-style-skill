@@ -97,6 +97,10 @@
   [
    "nogear",
    "camera, lens, DSLR, camera body, lens barrel, camera equipment, lens markings, text on lens"
+  ],
+  [
+   "noborder",
+   "frame, border, vignette, letterbox, black bars, rounded corners"
   ]
  ],
  "models": [

@@ -352,6 +352,42 @@
    "category": "style",
    "phrase": "dreamcore, surreal nostalgic liminal dreamlike atmosphere, soft haze"
   },
+  "cottagecore": {
+   "category": "style",
+   "phrase": "cottagecore, rustic pastoral charm, wildflowers, linen, handmade warmth"
+  },
+  "darkacademia": {
+   "category": "style",
+   "phrase": "dark academia, old libraries, leather-bound books, moody scholarly elegance"
+  },
+  "steampunk": {
+   "category": "style",
+   "phrase": "steampunk, Victorian machinery, brass gears, copper pipes, analog dials"
+  },
+  "afrofuturism": {
+   "category": "style",
+   "phrase": "Afrofuturism, blending African heritage with futuristic technology and cosmic imagery"
+  },
+  "solarpunk": {
+   "category": "style",
+   "phrase": "solarpunk, green utopian future, living architecture, renewable energy, lush vegetation"
+  },
+  "vaporwave": {
+   "category": "style",
+   "phrase": "vaporwave, pastel neon gradients, Greek busts, retro digital aesthetic, magenta and cyan"
+  },
+  "brutalism": {
+   "category": "style",
+   "phrase": "brutalism, raw concrete, massive geometric forms, stark industrial aesthetic"
+  },
+  "artnouveau": {
+   "category": "style",
+   "phrase": "Art Nouveau, organic flowing curves, floral ornament, decorative elegance"
+  },
+  "artdeco": {
+   "category": "style",
+   "phrase": "Art Deco, geometric luxury, bold symmetry, gold and chrome accents"
+  },
   "photorealistic": {
    "category": "quality",
    "phrase": "photorealistic, true-to-life"
@@ -383,6 +419,10 @@
   "crispdetails": {
    "category": "quality",
    "phrase": "crisp, clean, well-defined details"
+  },
+  "aigenerated": {
+   "category": "quality",
+   "phrase": "AI-generated, clean neural-network-rendered, artifact-free detail"
   },
   "naturalcolors": {
    "category": "color",
@@ -552,6 +592,14 @@
    "category": "lens",
    "phrase": "halation, red-orange glow bleeding around bright highlights"
   },
+  "prism": {
+   "category": "lens",
+   "phrase": "prism effect, rainbow light refraction, spectral color split"
+  },
+  "tiltblur": {
+   "category": "lens",
+   "phrase": "tilt blur, gradual focus falloff from center, dreamy edges"
+  },
   "productphotography": {
    "category": "genre",
    "phrase": "product photography, clean hero shot, clean background, commercial lighting"
@@ -631,6 +679,26 @@
   "nightphotography": {
    "category": "genre",
    "phrase": "night photography, low light, long exposure, artificial lights"
+  },
+  "dronephotography": {
+   "category": "genre",
+   "phrase": "drone photography, elevated aerial perspective, sweeping landscape"
+  },
+  "concertphotography": {
+   "category": "genre",
+   "phrase": "concert photography, stage lighting, crowd energy, live performance"
+  },
+  "petphotography": {
+   "category": "genre",
+   "phrase": "pet photography, animal portrait, expressive eyes, soft natural light"
+  },
+  "newbornphotography": {
+   "category": "genre",
+   "phrase": "newborn photography, soft wrap, gentle pose, dreamy pastel tones"
+  },
+  "birthphotography": {
+   "category": "genre",
+   "phrase": "birth photography, raw emotional moment, intimate documentary"
   },
   "isometric": {
    "category": "composition",
@@ -751,6 +819,30 @@
   "voxelart": {
    "category": "art",
    "phrase": "voxel art, cube-built 3D blocks"
+  },
+  "ukiyoe": {
+   "category": "art",
+   "phrase": "ukiyo-e, Japanese woodblock print, flat color, bold outlines, Edo-period style"
+  },
+  "comicbook": {
+   "category": "art",
+   "phrase": "comic book illustration, bold ink lines, halftone dots, dynamic panels"
+  },
+  "stainedglass": {
+   "category": "art",
+   "phrase": "stained glass, leaded glass segments, jewel-toned translucent color, backlit"
+  },
+  "graffiti": {
+   "category": "art",
+   "phrase": "graffiti art, spray paint, bold lettering, urban mural on concrete"
+  },
+  "claymation": {
+   "category": "art",
+   "phrase": "claymation, handcrafted clay figures, stop-motion texture, fingerprint detail"
+  },
+  "embroidery": {
+   "category": "art",
+   "phrase": "embroidery art, stitched thread on fabric, textile texture, handcrafted detail"
   },
   "3drender": {
    "category": "render",
@@ -883,6 +975,22 @@
   "stardust": {
    "category": "effect",
    "phrase": "stardust, sparkling cosmic glitter"
+  },
+  "shockwave": {
+   "category": "effect",
+   "phrase": "shockwave, radial blast wave, distortion ring"
+  },
+  "petals": {
+   "category": "effect",
+   "phrase": "flower petals drifting through the air, delicate and colorful"
+  },
+  "snowfall": {
+   "category": "effect",
+   "phrase": "gentle snowfall, soft white flakes drifting down"
+  },
+  "butterflies": {
+   "category": "effect",
+   "phrase": "butterflies in flight, delicate wings, natural movement"
   },
   "galaxy": {
    "category": "space",
@@ -1547,6 +1655,10 @@
   [
    "nogear",
    "camera, lens, DSLR, camera body, lens barrel, camera equipment, lens markings, text on lens"
+  ],
+  [
+   "noborder",
+   "frame, border, vignette, letterbox, black bars, rounded corners"
   ]
  ],
  "models": [
@@ -1703,6 +1815,30 @@
    "weddingclassic",
    "Classic wedding photo",
    "wedding 50mm softlighting naturalcolors colorgraded nodeform clean",
+   "3:2"
+  ],
+  [
+   "socialpost",
+   "Social media post",
+   "vibrantcolors sharpfocus highdetail clean notext",
+   "square"
+  ],
+  [
+   "petportrait",
+   "Pet portrait",
+   "petphotography 85mm bokeh softlighting naturalcolors sharpfocus",
+   "4:5"
+  ],
+  [
+   "concertshot",
+   "Concert photo",
+   "concertphotography freezeaction dramaticlighting vibrantcolors filmgrain",
+   "16:9"
+  ],
+  [
+   "vintagefilm",
+   "Vintage film look",
+   "35mmfilm filmgrain vintage desaturated warmtones",
    "3:2"
   ]
  ]

@@ -86,6 +86,15 @@ fire|effect|flames, fire, fiery orange glow
 smoke|effect|swirling smoke, wispy atmospheric plumes
 glitch|effect|digital glitch, RGB split, scan-line distortion
 dreamcore|style|dreamcore, surreal nostalgic liminal dreamlike atmosphere, soft haze
+cottagecore|style|cottagecore, rustic pastoral charm, wildflowers, linen, handmade warmth
+darkacademia|style|dark academia, old libraries, leather-bound books, moody scholarly elegance
+steampunk|style|steampunk, Victorian machinery, brass gears, copper pipes, analog dials
+afrofuturism|style|Afrofuturism, blending African heritage with futuristic technology and cosmic imagery
+solarpunk|style|solarpunk, green utopian future, living architecture, renewable energy, lush vegetation
+vaporwave|style|vaporwave, pastel neon gradients, Greek busts, retro digital aesthetic, magenta and cyan
+brutalism|style|brutalism, raw concrete, massive geometric forms, stark industrial aesthetic
+artnouveau|style|Art Nouveau, organic flowing curves, floral ornament, decorative elegance
+artdeco|style|Art Deco, geometric luxury, bold symmetry, gold and chrome accents
 photorealistic|quality|photorealistic, true-to-life
 hyperrealistic|quality|hyperrealistic, extreme lifelike detail beyond normal photography
 rawphoto|quality|RAW photo, unprocessed natural capture, realistic sensor look
@@ -94,6 +103,7 @@ professionalphotography|quality|professional photography, expert composition, li
 highdetail|quality|highly detailed, intricate fine details
 sharpfocus|quality|tack-sharp focus on the subject
 crispdetails|quality|crisp, clean, well-defined details
+aigenerated|quality|AI-generated, clean neural-network-rendered, artifact-free detail
 naturalcolors|color|natural, true-to-life color
 colorgraded|color|professionally color graded, cohesive palette
 portrait|portrait|portrait photograph, subject-centered, flattering framing
@@ -136,6 +146,8 @@ lensflare|lens|bright flare streaks of light across the frame, soft light bloom
 sunflare|lens|sun flare, bright sun starburst and glow
 chromaticaberration|lens|chromatic aberration, color fringing at edges
 halation|lens|halation, red-orange glow bleeding around bright highlights
+prism|lens|prism effect, rainbow light refraction, spectral color split
+tiltblur|lens|tilt blur, gradual focus falloff from center, dreamy edges
 productphotography|genre|product photography, clean hero shot, clean background, commercial lighting
 commercialphotography|genre|commercial photography, polished advertising quality
 foodphotography|genre|food photography, appetizing, styled plating, fresh textures
@@ -156,6 +168,11 @@ astrophotography|genre|astrophotography, crisp stars, night sky detail
 underwaterphotography|genre|underwater photography, clear water, natural blue light
 aerialphotography|genre|aerial photography, high-altitude vantage point
 nightphotography|genre|night photography, low light, long exposure, artificial lights
+dronephotography|genre|drone photography, elevated aerial perspective, sweeping landscape
+concertphotography|genre|concert photography, stage lighting, crowd energy, live performance
+petphotography|genre|pet photography, animal portrait, expressive eyes, soft natural light
+newbornphotography|genre|newborn photography, soft wrap, gentle pose, dreamy pastel tones
+birthphotography|genre|birth photography, raw emotional moment, intimate documentary
 isometric|composition|isometric view, 30-degree angled orthographic projection
 orthographic|composition|orthographic view, no perspective distortion
 symmetrical|composition|perfectly symmetrical composition
@@ -186,6 +203,12 @@ mixedmedia|art|mixed media, combined materials and techniques
 pixelart|art|pixel art, retro low-resolution sprites, limited palette
 lowpoly|art|low-poly, faceted geometric 3D surfaces
 voxelart|art|voxel art, cube-built 3D blocks
+ukiyoe|art|ukiyo-e, Japanese woodblock print, flat color, bold outlines, Edo-period style
+comicbook|art|comic book illustration, bold ink lines, halftone dots, dynamic panels
+stainedglass|art|stained glass, leaded glass segments, jewel-toned translucent color, backlit
+graffiti|art|graffiti art, spray paint, bold lettering, urban mural on concrete
+claymation|art|claymation, handcrafted clay figures, stop-motion texture, fingerprint detail
+embroidery|art|embroidery art, stitched thread on fabric, textile texture, handcrafted detail
 3drender|render|3D render, clean CGI
 unrealengine|render|Unreal Engine render, real-time photoreal game graphics
 octanerender|render|Octane render, high-end GPU path-traced look
@@ -219,6 +242,10 @@ magicalglow|effect|magical glow, enchanted luminous aura
 rainbow|effect|rainbow, full-spectrum arc of color
 aurora|effect|aurora, shimmering green and violet ribbons of light
 stardust|effect|stardust, sparkling cosmic glitter
+shockwave|effect|shockwave, radial blast wave, distortion ring
+petals|effect|flower petals drifting through the air, delicate and colorful
+snowfall|effect|gentle snowfall, soft white flakes drifting down
+butterflies|effect|butterflies in flight, delicate wings, natural movement
 galaxy|space|galaxy, spiral arms, billions of stars
 nebula|space|colorful nebula, glowing gas clouds
 cosmicdust|space|cosmic dust clouds, particle haze among stars

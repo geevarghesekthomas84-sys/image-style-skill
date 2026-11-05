@@ -1,9 +1,9 @@
 ---
 name: image-style
-description: Slash-command style modifiers for AI image generation. Use whenever the user writes an image/picture/photo/art request containing slash tokens such as /8k /cinematic /goldenhour /droneview /macro /cyberpunk /oilpainting /chiaroscuro (any of 362 style tokens), aspect ratios (/16:9 /9:16 /square), avoid-commands (/clean /nodeform) or a target model (/mj /sd /flux /dalle /gemini), or asks for /styles. Expands each token into precise prompt language, composes one final prompt, and generates the image.
+description: Slash-command style modifiers for AI image generation. Use whenever the user writes an image/picture/photo/art request containing slash tokens such as /8k /cinematic /goldenhour /droneview /macro /cyberpunk /oilpainting /chiaroscuro (any of 389 style tokens), aspect ratios (/16:9 /9:16 /square), avoid-commands (/clean /nodeform) or a target model (/mj /sd /flux /dalle /gemini), or asks for /styles. Expands each token into precise prompt language, composes one final prompt, and generates the image.
 ---
 
-# Image Style Modifiers (362 style + 10 aspect + 9 negative + 8 model commands)
+# Image Style Modifiers (389 style + 10 aspect + 10 negative + 8 model commands)
 
 ## How it works
 
@@ -56,6 +56,7 @@ looks, never *what* is in it.
 - `/highdetail` → highly detailed, intricate fine details
 - `/sharpfocus` → tack-sharp focus on the subject
 - `/crispdetails` → crisp, clean, well-defined details
+- `/aigenerated` → AI-generated, clean neural-network-rendered, artifact-free detail
 
 ### angle
 
@@ -136,6 +137,15 @@ looks, never *what* is in it.
 - `/medieval` → medieval setting, castles, stone, period clothing
 - `/superhero` → superhero, heroic pose, dynamic cape and costume, comic-epic lighting
 - `/dreamcore` → dreamcore, surreal nostalgic liminal dreamlike atmosphere, soft haze
+- `/cottagecore` → cottagecore, rustic pastoral charm, wildflowers, linen, handmade warmth
+- `/darkacademia` → dark academia, old libraries, leather-bound books, moody scholarly elegance
+- `/steampunk` → steampunk, Victorian machinery, brass gears, copper pipes, analog dials
+- `/afrofuturism` → Afrofuturism, blending African heritage with futuristic technology and cosmic imagery
+- `/solarpunk` → solarpunk, green utopian future, living architecture, renewable energy, lush vegetation
+- `/vaporwave` → vaporwave, pastel neon gradients, Greek busts, retro digital aesthetic, magenta and cyan
+- `/brutalism` → brutalism, raw concrete, massive geometric forms, stark industrial aesthetic
+- `/artnouveau` → Art Nouveau, organic flowing curves, floral ornament, decorative elegance
+- `/artdeco` → Art Deco, geometric luxury, bold symmetry, gold and chrome accents
 
 ### lens
 
@@ -151,6 +161,8 @@ looks, never *what* is in it.
 - `/sunflare` → sun flare, bright sun starburst and glow
 - `/chromaticaberration` → chromatic aberration, color fringing at edges
 - `/halation` → halation, red-orange glow bleeding around bright highlights
+- `/prism` → prism effect, rainbow light refraction, spectral color split
+- `/tiltblur` → tilt blur, gradual focus falloff from center, dreamy edges
 
 ### era
 
@@ -225,6 +237,10 @@ looks, never *what* is in it.
 - `/rainbow` → rainbow, full-spectrum arc of color
 - `/aurora` → aurora, shimmering green and violet ribbons of light
 - `/stardust` → stardust, sparkling cosmic glitter
+- `/shockwave` → shockwave, radial blast wave, distortion ring
+- `/petals` → flower petals drifting through the air, delicate and colorful
+- `/snowfall` → gentle snowfall, soft white flakes drifting down
+- `/butterflies` → butterflies in flight, delicate wings, natural movement
 
 ### color
 
@@ -294,6 +310,11 @@ looks, never *what* is in it.
 - `/underwaterphotography` → underwater photography, clear water, natural blue light
 - `/aerialphotography` → aerial photography, high-altitude vantage point
 - `/nightphotography` → night photography, low light, long exposure, artificial lights
+- `/dronephotography` → drone photography, elevated aerial perspective, sweeping landscape
+- `/concertphotography` → concert photography, stage lighting, crowd energy, live performance
+- `/petphotography` → pet photography, animal portrait, expressive eyes, soft natural light
+- `/newbornphotography` → newborn photography, soft wrap, gentle pose, dreamy pastel tones
+- `/birthphotography` → birth photography, raw emotional moment, intimate documentary
 
 ### composition
 
@@ -330,6 +351,12 @@ looks, never *what* is in it.
 - `/pixelart` → pixel art, retro low-resolution sprites, limited palette
 - `/lowpoly` → low-poly, faceted geometric 3D surfaces
 - `/voxelart` → voxel art, cube-built 3D blocks
+- `/ukiyoe` → ukiyo-e, Japanese woodblock print, flat color, bold outlines, Edo-period style
+- `/comicbook` → comic book illustration, bold ink lines, halftone dots, dynamic panels
+- `/stainedglass` → stained glass, leaded glass segments, jewel-toned translucent color, backlit
+- `/graffiti` → graffiti art, spray paint, bold lettering, urban mural on concrete
+- `/claymation` → claymation, handcrafted clay figures, stop-motion texture, fingerprint detail
+- `/embroidery` → embroidery art, stitched thread on fabric, textile texture, handcrafted detail
 
 ### render
 
@@ -510,6 +537,7 @@ into one list, deduplicated. Show it as a separate `Negative:` / `--no` / senten
 - `/nooversat` -> avoid: oversaturated, neon colors, harsh contrast, burnt highlights
 - `/noai` -> avoid: plastic skin, waxy texture, over-smoothed, uncanny, cgi look, oversharpened halos
 - `/nogear` -> avoid: camera, lens, DSLR, camera body, lens barrel, camera equipment, lens markings, text on lens
+- `/noborder` -> avoid: frame, border, vignette, letterbox, black bars, rounded corners
 
 ## Presets (one command = a tested bundle)
 Expand a preset into its commands, then process as normal. The user's own ratio overrides the preset's default ratio; user commands that conflict with the preset win.
@@ -527,6 +555,10 @@ Expand a preset into its commands, then process as normal. The user's own ratio 
 - `/portraitpro` (Pro portrait) = /portrait /85mm /f1.4 /softlighting /bokeh /naturalcolors /nodeform (default ratio /3:4)
 - `/couplepro` (Couple portrait) = /couple /romantic /candid /85mm /softlighting /goldenhour /naturalcolors /nodeform (default ratio /4:5)
 - `/weddingclassic` (Classic wedding photo) = /wedding /50mm /softlighting /naturalcolors /colorgraded /nodeform /clean (default ratio /3:2)
+- `/socialpost` (Social media post) = /vibrantcolors /sharpfocus /highdetail /clean /notext (default ratio /square)
+- `/petportrait` (Pet portrait) = /petphotography /85mm /bokeh /softlighting /naturalcolors /sharpfocus (default ratio /4:5)
+- `/concertshot` (Concert photo) = /concertphotography /freezeaction /dramaticlighting /vibrantcolors /filmgrain (default ratio /16:9)
+- `/vintagefilm` (Vintage film look) = /35mmfilm /filmgrain /vintage /desaturated /warmtones (default ratio /3:2)
 
 ## Output-format commands (target model)
 At most one. If none is given, use `/generic`. Adapt the final prompt to the model's style:

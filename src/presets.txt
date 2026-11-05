@@ -12,3 +12,7 @@ epicfantasy|Epic fantasy scene|fantasy mattepainting godrays wideangle highdetai
 portraitpro|Pro portrait|portrait 85mm f1.4 softlighting bokeh naturalcolors nodeform|3:4
 couplepro|Couple portrait|couple romantic candid 85mm softlighting goldenhour naturalcolors nodeform|4:5
 weddingclassic|Classic wedding photo|wedding 50mm softlighting naturalcolors colorgraded nodeform clean|3:2
+socialpost|Social media post|vibrantcolors sharpfocus highdetail clean notext|square
+petportrait|Pet portrait|petphotography 85mm bokeh softlighting naturalcolors sharpfocus|4:5
+concertshot|Concert photo|concertphotography freezeaction dramaticlighting vibrantcolors filmgrain|16:9
+vintagefilm|Vintage film look|35mmfilm filmgrain vintage desaturated warmtones|3:2
