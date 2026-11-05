@@ -1,9 +1,9 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free AI Image Prompt Generator: Midjourney, Flux | SlashFrame</title>
+<title>SlashFrame Studio — Build better AI image prompts</title>
 <meta name="description" content="Free AI image prompt generator. Type an idea plus slash commands and get a finished prompt for Midjourney, Flux, Stable Diffusion, Gemini and more.">
 <link rel="canonical" href="https://glogee.online/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-<meta name="theme-color" content="#2a2163">
+<meta name="theme-color" content="#0a0a12">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="SlashFrame">
@@ -217,12 +217,30 @@ pre.ex{min-height:0!important;border-left-width:4px;margin:0 0 16px;font-size:13
 footer{padding:28px 0 44px;color:var(--mut);font-size:14.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
+</style>
+<style>
+/* Stitch redesign: focused technical workspace */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#0a0a12;--bg2:#0d0d1b;--panel:#121220;--fg:#f4f4fa;--mut:#9393b8;--line:#282845;--acc:#8b5cf6;--acc2:rgba(139,92,246,.12);--accfg:#fff;--chip:#18182b;--ok:#6ee7b7;--warn:#fbbf24;--code:#0a0a12;--glow:rgba(139,92,246,.25);--grad:linear-gradient(135deg,#8b5cf6,#d946ef 52%,#ec4899)}
+html{background:var(--bg)} body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1280px}
+.nav{background:rgba(10,10,18,.84);border-bottom:1px solid rgba(40,40,69,.88);box-shadow:none}
+.nav .wrap{height:72px}.logo{font-family:'Space Grotesk',sans-serif;color:var(--fg)}.logo .lm{filter:drop-shadow(0 0 18px rgba(139,92,246,.55))}.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.nav nav{gap:6px}.nav nav a{color:var(--mut);font-family:Inter,sans-serif;font-size:13px;border-radius:8px}.nav nav a:hover{color:var(--fg);background:var(--chip)}.nav nav a.gh{background:var(--grad);box-shadow:0 0 22px -8px rgba(217,70,239,.7)}.nav nav a.star{background:var(--chip);border-color:var(--line);color:var(--fg)}
+.hero{background:var(--bg);padding:76px 0 56px}.hero:before{background:radial-gradient(720px 420px at 12% 0%,rgba(91,63,214,.28),transparent 70%),radial-gradient(640px 400px at 94% 12%,rgba(236,72,153,.16),transparent 72%);animation:none}.hero:after{background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px;opacity:.5}
+.hero .wrap{grid-template-columns:1.08fr .92fr;gap:72px}.badge{border-color:var(--line);background:var(--panel);color:#c9c4e9;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.04em}.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(42px,5vw,72px);letter-spacing:-.055em}.hero h1 em{background:var(--grad);-webkit-background-clip:text;background-clip:text}.hero p.lead{color:var(--mut);font-size:17px}.hero p.lead b{color:#d9c9ff;font-family:'JetBrains Mono',monospace;font-size:.9em}.btn{border-radius:8px;font-size:14px}.btn.pri{background:var(--grad);color:#fff;box-shadow:0 0 24px -8px rgba(217,70,239,.7)}.btn.sec{border-color:var(--line);background:var(--panel);color:var(--fg)}.stats{gap:28px;color:var(--mut);font:12px 'JetBrains Mono',monospace}.stats b{font-family:'Space Grotesk',sans-serif;color:var(--fg);font-size:25px}
+.hcard{border-radius:20px;background:linear-gradient(140deg,rgba(139,92,246,.7),rgba(236,72,153,.16) 50%,rgba(40,40,69,.8));box-shadow:0 24px 70px -34px rgba(0,0,0,.9),0 0 70px -32px rgba(139,92,246,.6)}.hcard>div{border-radius:19px;background:var(--panel);padding:24px}.hin,.hout{background:#0a0a12;border-color:var(--line);font-family:'JetBrains Mono',monospace}.hin b{color:#ec4899}.hout{color:#d8d3ff;background:rgba(139,92,246,.09);border-color:rgba(139,92,246,.38)}.htags span{background:var(--chip);border-color:var(--line);color:var(--mut)}
+section.band{background:var(--bg);padding:80px 0 8px}section.band.alt{background:var(--bg2);border-color:var(--line)}.eyebrow{color:#c4b5fd;font-family:'JetBrains Mono',monospace;font-size:11px}.title{font-family:'Space Grotesk',sans-serif!important}.sub{color:var(--mut)!important}.info,.card{background:var(--panel);border-color:var(--line);box-shadow:none;border-radius:20px}.info:hover{border-color:#3b3b66;box-shadow:0 0 0 1px rgba(139,92,246,.12),0 16px 36px -18px #000}.info .ic,.card h2 .n{background:var(--acc2);color:#c4b5fd}.info h3,.card h2{font-family:'Space Grotesk',sans-serif;color:var(--fg)}.info p,.hint,.tiny{color:var(--mut)}.info code,.mono,.chip,.cat,.t{background:var(--chip);border-color:var(--line);color:var(--fg)}.plat span{background:var(--panel);border-color:var(--line);box-shadow:none}
+textarea,input{background:#0a0a12;border-color:var(--line);color:var(--fg);font-family:'JetBrains Mono',monospace}textarea:focus,input:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(139,92,246,.16)}.targets .t[aria-pressed=true],.cat[aria-pressed=true],.chip.on{background:var(--grad);color:#fff;border-color:transparent}.copy{background:var(--grad);border-radius:8px;box-shadow:0 0 22px -10px rgba(217,70,239,.8)}pre{background:#0a0a12;border-left-color:var(--acc);font-family:'JetBrains Mono',monospace}.box{background:var(--panel);border-color:var(--line);font-family:'JetBrains Mono',monospace}.box.hi{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.45)}.cmp{border-color:var(--line);box-shadow:none}.usebtn{background:var(--grad);border-radius:8px}
+.wnew,.fcta{background:var(--panel);border-color:var(--line)}.wnew .ntag{background:var(--acc2);color:#c4b5fd}.nlist li{border-color:var(--line);background:var(--panel)}.nlist b{color:#d8b4fe}.qa{background:var(--panel);border-color:var(--line)}.qa summary{color:var(--fg)}footer,.flinks{background:#07070d;border-color:var(--line)}footer a,.flinks a{color:#b9a7ff}
+@media(max-width:940px){.hero .wrap{grid-template-columns:1fr;gap:40px}.hero{text-align:left}.hero .cta,.hero .stats{justify-content:flex-start}}
+@media(max-width:700px){.nav .wrap{height:64px}.hero{padding-top:52px}.hero h1{font-size:42px}.hcard>div{padding:18px}.card,.info{padding:20px}}
 </style></head><body>
 <div class="nav"><div class="wrap"><a class="logo" href="#top"><svg class="lm" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b5bff"/><stop offset="1" stop-color="#ff6fd8"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#lg)"/><path d="M16 26v-6a4 4 0 0 1 4-4h6M38 16h6a4 4 0 0 1 4 4v6M48 38v6a4 4 0 0 1-4 4h-6M26 48h-6a4 4 0 0 1-4-4v-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 22 27 42" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg><b>Slash<span>Frame</span></b></a>
-<nav><a href="#how">How it works</a><a href="#demo">Examples</a><a href="#tool">Try it</a><a href="#get">Get it</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="https://github.com/geevarghesekthomas84-sys/image-style-skill">GitHub</a></nav></div></div>
+<nav><a href="#tool">Studio</a><a href="#demo">Showcase</a><a href="#get">Docs</a><a class="star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill" aria-label="Star image-style on GitHub"><i>&#9733;</i>Star<span class="sc" data-stars></span></a><a class="gh" href="#tool">+ New prompt</a></nav></div></div>
 <main><header class="hero" id="top"><div class="wrap">
 <div>
-<span class="badge">v1.19 &middot; Free &middot; works offline &middot; no account</span>
+<span class="badge">v1.19 &middot; 403 verified commands &middot; local-first</span>
 <h1>Free AI image prompt generator.<br><em>Type an idea, get a finished prompt.</em></h1>
 <p class="lead"><span data-nc>400+</span> slash commands like <b>/storm</b>, <b>/85mm</b> and <b>/16:9</b> turn a few words into a clear prompt for Midjourney, Flux, Stable Diffusion, Gemini, ChatGPT, Google Flow and Kling. Free, no sign-up.</p>
 <div class="cta"><a class="btn pri" href="#tool">Try it now</a><a class="btn sec star" href="https://github.com/geevarghesekthomas84-sys/image-style-skill"><i>&#9733;</i>Star on GitHub<span class="sc" data-stars></span></a></div>
@@ -283,7 +301,7 @@ footer a{color:var(--mut)}footer a:hover{color:var(--acc)}
 </div></div></section>
 
 <section class="band" id="tool"><div class="wrap">
-<p class="eyebrow">Try it</p><h2 class="title">Build your prompt</h2><p class="sub">Everything below runs in your browser. Click commands on the right to add them.</p>
+<p class="eyebrow">Studio</p><h2 class="title">Turn a thought into a ready-to-run prompt</h2><p class="sub">Type your raw idea, append slash commands, and compile a prompt for the model you already use. Everything runs locally in your browser.</p>
 <div class="grid">
  <div>
   <section class="card"><h2><span class="lft"><span class="n">1</span>Your request</span><span class="clabel">input source</span></h2>
