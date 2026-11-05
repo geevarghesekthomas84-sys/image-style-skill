@@ -185,7 +185,7 @@ def _head_meta(url, title, desc, ld, target=None):
         '<meta name="description" content="%s">' % e(desc),
         '<link rel="canonical" href="%s">' % url,
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
-        '<meta name="theme-color" content="#171322">',
+        '<meta name="theme-color" content="#faf8f5">',
         '<meta property="og:type" content="website">',
         '<meta property="og:locale" content="en_US">',
         '<meta property="og:site_name" content="%s">' % BRAND,
